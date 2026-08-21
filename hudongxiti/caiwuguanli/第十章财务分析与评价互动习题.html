@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中级财务管理 · 第十章 财务分析与评价 互动自测题</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --line:#e6eaf0; --ink:#1f2733; --sub:#6b7785;
+    --blue:#2f6fed; --blue-soft:#eaf1ff; --green:#1f9d55; --green-soft:#e7f6ee;
+    --red:#e0463e; --red-soft:#fdecea; --amber:#e8973a; --amber-soft:#fdf2e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;font-size:15px}
+  .wrap{max-width:820px;margin:0 auto;padding:20px 6px 80px}
+  header{background:linear-gradient(135deg,#2f6fed,#5b8def);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:16px;box-shadow:0 6px 20px rgba(47,111,237,.18)}
+  header h1{margin:0 0 6px;font-size:21px;font-weight:700}
+  header p{margin:0;opacity:.92;font-size:13.5px}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:16px;display:flex;
+    align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .topbar .stat{font-size:13.5px;color:var(--sub)}
+  .topbar .stat b{color:var(--ink);font-size:15px}
+  .grow{flex:1}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;padding:9px 8px;font-size:14px;font-weight:600;transition:.15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:#245fd6}
+  .btn-ghost{background:#eef1f6;color:var(--ink)}
+  .btn-ghost:hover{background:#e3e8f0}
+  .btn-amber{background:var(--amber);color:#fff}
+  .btn-amber:hover{filter:brightness(1.05)}
+  .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+  .btn-outline:hover{background:var(--blue-soft)}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;transition:.2s}
+  .q.dim{display:none}
+  .q.doubt{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber-soft)}
+  .q-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+  .qno{background:var(--blue-soft);color:var(--blue);font-weight:700;border-radius:8px;padding:2px 9px;font-size:13px;white-space:nowrap;margin-top:2px;cursor:pointer}
+  .badge{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;margin-top:2px}
+  .b-single{background:var(--blue-soft);color:var(--blue)}
+  .b-multi{background:var(--amber-soft);color:#b9742a}
+  .b-judge{background:#efe9fb;color:#6f4fd6}
+  .stem{font-weight:600;flex:1}
+  .doubt-btn{font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;border:1px solid var(--amber);
+    background:#fff;color:#b9742a;white-space:nowrap;margin-top:2px}
+  .doubt-btn.on{background:var(--amber);color:#fff;border-color:var(--amber)}
+  .doubt-btn:disabled{opacity:.55;cursor:not-allowed}
+  .opts{display:flex;flex-direction:column;gap:8px;margin:6px 0 4px}
+  .opt{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:#c8d4e6;background:#f8faff}
+  .opt input{accent-color:var(--blue);width:16px;height:16px;cursor:pointer}
+  .opt .lab{font-weight:700;color:var(--sub)}
+  .opt .txt{flex:1}
+  .opt.correct{border-color:var(--green);background:var(--green-soft)}
+  .opt.wrong{border-color:var(--red);background:var(--red-soft)}
+  .opt.correct .lab{color:var(--green)}
+  .opt.wrong .lab{color:var(--red)}
+  .opt.missed{border-color:var(--amber);background:var(--amber-soft)}
+  .opt.missed .lab{color:#b9742a}
+  .my-ans-tip{margin-top:10px;padding:8px 12px;background:var(--amber-soft);border:1px dashed #e8c98a;border-radius:8px;font-size:13px;color:#7a5a1e}
+  .explain{margin-top:12px;padding:12px 14px;background:#fafbfd;border:1px dashed var(--line);border-radius:10px;font-size:13.5px;display:none}
+  .explain.show{display:block}
+  .et-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .explain .et{font-weight:700;color:var(--green);font-size:13px}
+  .explain .ans{color:var(--blue);font-weight:700}
+  .btn-know{margin-top:0;font-size:12.5px;padding:6px 12px;border-radius:8px;background:var(--blue-soft);color:var(--blue);border:1px solid #cfe0ff;font-weight:600;white-space:nowrap}
+  .btn-know:hover{background:#dce9ff}
+  .q.res-correct{border-color:var(--green)}
+  .q.res-wrong{border-color:var(--red)}
+  .result{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px;display:none}
+  .result.show{display:block}
+  .score-big{font-size:34px;font-weight:800}
+  .score-big .ok{color:var(--green)} .score-big .tot{color:var(--sub);font-size:20px}
+  .intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:16px;font-size:13.5px;color:var(--sub)}
+  .intro b{color:var(--ink)}
+  .tag{display:inline-block;background:#eef1f6;border-radius:6px;padding:1px 8px;margin:2px 4px 2px 0;font-size:12px;color:var(--sub)}
+  .legend{font-size:12px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .mastery{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px;display:none}
+  .mastery.show{display:block}
+  .mastery h3{margin:0 0 4px;font-size:16px}
+  .mastery .sub{font-size:12.5px;color:var(--sub);margin-bottom:12px}
+  .mk-row{margin:11px 0}
+  .mk-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+  .mk-name{font-weight:600}
+  .mk-pct{font-weight:700}
+  .mk-bar{height:8px;border-radius:5px;background:#eef1f6;overflow:hidden}
+  .mk-fill{height:100%;border-radius:5px;transition:.3s}
+  .mk-weak{color:var(--red);font-weight:700}
+  .mk-ok{color:var(--green);font-weight:700}
+  .mk-note{color:var(--sub);font-weight:700}
+  .mk-sug{font-size:12px;color:var(--sub);margin-top:3px}
+  .mk-doubt{font-size:12px;color:#b9742a;margin-top:3px}
+  .weak-tags{margin-top:12px}
+  .weak-tags .wt{display:inline-block;background:var(--red-soft);color:var(--red);border-radius:6px;padding:2px 9px;margin:3px 4px 0 0;font-size:12px;font-weight:600}
+  .doubt-summary{margin-top:14px;padding:12px 14px;background:var(--amber-soft);border:1px solid #f0d3a0;border-radius:10px;font-size:12.5px;color:#7a5a1e}
+  .doubt-summary b{color:#7a5a1e}
+  #masteryText{width:100%;height:150px;margin-top:10px;font-family:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical;color:var(--sub);display:none}
+  /* 知识讲解弹框 */
+  .modal-mask{position:fixed;inset:0;background:rgba(15,23,35,.55);display:none;z-index:100;align-items:flex-start;justify-content:center;padding:24px 12px}
+  .modal-mask.show{display:flex}
+  .modal-box{background:#fff;border-radius:16px;width:100%;max-width:860px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:16px;font-weight:700;flex:0 0 auto}
+  .modal-close{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;margin:0;line-height:1;font-size:15px;border-radius:50%;background:#eef1f6;color:var(--sub);border:none;cursor:pointer}
+  .modal-close:hover{background:#e3e8f0;color:var(--ink)}
+  /* 知识点吸顶导航：宽度 100%，紧贴标题栏下方（不随内容滚动） */
+  .sum-nav{flex:0 0 auto;width:100%;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(15,23,35,.06)}
+  .sum-nav-btn{font-size:12px;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#f5f7fa;cursor:pointer;color:var(--sub);font-weight:600}
+  .sum-nav-btn:hover{background:var(--blue-soft);color:var(--blue)}
+  .sum-nav-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .modal-body{position:relative;overflow:auto;padding:18px 22px;line-height:1.7;flex:1 1 auto}
+  .ksec{margin-bottom:26px;padding-top:4px;scroll-margin-top:16px}
+  .ksec-title{font-size:16px;color:var(--blue);border-left:4px solid var(--blue);padding-left:10px;margin:4px 0 12px}
+  .modal-body h1.kh1{font-size:16px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h2.kh2{font-size:15px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h3.kh3{font-size:14px;margin:10px 0 5px;color:#33414f}
+  .modal-body h4.kh4{font-size:13.5px;margin:8px 0 4px;color:var(--sub)}
+  .modal-body p{margin:6px 0;font-size:13.5px}
+  .modal-body ul,.modal-body ol{margin:6px 0;padding-left:22px;font-size:13.5px}
+  .modal-body li{margin:3px 0}
+  .modal-body table.ktab{border-collapse:collapse;width:100%;margin:8px 0;font-size:12.5px}
+  .modal-body table.ktab th,.modal-body table.ktab td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+  .modal-body table.ktab th{background:#f0f4fb;font-weight:700}
+  .modal-body pre.ktree{background:#f7f9fc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+    font-size:12.5px;line-height:1.55;white-space:pre;overflow-x:auto;margin:8px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace}
+  .modal-body code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:12px}
+  /* 移动端自适应：题干换行 + 顶部按钮组换行 */
+  @media (max-width:640px){
+    .q-head{flex-wrap:wrap;gap:8px 10px}
+    .q-head .stem{flex:1 1 100%;order:2}
+    .q-head .doubt-btn{order:1}
+    .topbar .grow{flex:0 0 100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>中级财务管理 · 第十章 财务分析与评价 互动自测题</h1>
+    <p>依据高红瑞 2026 精讲班《第十章 财务分析与评价》整章讲义与习题纯享命题 · 共 65 题（单选 / 多选 / 判断）</p>
+  </header>
+
+  <div class="intro">
+    <b>本章覆盖考点：</b><br>
+    <span class="tag">筹资动机</span><span class="tag">直接vs间接</span><span class="tag">银行借款</span><span class="tag">发行债券</span><span class="tag">租赁</span><span class="tag">吸收直接投资</span><span class="tag">发行普通股</span><span class="tag">留存收益</span><span class="tag">可转换债券</span><span class="tag">优先股</span>
+    <div class="legend" style="margin-top:10px">
+      <i><span class="dot" style="background:var(--blue)"></span>单选：选 1 个</i>
+      <i><span class="dot" style="background:var(--amber)"></span>多选：至少 2 个，须全对才得分</i>
+      <i><span class="dot" style="background:#6f4fd6"></span>判断：选 正确 / 错误</i>
+    </div>
+    <div style="margin-top:8px"><b>操作：</b>逐题作答 → 答题时可点题号旁的 <b>「标记疑问」</b> 标记没把握的知识点（提交前可反复反选，提交后锁定，重置清空）→ 点「提交答卷」判分 → 逐题看解析（多选错题会标出<b>漏选/错选</b>，解析下可点 <b>「知识讲解」</b> 看整章对应知识点详解）→ 交卷后自动生成 <b>6 大考点掌握分析</b>（含 ⚠疑问知识点 加权提示）与可复制报告。顶部「章节知识点」可随时查看整章详解。</div>
+  </div>
+
+  <div class="topbar">
+    <div class="stat">已答 <b id="answered">0</b> / 65</div>
+    <div class="stat">正确 <b id="rightcnt">0</b></div>
+    <div class="stat">疑问 <b id="doubtcnt">0</b></div>
+    <div class="grow"></div>
+    <button type="button" class="btn-outline" id="chapterBtn">章节知识点</button>
+    <button type="button" class="btn-ghost" id="filterBtn" style="display:none">只看错题</button>
+    <button type="button" class="btn-ghost" id="resetBtn">重置</button>
+    <button type="button" class="btn-primary" id="submitBtn">提交答卷</button>
+    <button type="button" class="btn-amber" id="explainBtn" style="display:none">隐藏全部解析</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-big"><span class="ok" id="scoreOk">0</span><span class="tot"> / 65 题</span></div>
+    <div class="stat" id="scorePct" style="margin-top:4px"></div>
+    <div id="scoreTip" style="margin-top:8px;font-size:13.5px;color:var(--sub)"></div>
+  </div>
+
+  <div class="mastery" id="mastery">
+    <h3>📊 知识点掌握情况分析</h3>
+    <div class="sub">按本章 6 大考点归类你的作答。说明：<b>题数少于 3 的考点样本不足，仅作参考、不下结论</b>；正确率 &lt;70% 且样本充足的考点标记为<b style="color:var(--red)">薄弱</b>。<b style="color:#b9742a">你标记的「⚠疑问知识点」</b>会按考点加权提示（即使答对了，有疑问也建议巩固）。多选错题会区分漏选/错选。单次自测结果仅供参考，建议回看后复测。</div>
+    <div id="mkList"></div>
+    <div class="weak-tags" id="weakTags"></div>
+    <div class="doubt-summary" id="doubtSummary" style="display:none"></div>
+    <button class="btn-ghost" id="exportBtn" style="margin-top:14px">复制掌握情况报告（含错题清单+疑问知识点，可发给导师分析）</button>
+    <textarea id="masteryText" readonly></textarea>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="foot">习题与解析均整理自乐享知识库 CFP-Study-main《第十章 财务分析与评价（整章讲义）》与《第十章 财务分析与评价（习题纯享）》；知识详解内容为 learningSummary《第10章-财务分析与评价》完整原文。</div>
+</div>
+
+<!-- 知识讲解弹框 -->
+<div class="modal-mask" id="sumMask">
+  <div class="modal-box">
+    <div class="modal-head"><span>📘 第十章 财务分析与评价 · 知识讲解</span><button type="button" class="modal-close" id="sumClose" aria-label="关闭">✕</button></div>
+    <div class="sum-nav" id="sumNav"></div>
+    <div class="modal-body" id="sumBody"></div>
+  </div>
+</div>
+
+<script>
+// 第十章 财务分析与评价（习题纯享）全量 120 题
+// 数据源：乐享 CFP-Study-main 第四章 习题纯享 PDF（含参考答案与解析），全部按原文转录
+const Q = [
+ {t:"judge",stem:"第一年至三年的净利润分别4000万元、5000万元和5600万元。如果以第一年为基期，这三年的定基动态比率为100%，125%，112%。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"第一年定基动态比率＝4000/4000＝100%，第二年定基动态比率＝5000/4000＝125%，第三年定基动态比率＝5600/4000＝140%。"},
+ {t:"single",stem:"下列财务比率中，属于效率比率指标的是（）。",o:[["A","成本利润率"],["B","速动比率"],["C","资产负债率"],["D","资本积累率"]],a:"A",e:"效率比率，是某项财务活动中所费与所得的比率，反映投入与产出的关系。利用效率比率指标，可以进行得失比较，考察经营成果，评价经济效益。比如，将利润项目与营业成本、营业收入、资本金等项目加以对比，可以计算出成本利润率、销售利润率和资本金利润率等指标，从不同角度观察比较企业盈利能力的高低及其增减变化情况。所以选项A是答案。"},
+ {t:"single",stem:"下列比率指标的不同类别中，流动比率属于（）。",o:[["A","构成比率"],["B","动态比率"],["C","相关比率"],["D","效率比率"]],a:"C",e:"相关比率是以某个项目和与其有关但又不同的项目加以对比所得的比率，比如流动比率和资产负债率等。"},
+ {t:"single",stem:"下列各项中，不属于财务分析中因素分析法特征的是（）。",o:[["A","因素分解的关联性"],["B","顺序替代的连环性"],["C","分析结果的准确性"],["D","因素替代的顺序性"]],a:"C",e:"因素分析法的特征包括：因素分解的关联性、因素替代的顺序性、顺序替代的连环性和计算结果的假定性。选项C不属于财务分析中因素分析法的特征。"},
+ {t:"single",stem:"下列各项因素中，能够提高公司短期偿债能力的是（）。",o:[["A","派发股票股利"],["B","用银行存款回购股票"],["C","变卖闲置设备"],["D","用银行存款购买存货"]],a:"C",e:"变卖闲置设备会导致流动资产增加，固定资产减少，负债和股东权益不变，能够提高公司短期偿债能力，选项C当选。"},
+ {t:"multi",stem:"下列财务指标中，不能用来直接反映企业长期偿债能力的有（）。",o:[["A","总资产净利率"],["B","固定资产周转率"],["C","资产负债率"],["D","净资产收益率"]],a:"ABD",e:"选项A.D反映盈利能力，选项B反映营运能力。"},
+ {t:"multi",stem:"下列财务指标中，可以反映长期偿债能力的有（）。",o:[["A","总资产周转率"],["B","权益乘数"],["C","产权比率"],["D","资产负债率"]],a:"BCD",e:"反映长期偿债能力的指标有资产负债率、产权比率、权益乘数、利息保障倍数，总资产周转率是反映营运能力的指标。"},
+ {t:"single",stem:"某公司2024年年末的营运资金为138万元，流动负债为112万元，存货为82万元，则年末的速动比率为（）。",o:[["A","0.5"],["B",".2.23"],["C","1.96"],["D","1.5"]],a:"D",e:"流动资产=营运资金+流动负债=138+112=250(万元)，速动比率=(流动资产-存货)/流动负债=(250-82)/112=1.5，选项D当选。"},
+ {t:"multi",stem:"下列各项中，不会提高公司流动比率的有（）。",o:[["A","公司用银行存款购置新生产线"],["B","公司从商业银行取得长期借款"],["C","公司收到客户上期所欠货款"],["D","公司向供应商预付原材料采购款"]],a:"ACD",e:"流动比率＝流动资产÷流动负债。选项A银行存款是流动资产，新生产线是长期资产，公司用银行存款购置新生产线，导致长期资产增加，流动资产减少，流动比率降低，选项A当选；选项B公司从商业银行取得长期借款，流动资产增加，流动负债不变，故流动比率提高，选项B不当选；选项C是流动资产内部的此消彼长，流动负债不变，故流动比率保持不变，选项C当选；选项D是流动资产内部的此消彼长，流动负债不变，故流动比率保持不变，选项D当选。"},
+ {t:"single",stem:"某公司的流动资产总额为46亿元，其中货币资金为18亿元、应收账款为18.8亿元、存货为9.2亿元，流动负债总额为23亿元，则速动比率为（）。",o:[["A","1.18"],["B","1.6"],["C","2"],["D","0.78"]],a:"B",e:"方法一：速动比率=速动资产÷流动负债=（流动资产-存货）÷流动负债=(46-9.2)÷23=1.6；方法二：速动比率=（货币资金+应收账款）÷流动负债=(18+18.8）÷23=1.6，选项B当选。"},
+ {t:"single",stem:"某企业目前的速动比率大于1，若其他条件不变，下列措施中，能够提高该企业速动比率的是（）。",o:[["A","以银行存款偿还长期借款"],["B","以银行存款购买原材料"],["C","收回应收账款"],["D","以银行存款偿还短期借款"]],a:"D",e:"某企业目前的速动比率大于1，意味着目前的速动资产大于流动负债，以银行存款偿还短期借款，速动资产和流动负债等额减少，但是流动负债减少的百分比大于速动资产减少的百分比，所以，能够提高该企业速动比率。或者用数据验证，假设目前的速动资产为120万元，流动负债为100万元，目前的速动比率为1.2。以银行存款偿还短期借款20万元，则速动比率变为（120－20）/（100－20）＝1.25＞1.2。"},
+ {t:"single",stem:"某公司当前的速动比率大于1，若用现金偿还应付账款，则对流动比率与速动比率的影响是（）。",o:[["A","流动比率变小，速动比率变小"],["B","流动比率变大，速动比率不变"],["C","流动比率变大，速动比率变大"],["D","流动比率不变，速动比率变大"]],a:"C",e:"带入数值，进行判断。或者分析如下：使用现金偿还应付账款，会使速动资产、流动负债减少相同的金额。速动比率大于1，分子、分母减少相同的数值后速动比率变大；速动比率大于1，流动比率也是大于1，使用现金偿还应付账款，也会使得流动资产、流动负债减少相同数值，流动比率变大。"},
+ {t:"single",stem:"某公司流动比率为1.8，如果赊购一批原材料，则流动比率的变化方向是（）。",o:[["A","不变"],["B","以上都有可能"],["C","变大"],["D","变小"]],a:"D",e:"流动比率＝流动资产/流动负债，流动比率为1.8，说明流动资产大于流动负债。赊购一批原材料，会使流动资产和流动负债等额增长，流动负债的增长幅度大于流动资产的增长幅度，流动比率变小。或者代数计算：如流动资产为180，流动负债为100，赊购材料100。则流动比率=280/200=1.4，变小。"},
+ {t:"single",stem:"下列财务指标中，最能反映企业即时偿付短期债务能力的是（）。",o:[["A","资产负债率"],["B","流动比率"],["C","权益乘数"],["D","现金比率"]],a:"D",e:"现金比率=(货币资金+交易性金融资产)÷流动负债。"},
+ {t:"judge",stem:"现金比率不同于速动比率之处主要在于剔除了应收账款对短期偿债能力的影响。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"现金比率剔除了应收账款对短期偿债能力的影响，最能反映企业直接偿付流动负债的能力。"},
+ {t:"multi",stem:"下列各项中，属于速动资产的有（）。",o:[["A","货币资金"],["B","存货"],["C","预收账款"],["D","应收账款"]],a:"AD",e:"速动资产是可以迅速转换成为现金或已属于现金形式的资产，包括货币资金、交易性金融资产、衍生金融资产、应收票据、应收账款、其他应收款项等。存货属于非速动资产，预收账款是负债。"},
+ {t:"single",stem:"下列各项中，不属于速动资产的是（）。",o:[["A","现金"],["B","产成品"],["C","应收账款"],["D","交易性金融资产"]],a:"B",e:"产成品属于存货，存货属于非速动资产。"},
+ {t:"single",stem:"下列属于长期偿债能力指标的是（）。",o:[["A","流动比率"],["B","产权比率"],["C","速动比率"],["D","现金比率"]],a:"B",e:"产权比率属于长期偿债能力指标，其他都是短期偿债能力指标。"},
+ {t:"single",stem:"某公司不存在优先股，2022年末发行在外的普通股股数为250万股，每股净资产为30元，负债总额为5000万元，该公司2022年年末的资产负债率为（）。",o:[["A","50％"],["B","40％"],["C","33.33％"],["D","66.67％"]],a:"B",e:"股东权益总额＝250×30＝7500（万元），2022年年末的资产负债率＝5000/（5000＋7500）×100％＝40％。"},
+ {t:"single",stem:"甲公司2025年净利润为750万元，所得税为250万元，应付利息为200万元（其中资本化利息为50万元），则利息保障倍数为（）。",o:[["A","5.50"],["B","5"],["C",".5.75"],["D","5.2"]],a:"C",e:"利息保障倍数=(净利润+费用化利息+所得税)÷应付利息=[750+(200-50)+250]÷200=5.75。"},
+ {t:"single",stem:"某公司2022年实现净利润6600万元，所得税费用为2200万元，全年应付利息为800万元。其中计入财务费用200万元，其余为资本化利息支出，不考虑其他因素，2022年利息保障倍数为（）。",o:[["A","11.25"],["B","8.25"],["C","12"],["D","11"]],a:"A",e:"利息保障倍数＝息税前利润利润/应付利息＝（6600＋2200＋200）/800＝11.25。"},
+ {t:"judge",stem:"利息保障倍数反映支付利息的利润来源与利息支出之间的关系，该比率越高，一般反映企业的长期偿债能力越强。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"利息保障倍数反映支付利息的利润来源（息税前利润）与利息支出之间的关系，该比率越高，长期偿债能力越强。"},
+ {t:"judge",stem:"在资产负债率、产权比率和权益乘数三个指标中，已知其中一个指标值，就可以推算出另外两个指标值。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"权益乘数＝1＋产权比率＝1/（1－资产负债率），因此已知其中一个指标值，就可以推算出另外两个指标值。"},
+ {t:"judge",stem:"计算利息保障倍数时，“应付利息”指的是计入财务费用中的利息支出，不包括资本化利息。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"计算利息保障倍数时，“应付利息”指的是费用化利息和资本化利息。"},
+ {t:"single",stem:"已知利润总额为700万元，利润表中的财务费用为50万元，资本化利息为30万元，则利息保障倍数为（）。",o:[["A","9.375"],["B","15"],["C","8.75"],["D","9.75"]],a:"A",e:"利息保障倍数＝息税前利润/应付利息＝（700＋50）/（50＋30）＝9.375。"},
+ {t:"multi",stem:"下列财务指标中，可以用来反映公司资本结构的有（）。",o:[["A","资产负债率"],["B","产权比率"],["C","营业净利率"],["D","总资产周转率"]],a:"AB",e:"资产负债率、产权比率、权益乘数均可以反映公司资本结构。"},
+ {t:"single",stem:"关于产权比率指标和权益乘数指标之间的数量关系，下列表达式中正确的是（）。",o:[["A","权益乘数×产权比率＝1"],["B","权益乘数－产权比率＝1"],["C","权益乘数＋产权比率＝1"],["D","权益乘数/产权比率＝1"]],a:"B",e:"权益乘数=资产总额/所有者权益，产权比率=负债总额/所有者权益，选项B正确。"},
+ {t:"single",stem:"产权比率越高，通常反映的信息是（）。",o:[["A","财务结构越稳健"],["B","长期偿债能力越强"],["C","财务杠杆效应越强"],["D",".股东权益的保障程度越高"]],a:"C",e:"产权比率＝负债总额/所有者权益总额×100%，这一比率越高，表明企业长期偿债能力越弱，债权人权益保障程度越低，所以选项BD不正确；产权比率高，是高风险、高报酬的财务结构，财务杠杆效应强，所以选项C正确，选项A不正确。"},
+ {t:"single",stem:"某公司向银行申请一笔5年期的大额借款，同时增发一定数量的普通股股票，下列说法中正确的是（）。",o:[["A","向银行借款属于间接筹资"],["B","增发普通股股票会提高权益乘数"],["C","向银行借款会导致财务杠杆下降"],["D","增发普通股属于衍生工具筹资"]],a:"A",e:"间接筹资是企业通过银行等金融机构以信贷关系间接从社会取得资金，向银行借款属于间接筹资，选项A当选。权益乘数=1/(1-资产负债率)，增发普通股股票会增加股东权益总额和资产总额，在负债总额不变的情况下，会降低资产负债率，进而导致权益乘数下降，选项B不当选。向银行借款会增加负债总额，股东权益总额不变，会提高财务杠杆，选项C不当选。增发普通股属于股权筹资，选项D不当选。"},
+ {t:"multi",stem:"下列各项因素中，影响企业偿债能力的有（）。",o:[["A","经营租赁"],["B","或有事项"],["C","资产质量"],["D","授信额度"]],a:"ABCD",e:"影响偿债能力的其他因素有：可动用的银行贷款指标或授信额度、资产质量、或有事项和承诺事项、经营租赁，所以本题的正确答案是ABCD"},
+ {t:"judge",stem:"应收账款周转次数是指一定期间产生的应收账款总额与营业收入总额的比值。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"应收账款周转次数＝营业收入/应收账款平均余额。"},
+ {t:"single",stem:"关于应收账款周转次数，下列说法中正确的是（）。",o:[["A","应收账款周转次数提高表明企业应收账款周转天数增加"],["B","应收账款周转次数提高将增加企业应收账款资金占用水平"],["C","提高应收账款周转次数可以增强企业短期偿债能力"],["D","应收账款周转次数提高表明企业赊销收入增加"]],a:"C",e:"应收账款周转天数＝计算期天数/应收账款周转次数，所以选项A的说法不正确。在知道赊销收入的情况下，应收账款周转次数＝赊销收入/应收账款平均余额，由此可知，选项B.D的说法不正确；提高应收账款周转次数可以缩短应收账款变现的时间，所以，可以增强企业短期偿债能力，选项C的说法正确。"},
+ {t:"multi",stem:"在其他条件不变的情况下，下列各项中会引起总资产周转次数指标上升的有（）。",o:[["A","用银行存款支付广告费"],["B","用现金偿还应付账款"],["C","用银行存款购买设备"],["D","借入短期借款"]],a:"AB",e:"总资产周转次数＝营业收入/平均资产总额，选项A.B会导致资产总额减少，选项C不影响资产总额（流动资产减少，非流动资产等额增加，资产总额不变），选项D导致资产总额增加。"},
+ {t:"single",stem:"某公司2021年度营业收入为9000万元，营业成本为7000万元，年初存货为2000万元，年末存货为1500万元，则该公司2021年的存货周转次数为（）次。",o:[["A","3.5"],["B","4.5"],["C","5.14"],["D","4"]],a:"D",e:"平均存货＝（2000＋1500）/2＝1750（万元），该公司2021年的存货周转次数＝7000/1750＝4（次）。"},
+ {t:"judge",stem:"总资产周转率可用于衡量企业全部资产赚取收入的能力，故根据该指标可以全面评价企业的盈利能力。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"各项资产的周转率指标用于衡量各项资产赚取收入的能力，经常与企业盈利能力的指标结合在一起，以全面评价企业的盈利能力。"},
+ {t:"multi",stem:"下列各项中，可用于企业营运能力分析的财务指标有（）。",o:[["A","速动比率"],["B","应收账款周转天数"],["C",".存货周转次数"],["D","流动比率"]],a:"BC",e:"用于企业营运能力分析的财务指标有应收账款周转率、存货周转率、流动资产周转率、固定资产周转率、总资产周转率，所以选项BC正确。选项AD属于用于短期偿债能力分析的财务指标。"},
+ {t:"judge",stem:"一般而言，存货周转速度越快，存货占用水平越低，企业的营运能力就越强。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"一般来讲，存货周转速度越快，存货占用水平越低，流动性越强，存货转化为现金或应收账款的速度就越快，这样会增强企业的短期偿债能力及盈利能力。即企业的营运能力也就越强。"},
+ {t:"single",stem:"某公司上期营业收入为1000万元，本期期初应收账款为120万元，本期期末应收账款为180万元，本期应收账款周转率为8次，则本期的营业收入增长率为（）。",o:[["A","20%"],["B","12%"],["C","18%"],["D","50%"]],a:"A",e:"本期应收账款周转率＝本期营业收入/[（期初应收账款＋期末应收账款）/2]，即8＝本期营业收入/[（120＋180）/2]，本期营业收入＝1200（万元），本期的营业收入增长率＝（1200－1000）/1000＝20%"},
+ {t:"judge",stem:"在计算应收账款周转次数指标时，不应将应收票据考虑在内。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"在计算应收账款周转次数指标时，应收账款包括会计报表中“应收票据”及“应收账款”等全部赊销账款在内，因为应收票据是销售形成的应收款项的另一种形式。"},
+ {t:"multi",stem:"下列各项中，影响应收账款周转率指标的有（）。",o:[["A","应收票据"],["B","应收账款"],["C","预付账款"],["D","销售折扣与折让"]],a:"ABD",e:"应收账款周转率＝营业收入/应收账款平均余额。"},
+ {t:"multi",stem:"一般而言，存货周转次数增加，其所反映的信息有（）。",o:[["A","盈利能力下降"],["B","存货周转期延长"],["C","存货流动性增强"],["D","资产管理效率提高"]],a:"CD",e:"存货周转次数是衡量和评价企业购入存货、投入生产、销售收回等各环节管理效率的综合性指标。一般来讲，存货周转速度越快，存货占用水平越低，流动性越强，存货转化为现金或应收账款的速度就越快，这样会增强企业的短期偿债能力及盈利能力。"},
+ {t:"judge",stem:"资本保值增值率是扣除客观增减因素后所有者权益的增加值比所有者权益的期初总额的比率。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"资本保值增值率=扣除客观增减因素后所有者权益的期末总额/所有者权益的期初总额，并不是使用增加值计算，本题表述错误。"},
+ {t:"judge",stem:"总资产增长率是指本年资产增长额与年初资产总额的比率关系，反映企业本期资产规模的增长情况。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"总资产增长率是企业本年资产增长额同年初资产总额的比率，反映企业本期资产规模的增长情况。"},
+ {t:"single",stem:"下列各项财务分析指标中，能反映企业发展能力的是（）。",o:[["A","权益乘数"],["B","资本保值增值率"],["C","现金运营指数"],["D","净资产收益率"]],a:"B",e:"反映股东权益发展能力指标主要保值增值率与资本积累率，选B。"},
+ {t:"judge",stem:"净收益营运指数作为一个能够反映公司收益质量的指标，可以揭示净收益与现金流量之间的关系。",o:[["A","正确"],["B","错误"]],a:"B",e:"净收益营运指数是指经营净收益与净利润之间的关系。"},
+ {t:"judge",stem:"净收益营运指数越大，收益质量越差。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"净收益营运指数越小，非经营收益所占比重越大，收益质量越差，因为非经营收益不反映公司的核心能力及正常的收益能力，可持续性较低。"},
+ {t:"single",stem:"下列财务分析指标中能够反映收益质量的是（）。",o:[["A","营业毛利率"],["B","每股收益"],["C","现金营运指数"],["D","净资产收益率"]],a:"C",e:"现金营运指数是反映企业现金回收质量，衡量风险的指标,指反映企业经营活动现金流量与企业经营所得现金(经营现金毛流量)的比值。理想的现金营运指数应为1。"},
+ {t:"single",stem:"关于获取现金能力的有关财务指标，下列表述中正确的是（）。",o:[["A","全部资产现金回收率指标不能反映公司获取现金的能力"],["B","用长期借款方式购买固定资产会影响营业现金比率"],["C","公司将销售政策由赊销调整为现销方式后，不会对营业现金比率产生影响"],["D","每股营业现金净流量是经营活动现金流量净额与普通股股数之比"]],a:"D",e:"获取现金能力分析可以运用营业现金比率、每股营业现金净流量、全部资产现金回收率指标衡量，选项A错误，营业现金比率＝经营活动现金流量净额/营业收入，选项BC错误；每股营业现金净流量＝经营活动现金流量净额/普通股股数,选项D正确。"},
+ {t:"judge",stem:"在计算稀释每股收益时，当认股权证的行权价格低于当期普通股平均市场价格，应当考虑稀释性。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"认股权证、股份期权等的行权价格低于当期普通股平均市场价格时，应当考虑其稀释性。计算稀释每股收益时，作为分子的净利润金额一般不变；分母的调整项目为增加的普通股股数，同时还应考虑时间权数。"},
+ {t:"single",stem:"计算稀释每股收益时，需考虑潜在普通股的影响，下列不属于潜在普通股的是（）。",o:[["A","认股权证"],["B","股份期权"],["C","库存股"],["D","可转换债券"]],a:"C",e:"稀释性潜在普通股指假设当期转换为普通股会减少每股收益的潜在普通股。潜在普通股主要包括：可转换公司债券、认股权证和股份期权等。"},
+ {t:"multi",stem:"根据有关要求，企业存在稀释性潜在普通股的，应当计算稀释每股收益，下列属于潜在普通股的有（）。",o:[["A","可转换公司债券"],["B","股份期权"],["C","认股权证"],["D","不可转换优先股"]],a:"ABC",e:"企业存在稀释性潜在普通股的，应当计算稀释每股收益。潜在普通股主要包括：可转换公司债券、认股权证和股份期权等。"},
+ {t:"single",stem:"在计算稀释每股收益时，下列各项中，不属于潜在普通股的是（）。",o:[["A","认股权证"],["B","可转换公司债券"],["C",".股票期权"],["D","不可转换优先股"]],a:"D",e:"可转换公司债券、认股权证和股份期权属于潜在普通股。不可转换优先股不能转换为普通股，不具备稀释性。所以答案为选项D。"},
+ {t:"judge",stem:"市盈率是反映股票投资价值的重要指标，该指标数值越大，表明投资者越看好该股票的投资预期。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"上市公司的市盈率一直是广大股票投资者进行中长期投资的重要决策指标。市盈率越高，意味着投资者对股票的收益预期越看好，投资价值越大；反之，投资者对该股票评价越低。所以本题的说法是正确的。"},
+ {t:"single",stem:"某企业的市盈率为15倍，本年每股收益为2元/股，已发放的现金股利为0.6元/股，每年股利增长率为8%，采用股利增长模型计算的留存收益的资本成本率为（）。",o:[["A","12%"],["B","10.16%"],["C","12.32%"],["D","10%"]],a:"B",e:"因为市盈率=每股市价÷每股收益，所以每股市价=市盈率×每股收益=15×2=30（元/股）；留存收益的资本成本率=D0×(1+g)÷P0+g=0.6×(1+8%)÷30+8%=10.16%，选项B当选。"},
+ {t:"single",stem:"某上市公司股票市价为20元，普通股数量100万股，净利润400万元，净资产500万元，则市净率为（）。",o:[["A","4"],["B","5"],["C","10"],["D","20"]],a:"A",e:""},
+ {t:"multi",stem:"关于上市公司管理层讨论与分析，正确的有（）。",o:[["A","管理层讨论与分析是对本公司过去经营状况的评价，而不对未来发展作前瞻性判断"],["B","管理层讨论与分析包括报表及附注中没有得到充分揭示，而对投资者决策有用的信息"],["C","管理层讨论与分析包括对财务报告期间有关经营业绩变动的解释"],["D","管理层讨论与分析不是定期报告的组成部分，并不要求强制性披露"]],a:"BC",e:"管理层讨论与分析是对本公司过去经营状况的评价以及未来发展作前瞻性判断，选项A错误；管理层讨论与分析的披露采用强制与自愿相结合，选项D错误。"},
+ {t:"judge",stem:"杜邦分析法将总资产净利率作为财务分析的起点。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"杜邦分析体系的起点是净资产收益率，即权益净利率，而不是总资产净利率。本题表述错误。"},
+ {t:"single",stem:"某企业的营业净利率为20%，总资产净利率为30%，则总资产周转率为（）次。",o:[["A","0.67"],["B","0.1"],["C","0.5"],["D","1.5"]],a:"D",e:"总资产周转率=30%/20%=1.5。选择D。"},
+ {t:"judge",stem:"净资产收益率是一个综合性比较强的财务分析指标，是杜邦财务分析体系的起点。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"净资产收益率是杜邦分析体系的起点和核心。该指标的高低反映了投资者的净资产获利能力的大小。净资产收益率是由营业净利率，总资产周转率和权益乘数决定的。"},
+ {t:"single",stem:"甲公司2021年的税后营业利润为500万元，平均债务资本1000万元，平均股权资本2000万元，加权平均资本成本率10％，甲公司2021年的经济增加值为（）万元。",o:[["A","5000"],["B","300"],["C","400"],["D","200"]],a:"D",e:"经济增加值＝税后净营业利润－平均资本占用×加权平均资本成本＝500－（1000＋2000）×10％＝200（万元）"},
+ {t:"multi",stem:"关于经济增加值，下列说法不正确的有（）。",o:[["A","经济增加值考虑了股本和债务在内的所有资本"],["B","经济增加值使利润最大化与股东财富最大化的目标达到一致"],["C","可以衡量企业长远发展战略的价值创造"],["D","经济增加值在不同企业之间可比性强"]],a:"BCD",e:"经济增加值是指税后净营业利润扣除全部投入资本成本后的剩余收益。所以，选项A的说法正确；经济增加值帮助企业实现了决策与股东财富一致，即经济增加值最大与股东财富最大化的目标达到一致，所以，选项B的说法不正确；由于经济增加值仅能衡量企业当期或预判未来1～3年的价值创造情况，所以，无法衡量企业长远发展战略的价值，选项C的说法不正确；由于不同行业、不同规模、不同成长阶段等的公司，其会计调整项和加权平均资本成本各不相同，导致该指标的可比性较差，所以，选项D的说法不正确。"},
+ {t:"single",stem:"关于经济增加值绩效评价方法，下列表述错误的是（）。",o:[["A","经济增加值的计算主要基于财务指标，无法对企业进行综合评价"],["B","同时考虑了债务资本成本和股权资本成本"],["C","适用于对不同规模的企业绩效进行横向比较"],["D","有助于实现经营者利益与企业利益的统一"]],a:"C",e:"由于不同规模的企业，其会计调整项和加权平均资本成本各不相同，故经济增加值不适用于对不同规模的企业绩效进行横向比较。"},
+ {t:"judge",stem:"与净资产收益率相比，经济增加值绩效评价方法考虑了全部资本的机会成本，能更真实地反映企业的价值创造。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"经济增加值＝税后净营业利润－平均资本占用×加权平均资本成本。其中，平均资本占用反映的是企业持续投入的各种债务资本和股权资本；加权平均资本成本反映的是企业各种资本的平均成本率。因此经济增加值绩效评价方法考虑了全部资本的机会成本，能更真实地反映企业的价值创造。"},
+ {t:"multi",stem:"企业综合绩效评价可分为财务绩效定量评价与管理绩效定性评价两部分，下列各项中，属于财务绩效定量评价内容的有（）。",o:[["A","资产质量"],["B","盈利能力"],["C","债务风险"],["D","经营增长"]],a:"ABCD",e:"财务绩效定量评价是指对企业一定期间的盈利能力、资产质量、债务风险和经营增长四个方面进行定量对比分析和评判。"},
+ {t:"judge",stem:"综合绩效评价体系中进行管理绩效的评价计分时为保持可比性，应不分行业而设定统一的评价标准。（）参考答案1.【答案】×【解析】第一年定基动态比率＝4000/4000＝100%，第二年定基动态比率＝5000/4000＝125%，第三年定基动态比率＝5600/4000＝140%。2.【答案】A【解析】效率比率，是某项财务活动中所费与所得的比率，反映投入与产出的关系。利用效率比率指标，可以进行得失比较，考察经营成果，评价经济效益。比如，将利润项目与营业成本、营业收入、资本金等项目加以对比，可以计算出成本利润率、销售利润率和资本金利润率等指标，从不同角度观察比较企业盈利能力的高低及其增减变化情况。所以选项A是答案。3.【答案】C【解析】相关比率是以某个项目和与其有关但又不同的项目加以对比所得的比率，比如流动比率和资产负债率等。4.【答案】C【解析】因素分析法的特征包括：因素分解的关联性、因素替代的顺序性、顺序替代的连环性和计算结果的假定性。选项C不属于财务分析中因素分析法的特征。5.【答案】C【解析】变卖闲置设备会导致流动资产增加，固定资产减少，负债和股东权益不变，能够提高公司短期偿债能力，选项C当选。6.【答案】ABD【解析】选项A.D反映盈利能力，选项B反映营运能力。7.【答案】BCD【解析】反映长期偿债能力的指标有资产负债率、产权比率、权益乘数、利息保障倍数，总资产周转率是反映营运能力的指标。8.【答案】D【解析】流动资产=营运资金+流动负债=138+112=250(万元)，速动比率=(流动资产-存货)/流动负债=(250-82)/112=1.5，选项D当选。9.【答案】ACD【解析】流动比率＝流动资产÷流动负债。选项A银行存款是流动资产，新生产线是长期资产，公司用银行存款购置新生产线，导致长期资产增加，流动资产减少，流动比率降低，选项A当选；选项B公司从商业银行取得长期借款，流动资产增加，流动负债不变，故流动比率提高，选项B不当选；选项C是流动资产内部的此消彼长，流动负债不变，故流动比率保持不变，选项C当选；选项D是流动资产内部的此消彼长，流动负债不变，故流动比率保持不变，选项D当选。10.【答案】B【解析】方法一：速动比率=速动资产÷流动负债=（流动资产-存货）÷流动负债=(46-9.2)÷23=1.6；方法二：速动比率=（货币资金+应收账款）÷流动负债=(18+18.8）÷23=1.6，选项B当选。11.【答案】D【解析】某企业目前的速动比率大于1，意味着目前的速动资产大于流动负债，以银行存款偿还短期借款，速动资产和流动负债等额减少，但是流动负债减少的百分比大于速动资产减少的百分比，所以，能够提高该企业速动比率。或者用数据验证，假设目前的速动资产为120万元，流动负债为100万元，目前的速动比率为1.2。以银行存款偿还短期借款20万元，则速动比率变为（120－20）/（100－20）＝1.25＞1.2。12.【答案】C【解析】带入数值，进行判断。或者分析如下：使用现金偿还应付账款，会使速动资产、流动负债减少相同的金额。速动比率大于1，分子、分母减少相同的数值后速动比率变大；速动比率大于1，流动比率也是大于1，使用现金偿还应付账款，也会使得流动资产、流动负债减少相同数值，流动比率变大。13.【答案】D【解析】流动比率＝流动资产/流动负债，流动比率为1.8，说明流动资产大于流动负债。赊购一批原材料，会使流动资产和流动负债等额增长，流动负债的增长幅度大于流动资产的增长幅度，流动比率变小。或者代数计算：如流动资产为180，流动负债为100，赊购材料100。则流动比率=280/200=1.4，变小。14.【答案】D【解析】存货既不属于速动资产，也不属于现金资产，因此既不影响现金比率又不影响速动比率。15.【答案】D【解析】速动资产的内容包括货币资产、交易性金融资产、衍生金融资产和各种应收款项。所以选择D。16.【答案】D【解析】现金比率=(货币资金+交易性金融资产)÷流动负债。17.【答案】√【解析】现金比率剔除了应收账款对短期偿债能力的影响，最能反映企业直接偿付流动负债的能力。18.【答案】AD【解析】速动资产是可以迅速转换成为现金或已属于现金形式的资产，包括货币资金、交易性金融资产、衍生金融资产、应收票据、应收账款、其他应收款项等。存货属于非速动资产，预收账款是负债。19.【答案】B【解析】产成品属于存货，存货属于非速动资产。20.【答案】B【解析】产权比率属于长期偿债能力指标，其他都是短期偿债能力指标。21.【答案】B【解析】股东权益总额＝250×30＝7500（万元），2022年年末的资产负债率＝5000/（5000＋7500）×100％＝40％。22.【答案】C【解析】利息保障倍数=(净利润+费用化利息+所得税)÷应付利息=[750+(200-50)+250]÷200=5.75。23.【答案】A【解析】利息保障倍数＝息税前利润利润/应付利息＝（6600＋2200＋200）/800＝11.25。24.【答案】√【解析】利息保障倍数反映支付利息的利润来源（息税前利润）与利息支出之间的关系，该比率越高，长期偿债能力越强。25.【答案】√【解析】权益乘数＝1＋产权比率＝1/（1－资产负债率），因此已知其中一个指标值，就可以推算出另外两个指标值。26.【答案】×【解析】计算利息保障倍数时，“应付利息”指的是费用化利息和资本化利息。27.【答案】A【解析】利息保障倍数＝息税前利润/应付利息＝（700＋50）/（50＋30）＝9.375。28.【答案】AB【解析】资产负债率、产权比率、权益乘数均可以反映公司资本结构。29.【答案】B【解析】权益乘数=资产总额/所有者权益，产权比率=负债总额/所有者权益，选项B正确。30.【答案】C【解析】产权比率＝负债总额/所有者权益总额×100%，这一比率越高，表明企业长期偿债能力越弱，债权人权益保障程度越低，所以选项BD不正确；产权比率高，是高风险、高报酬的财务结构，财务杠杆效应强，所以选项C正确，选项A不正确。31.【答案】A【解析】间接筹资是企业通过银行等金融机构以信贷关系间接从社会取得资金，向银行借款属于间接筹资，选项A当选。权益乘数=1/(1-资产负债率)，增发普通股股票会增加股东权益总额和资产总额，在负债总额不变的情况下，会降低资产负债率，进而导致权益乘数下降，选项B不当选。向银行借款会增加负债总额，股东权益总额不变，会提高财务杠杆，选项C不当选。增发普通股属于股权筹资，选项D不当选。32.【答案】ABCD【解析】影响偿债能力的其他因素有：可动用的银行贷款指标或授信额度、资产质量、或有事项和承诺事项、经营租赁，所以本题的正确答案是ABCD33.【答案】×【解析】应收账款周转次数＝营业收入/应收账款平均余额。34.【答案】C【解析】应收账款周转天数＝计算期天数/应收账款周转次数，所以选项A的说法不正确。在知道赊销收入的情况下，应收账款周转次数＝赊销收入/应收账款平均余额，由此可知，选项B.D的说法不正确；提高应收账款周转次数可以缩短应收账款变现的时间，所以，可以增强企业短期偿债能力，选项C的说法正确。35.【答案】AB【解析】总资产周转次数＝营业收入/平均资产总额，选项A.B会导致资产总额减少，选项C不影响资产总额（流动资产减少，非流动资产等额增加，资产总额不变），选项D导致资产总额增加。36.【答案】D【解析】平均存货＝（2000＋1500）/2＝1750（万元），该公司2021年的存货周转次数＝7000/1750＝4（次）。37.【答案】×【解析】各项资产的周转率指标用于衡量各项资产赚取收入的能力，经常与企业盈利能力的指标结合在一起，以全面评价企业的盈利能力。38.【答案】BC【解析】用于企业营运能力分析的财务指标有应收账款周转率、存货周转率、流动资产周转率、固定资产周转率、总资产周转率，所以选项BC正确。选项AD属于用于短期偿债能力分析的财务指标。39.【答案】√【解析】一般来讲，存货周转速度越快，存货占用水平越低，流动性越强，存货转化为现金或应收账款的速度就越快，这样会增强企业的短期偿债能力及盈利能力。即企业的营运能力也就越强。40.【答案】A【解析】本期应收账款周转率＝本期营业收入/[（期初应收账款＋期末应收账款）/2]，即8＝本期营业收入/[（120＋180）/2]，本期营业收入＝1200（万元），本期的营业收入增长率＝（1200－1000）/1000＝20%41.【答案】×【解析】在计算应收账款周转次数指标时，应收账款包括会计报表中“应收票据”及“应收账款”等全部赊销账款在内，因为应收票据是销售形成的应收款项的另一种形式。42.【答案】ABD【解析】应收账款周转率＝营业收入/应收账款平均余额。43.【答案】CD【解析】存货周转次数是衡量和评价企业购入存货、投入生产、销售收回等各环节管理效率的综合性指标。一般来讲，存货周转速度越快，存货占用水平越低，流动性越强，存货转化为现金或应收账款的速度就越快，这样会增强企业的短期偿债能力及盈利能力。44.【答案】×【解析】资本保值增值率=扣除客观增减因素后所有者权益的期末总额/所有者权益的期初总额，并不是使用增加值计算，本题表述错误。45.【答案】√【解析】总资产增长率是企业本年资产增长额同年初资产总额的比率，反映企业本期资产规模的增长情况。46.【答案】B【解析】反映股东权益发展能力指标主要保值增值率与资本积累率，选B。47.【答案】B【解析】获取现金能力的分析指标包括：营业现金比率、每股营业现金净流量、全部资产现金回收率。现金比率是偿债能力分析指标。48.【答案】D【解析】经营净收益＝净利润－非经营净收益＝6000－1500－450＝4050（万元），净收益营运指数＝经营净收益÷净利润＝4050/（6000－1500）＝0.9。49.【答案】×【解析】净收益营运指数是指经营净收益与净利润之间的关系。50.【答案】×【解析】净收益营运指数越小，非经营收益所占比重越大，收益质量越差，因为非经营收益不反映公司的核心能力及正常的收益能力，可持续性较低。51.【答案】C【解析】现金营运指数是反映企业现金回收质量，衡量风险的指标,指反映企业经营活动现金流量与企业经营所得现金(经营现金毛流量)的比值。理想的现金营运指数应为1。52.【答案】D【解析】获取现金能力分析可以运用营业现金比率、每股营业现金净流量、全部资产现金回收率指标衡量，选项A错误，营业现金比率＝经营活动现金流量净额/营业收入，选项BC错误；每股营业现金净流量＝经营活动现金流量净额/普通股股数,选项D正确。53.【答案】√【解析】认股权证、股份期权等的行权价格低于当期普通股平均市场价格时，应当考虑其稀释性。计算稀释每股收益时，作为分子的净利润金额一般不变；分母的调整项目为增加的普通股股数，同时还应考虑时间权数。54.【答案】C【解析】稀释性潜在普通股指假设当期转换为普通股会减少每股收益的潜在普通股。潜在普通股主要包括：可转换公司债券、认股权证和股份期权等。55.【答案】ABC【解析】企业存在稀释性潜在普通股的，应当计算稀释每股收益。潜在普通股主要包括：可转换公司债券、认股权证和股份期权等。56.【答案】D【解析】可转换公司债券、认股权证和股份期权属于潜在普通股。不可转换优先股不能转换为普通股，不具备稀释性。所以答案为选项D。57.【答案】√【解析】上市公司的市盈率一直是广大股票投资者进行中长期投资的重要决策指标。市盈率越高，意味着投资者对股票的收益预期越看好，投资价值越大；反之，投资者对该股票评价越低。所以本题的说法是正确的。58.【答案】B【解析】因为市盈率=每股市价÷每股收益，所以每股市价=市盈率×每股收益=15×2=30（元/股）；留存收益的资本成本率=D0×(1+g)÷P0+g=0.6×(1+8%)÷30+8%=10.16%，选项B当选。59.【答案】A60.【答案】BC【解析】管理层讨论与分析是对本公司过去经营状况的评价以及未来发展作前瞻性判断，选项A错误；管理层讨论与分析的披露采用强制与自愿相结合，选项D错误。61.【答案】×【解析】杜邦分析体系的起点是净资产收益率，即权益净利率，而不是总资产净利率。本题表述错误。62.【答案】D【解析】总资产周转率=30%/20%=1.5。选择D。63.【答案】√【解析】净资产收益率是杜邦分析体系的起点和核心。该指标的高低反映了投资者的净资产获利能力的大小。净资产收益率是由营业净利率，总资产周转率和权益乘数决定的。64.【答案】BCD【解析】杜邦分析体系下，净资产收益率＝营业净利率×总资产周转率×权益乘数，所以选项B.C.D正确。65.【答案】D66.【答案】D【解析】经济增加值＝税后净营业利润－平均资本占用×加权平均资本成本＝500－（1000＋2000）×10％＝200（万元）67.【答案】BCD【解析】经济增加值是指税后净营业利润扣除全部投入资本成本后的剩余收益。所以，选项A的说法正确；经济增加值帮助企业实现了决策与股东财富一致，即经济增加值最大与股东财富最大化的目标达到一致，所以，选项B的说法不正确；由于经济增加值仅能衡量企业当期或预判未来1～3年的价值创造情况，所以，无法衡量企业长远发展战略的价值，选项C的说法不正确；由于不同行业、不同规模、不同成长阶段等的公司，其会计调整项和加权平均资本成本各不相同，导致该指标的可比性较差，所以，选项D的说法不正确。68.【答案】C【解析】由于不同规模的企业，其会计调整项和加权平均资本成本各不相同，故经济增加值不适用于对不同规模的企业绩效进行横向比较。69.【答案】√【解析】经济增加值＝税后净营业利润－平均资本占用×加权平均资本成本。其中，平均资本占用反映的是企业持续投入的各种债务资本和股权资本；加权平均资本成本反映的是企业各种资本的平均成本率。因此经济增加值绩效评价方法考虑了全部资本的机会成本，能更真实地反映企业的价值创造。70.【答案】ABCD【解析】财务绩效定量评价是指对企业一定期间的盈利能力、资产质量、债务风险和经营增长四个方面进行定量对比分析和评判。71.【答案】×【解析】管理绩效定性评价标准具有行业普遍性和一般性，在进行评价时，应当根据不同行业的经营特点，灵活把握个别指标的标准尺度。",o:[["A","正确"],["B","错误"]],a:"B",e:"管理绩效定性评价标准具有行业普遍性和一般性，在进行评价时，应当根据不同行业的经营特点，灵活把握个别指标的标准尺度。"}
+];
+
+// 每题对应考点（用于掌握情况自动归类），顺序与 Q 一一对应（16 考点）
+const KPOINTS=["财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "财务分析方法", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "偿债能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "营运能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "盈利能力分析", "发展能力分析", "发展能力分析", "发展能力分析", "发展能力分析", "发展能力分析", "发展能力分析", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价", "综合分析与评价"];
+Q.forEach((q,i)=>q.k=KPOINTS[i]);
+
+// 掌握分析参数与建议回看指引
+const SMALL_N=3, WEAK_TH=70;
+const RECOMMEND={
+ "财务分析方法":"回看「财务分析方法」：比较/比率/因素分析法",
+ "偿债能力分析":"回看「偿债能力分析」：流动/速动/资产负债率",
+ "营运能力分析":"回看「营运能力分析」：周转率指标",
+ "盈利能力分析":"回看「盈利能力分析」：ROE/ROA/毛利率",
+ "发展能力分析":"回看「发展能力分析」：增长率",
+ "综合分析与评价":"回看「综合分析」：杜邦分析法"
+};
+
+
+
+// ============ 知识讲解（乐享 learningSummary《第10章-财务分析与评价》完整原文，按节切分锚点）============
+const SUMMARY_SECTIONS=[
+ {k:"思维导图",title:"〇 · 本章考情 + 整章思维导图",md:`# 📘 第十章 财务分析与评价
+## 〇、本章考情
+- 主要考点：财务分析方法、偿债/营运/盈利/发展能力、杜邦分析
+
+## 〇、整章思维导图
+第十章 财务分析与评价
+│
+├─ 财务分析方法 ⭐⭐⭐⭐
+├─ 偿债能力 ⭐⭐⭐⭐⭐
+├─ 营运能力 ⭐⭐⭐⭐⭐
+├─ 盈利能力 ⭐⭐⭐⭐⭐
+├─ 发展能力 ⭐⭐⭐
+└─ 综合分析 ⭐⭐⭐⭐`},
+ {k:"财务分析方法",title:"财务分析方法",md:`# 🧩 财务分析方法
+- **比较分析法**
+- **比率分析法**
+- **因素分析法（连环替代）**`},
+ {k:"偿债能力分析",title:"偿债能力分析",md:`# 🧩 偿债能力
+- **流动比率**=流动资产/流动负债
+- **速动比率**=(流动资产-存货)/流动负债
+- **资产负债率**=负债/资产`},
+ {k:"营运能力分析",title:"营运能力分析",md:`# 🧩 营运能力
+- **存货周转率**=营业成本/平均存货
+- **应收账款周转率**=营收/平均应收
+- **总资产周转率**=营收/平均总资产`},
+ {k:"盈利能力分析",title:"盈利能力分析",md:`# 🧩 盈利能力
+- **ROE**=净利润/所有者权益
+- **ROA**=净利润/总资产
+- **毛利率/净利率**`},
+ {k:"发展能力分析",title:"发展能力分析",md:`# 🧩 发展能力
+- **营收增长率**
+- **资产增长率**
+- **资本积累率**`},
+ {k:"综合分析与评价",title:"综合分析与评价",md:`# 🧩 综合分析
+- **杜邦**：ROE=销售净利率×总资产周转率×权益乘数
+- **沃尔评分法**`},
+ {k:"速查表",title:"全章速查表",md:`# 🎯 速查表
+| 知识点 | 考频 | 必背 |
+|-|-|-|
+| 分析方法 | ⭐⭐⭐⭐ | 三种方法 |
+| 偿债能力 | ⭐⭐⭐⭐⭐ | 比率公式 |
+| 营运能力 | ⭐⭐⭐⭐⭐ | 周转率 |
+| 盈利能力 | ⭐⭐⭐⭐⭐ | ROE/ROA |
+| 综合分析 | ⭐⭐⭐⭐ | 杜邦 |`},
+ {k:"闭环",title:"全章闭环",md:`# 📍 全章知识链闭环
+方法→偿债→营运→盈利→发展→综合分析`}
+];
+
+
+// 轻量 Markdown → HTML（支持 标题/表格/有序无序列表/粗体/行内代码/ASCII思维导图树）
+function inlineMd(s){
+  s=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  return s;
+}
+function mdToHtml(md){
+  const lines=md.replace(/\r\n/g,'\n').split('\n');
+  let html='', i=0;
+  let inTable=false, tableHtml='', rowCount=0;
+  let inList=false, listType=null, listHtml='';
+  let inPre=false, preHtml='';
+  function flushTable(){ if(inTable){ html+=`<table class="ktab">${tableHtml}</table>`; tableHtml=''; inTable=false; rowCount=0; } }
+  function flushList(){ if(inList){ html+=`<${listType} class="klist">${listHtml}</${listType}>`; listHtml=''; inList=false; listType=null; } }
+  function flushPre(){ if(inPre){ html+=`<pre class="ktree">${preHtml}</pre>`; preHtml=''; inPre=false; } }
+  for(const line of lines){
+    if(/^#{1,6}\s/.test(line)){
+      flushTable();flushList();flushPre();
+      const m=line.match(/^(#{1,6})\s+(.*)$/);
+      const lvl=m[1].length;
+      html+=`<h${lvl} class="kh${lvl}">${inlineMd(m[2])}</h${lvl}>`;
+      continue;
+    }
+    if(/^\s*\|.*\|\s*$/.test(line)){
+      flushList();flushPre();
+      if(!inTable){ inTable=true; tableHtml=''; rowCount=0; }
+      if(/^\s*\|[\s:|-]+\|\s*$/.test(line)){ continue; } // 分隔行
+      const cells=line.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c=>c.trim());
+      if(rowCount===0){ tableHtml+='<thead><tr>'+cells.map(c=>`<th>${inlineMd(c)}</th>`).join('')+'</tr></thead><tbody>'; }
+      else { tableHtml+='<tr>'+cells.map(c=>`<td>${inlineMd(c)}</td>`).join('')+'</tr>'; }
+      rowCount++;
+      continue;
+    } else { flushTable(); }
+    const isOl=/^\s*\d+\.\s+/.test(line);
+    if(/^\s*-\s+/.test(line) || isOl){
+      flushTable();flushPre();
+      if(inList && listType!==(isOl?'ol':'ul')) flushList();
+      if(!inList){ inList=true; listType=isOl?'ol':'ul'; listHtml=''; }
+      const txt=inlineMd(line.replace(/^\s*(?:-\s+|\d+\.\s+)/,''));
+      listHtml+=`<li>${txt}</li>`;
+      continue;
+    } else { flushList(); }
+    if(/[│├└┌┐┘┤┬┴┼]/.test(line)){
+      flushTable();flushList();
+      if(!inPre){ inPre=true; preHtml=''; }
+      preHtml+=inlineMd(line)+'\n';
+      continue;
+    } else { flushPre(); }
+    if(line.trim()===''){ flushTable();flushList();flushPre(); continue; }
+    html+=`<p>${inlineMd(line)}</p>`;
+  }
+  flushTable();flushList();flushPre();
+  return html;
+}
+
+function buildSumNav(){
+  let nav='';
+  SUMMARY_SECTIONS.forEach(s=>{ nav+=`<button type="button" class="sum-nav-btn" data-k="${s.k}">${s.k}</button>`; });
+  return nav;
+}
+function buildSumBody(){
+  let body='';
+  SUMMARY_SECTIONS.forEach(s=>{
+    body+=`<section class="ksec" id="kp-${s.k}"><h2 class="ksec-title">${s.title}</h2>${mdToHtml(s.md)}</section>`;
+  });
+  return body;
+}
+
+const quiz=document.getElementById('quiz');
+const sumMask=document.getElementById('sumMask');
+const sumNav=document.getElementById('sumNav');
+const sumBody=document.getElementById('sumBody');
+const TYPE={single:["单选","b-single"],multi:["多选","b-multi"],judge:["判断","b-judge"]};
+let graded=false, showAll=false, onlyWrong=false;
+let doubts=Q.map(()=>false);
+
+function build(){
+  quiz.innerHTML='';
+  Q.forEach((q,i)=>{
+    const [tname,tcls]=TYPE[q.t];
+    const card=document.createElement('div');
+    card.className='q'+(doubts[i]?' doubt':''); card.id='q'+i;
+    let optsHtml='';
+    q.o.forEach(([lab,txt])=>{
+      const inp=q.t==='multi'?'checkbox':'radio';
+      optsHtml+=`<label class="opt" data-lab="${lab}"><input type="${inp}" name="q${i}" value="${lab}"><span class="lab">${lab}</span><span class="txt">${txt}</span></label>`;
+    });
+    const ansTxt = q.t==='judge' ? (q.a==='A'?'正确':'错误') : q.a;
+    const doubtBtn = `<button type="button" class="doubt-btn${doubts[i]?' on':''}" data-i="${i}">${doubts[i]?'有疑问':'标记疑问'}</button>`;
+    card.innerHTML=`<div class="q-head"><span class="qno">${i+1}</span><span class="badge ${tcls}">${tname}</span><div class="stem">${q.stem}</div>${doubtBtn}</div><div class="opts">${optsHtml}</div><div class="explain" id="ex${i}"><div class="et-row"><span class="et">✓ 正确答案：<span class="ans">${ansTxt}</span></span><button type="button" class="btn-know" data-k="${q.k}">📖 知识讲解：「${q.k}」</button></div><div>${q.e}</div></div>`;
+    quiz.appendChild(card);
+  });
+  updateStat();
+}
+
+function getSel(i){
+  const nodes=document.querySelectorAll(`input[name="q${i}"]:checked`);
+  return Array.from(nodes).map(n=>n.value).sort().join('');
+}
+function isCorrect(i){
+  const q=Q[i]; const sel=getSel(i);
+  if(q.t==='multi') return sel===q.a.split('').sort().join('');
+  return sel===q.a;
+}
+
+quiz.addEventListener('change',()=>{ if(!graded) updateStat(); });
+
+// 疑问标记（提交前可勾选/反选；提交后锁定）
+quiz.addEventListener('click',(e)=>{
+  const db=e.target.closest('.doubt-btn');
+  if(db){
+    if(graded) return; // 提交后锁定
+    const i=+db.getAttribute('data-i');
+    doubts[i]=!doubts[i];
+    const card=document.getElementById('q'+i);
+    card.classList.toggle('doubt',doubts[i]);
+    db.classList.toggle('on',doubts[i]);
+    db.textContent=doubts[i]?'有疑问':'标记疑问';
+    updateDoubtStat();
+  }
+  const kb=e.target.closest('.btn-know');
+  if(kb){ openSummary(kb.getAttribute('data-k')); }
+});
+
+function updateStat(){
+  let ans=0;
+  for(let i=0;i<Q.length;i++) if(getSel(i)!=='') ans++;
+  document.getElementById('answered').textContent=ans;
+  updateDoubtStat();
+}
+function updateDoubtStat(){
+  let d=0; for(let i=0;i<Q.length;i++) if(doubts[i]) d++;
+  document.getElementById('doubtcnt').textContent=d;
+}
+
+function submit(){
+  if(graded) return; // 防重复判分
+  graded=true;
+  let right=0;
+  for(let i=0;i<Q.length;i++){
+    const q=Q[i]; const card=document.getElementById('q'+i);
+    const sel=getSel(i);
+    const correct=isCorrect(i);
+    if(correct) right++;
+    card.classList.add(correct?'res-correct':'res-wrong');
+    const optEls=card.querySelectorAll('.opt');
+    let missed=[], wrong=[];
+    optEls.forEach(op=>{
+      const lab=op.getAttribute('data-lab');
+      const checked=op.querySelector('input').checked;
+      const isAns=q.a.includes(lab);
+      if(isAns){
+        op.classList.add('correct');
+        if(q.t==='multi'&&!checked){ op.classList.add('missed'); missed.push(lab); } // 漏选
+      }
+      if(checked&&!isAns){ op.classList.add('wrong'); wrong.push(lab); } // 错选
+      op.querySelector('input').disabled=true;
+    });
+    if(!correct){
+      const tip=document.createElement('div');
+      tip.className='my-ans-tip';
+      const ansShow=q.t==='judge'?(q.a==='A'?'正确':'错误'):q.a;
+      let msg=`你的作答：${sel||'未作答'}　→　正确答案：${ansShow}`;
+      if(q.t==='multi'&&sel){
+        const extra=[];
+        if(missed.length) extra.push(`漏选 ${missed.join('、')}`);
+        if(wrong.length) extra.push(`错选 ${wrong.join('、')}`);
+        if(extra.length) msg+=`　｜　${extra.join('；')}`;
+      }
+      tip.textContent=msg;
+      card.insertBefore(tip, document.getElementById('ex'+i));
+    }
+    document.getElementById('ex'+i).classList.add('show');
+  }
+  // 锁定疑问按钮
+  document.querySelectorAll('.doubt-btn').forEach(b=>b.disabled=true);
+  document.getElementById('rightcnt').textContent=right;
+  const res=document.getElementById('result'); res.classList.add('show');
+  document.getElementById('scoreOk').textContent=right;
+  const pct=Math.round(right/Q.length*100);
+  document.getElementById('scorePct').textContent=`正确率 ${pct}%`;
+  let tip='';
+  if(pct>=90) tip='优秀！第10章考点掌握扎实，可直接进入第五章。';
+  else if(pct>=70) tip='良好，少数薄弱点建议回看解析后巩固。';
+  else if(pct>=50) tip='仍需加强，建议对照讲义重读错题对应考点。';
+  else tip='基础偏弱，建议先重读整章讲义再做题。';
+  document.getElementById('scoreTip').textContent=tip;
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('explainBtn').style.display='inline-block';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  showAll=true;
+  document.getElementById('filterBtn').style.display='inline-block';
+  renderMastery();
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+// 按考点归类作答，生成掌握情况分析（含疑问权重）
+function renderMastery(){
+  const cats={};
+  for(let i=0;i<Q.length;i++){
+    const k=Q[i].k;
+    if(!cats[k]) cats[k]={total:0,right:0,doubt:0,doubtRight:0};
+    cats[k].total++;
+    if(isCorrect(i)) cats[k].right++;
+    if(doubts[i]){ cats[k].doubt++; if(isCorrect(i)) cats[k].doubtRight++; }
+  }
+  const entries=Object.entries(cats).sort((a,b)=>(a[1].right/a[1].total)-(b[1].right/b[1].total));
+  let html='', weak=[];
+  entries.forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    const hasDoubt=o.doubt>0;
+    let cls, tag;
+    if(small){ cls='mk-note'; tag='样本少·仅供参考'; }
+    else if(pct>=WEAK_TH){ cls='mk-ok'; tag='达标'; }
+    else { cls='mk-weak'; tag='薄弱'; weak.push(name); }
+    const color= small?'var(--sub)':(pct>=WEAK_TH?'var(--green)':(pct>=40?'var(--amber)':'var(--red)'));
+    const sug=(small||pct<WEAK_TH)?`<div class="mk-sug">💡 ${RECOMMEND[name]||''}${small?`（本考点仅 ${o.total} 题，结论仅供参考，建议补练后复测）`:''}</div>`:'';
+    // 疑问权重提示：即使达标，有疑问也提示巩固
+    const doubtNote = hasDoubt?`<div class="mk-doubt">⚠疑问知识点：你标记 ${o.doubt} 题（对 ${o.doubtRight} / 错 ${o.doubt-o.doubtRight}）${(!small&&pct>=WEAK_TH)?'　→ 虽达标但含疑问，建议巩固':''}</div>`:'';
+    html+=`<div class="mk-row"><div class="mk-top"><span class="mk-name">${name}（${o.total}题）</span><span class="${cls}">${o.right}/${o.total} · ${pct}% · ${tag}</span></div><div class="mk-bar"><div class="mk-fill" style="width:${pct}%;background:${color}"></div></div>${doubtNote}${sug}</div>`;
+  });
+  document.getElementById('mkList').innerHTML=html;
+  let wt='';
+  if(weak.length) wt='<div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">⚠️ 薄弱模块：</div>'+weak.map(w=>`<span class="wt">${w}</span>`).join('');
+  else wt='<div class="mk-ok" style="margin-top:10px">🎉 所有样本充足的考点均达标，无薄弱点！</div>';
+  document.getElementById('weakTags').innerHTML=wt;
+  // 疑问标记汇总
+  const allDoubt=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) allDoubt.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}`);
+  const ds=document.getElementById('doubtSummary');
+  if(allDoubt.length){
+    const doubtCats=[...new Set(allDoubt.map(s=>s.match(/【(.+?)】/)[1]))];
+    ds.style.display='block';
+    ds.innerHTML=`<b>⚠疑问知识点：共 ${allDoubt.length} 题</b>（涉及考点：${doubtCats.join('、')}）。这些是你自感没把握的知识点，已按考点加权提示：即使答对了也建议回看对应「知识讲解」巩固；答错的优先重练。`;
+  } else { ds.style.display='none'; ds.innerHTML=''; }
+  document.getElementById('mastery').classList.add('show');
+  buildExport(cats, weak);
+}
+
+function buildExport(cats, weak){
+  const total=Q.length;
+  const right=+document.getElementById('scoreOk').textContent;
+  let t=`【第十章 财务分析与评价 自测结果】\n总分：${right}/${total}（正确率 ${Math.round(right/total*100)}%）\n\n各考点掌握：\n`;
+  Object.entries(cats).forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    let flag='';
+    if(!small&&pct<WEAK_TH) flag=' ⚠薄弱';
+    if(small) flag=' ·样本少，仅供参考';
+    if(o.doubt>0) flag+=` ·⚠疑问知识点${o.doubt}题(对${o.doubtRight}/错${o.doubt-o.doubtRight})`;
+    t+=`· ${name}：${o.right}/${o.total}（${pct}%${flag}）\n`;
+  });
+  const wrongs=[];
+  for(let i=0;i<Q.length;i++) if(!isCorrect(i)) wrongs.push(`第${i+1}题【${Q[i].k}】你的答案:${getSel(i)||'未作答'} → 正确答案:${Q[i].a}`);
+  t+=`\n错题清单（${wrongs.length}题）：\n`+wrongs.join('\n');
+  const doubtsList=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) doubtsList.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}(你标疑问)`);
+  t+=`\n\n⚠疑问知识点（${doubtsList.length}题）：\n`+(doubtsList.length?doubtsList.join('\n'):'无');
+  t+=`\n\n薄弱模块：${weak.length?weak.join('、'):'无'}`;
+  document.getElementById('masteryText').value=t;
+}
+
+document.getElementById('exportBtn').addEventListener('click',()=>{
+  const ta=document.getElementById('masteryText');
+  ta.style.display='block'; ta.focus(); ta.select();
+  const done=()=>{const b=document.getElementById('exportBtn');const o=b.textContent;b.textContent='已复制到剪贴板 ✅';setTimeout(()=>b.textContent=o,1800);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(done).catch(()=>{});}
+  else{try{document.execCommand('copy');done();}catch(e){}}
+});
+
+function toggleExplain(){
+  showAll=!showAll;
+  for(let i=0;i<Q.length;i++) document.getElementById('ex'+i).classList.toggle('show',showAll);
+  document.getElementById('explainBtn').textContent= showAll?'隐藏全部解析':'查看全部解析';
+}
+
+function toggleWrong(){
+  onlyWrong=!onlyWrong;
+  for(let i=0;i<Q.length;i++){
+    const card=document.getElementById('q'+i);
+    const wrong=card.classList.contains('res-wrong');
+    card.classList.toggle('dim', onlyWrong && !wrong);
+  }
+  document.getElementById('filterBtn').textContent= onlyWrong?'显示全部':'只看错题';
+}
+
+function reset(){
+  graded=false; showAll=false; onlyWrong=false;
+  doubts=Q.map(()=>false);
+  document.getElementById('submitBtn').style.display='inline-block';
+  document.getElementById('explainBtn').style.display='none';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  document.getElementById('filterBtn').style.display='none';
+  document.getElementById('filterBtn').textContent='只看错题';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('mastery').classList.remove('show');
+  build();
+}
+
+// 知识讲解弹框：吸顶导航贴标题（固定显示）+ 锚点定位 + 滚动高亮（scrollspy）
+const NAV_OFFSET=20; // 顶部留白（导航在滚动区外，无需补偿高度）
+function findActiveK(){
+  const base=sumBody.scrollTop+NAV_OFFSET;
+  let active=SUMMARY_SECTIONS[0].k;
+  for(const s of SUMMARY_SECTIONS){
+    const el=document.getElementById('kp-'+s.k);
+    if(el && el.offsetTop<=base) active=s.k;
+  }
+  return active;
+}
+function updateSumNav(){
+  const k=findActiveK();
+  sumNav.querySelectorAll('.sum-nav-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-k')===k));
+}
+function openSummary(k){
+  if(!sumBody.dataset.built){ sumBody.innerHTML=buildSumBody(); sumNav.innerHTML=buildSumNav(); sumBody.dataset.built='1'; }
+  sumMask.classList.add('show');
+  document.body.style.overflow='hidden';
+  if(k){ const el=document.getElementById('kp-'+k); if(el) el.scrollIntoView({block:'start'}); }
+  else { sumBody.scrollTop=0; }
+  updateSumNav();
+}
+function closeSummary(){ sumMask.classList.remove('show'); document.body.style.overflow=''; }
+sumBody.addEventListener('scroll',()=>{ if(sumMask.classList.contains('show')) updateSumNav(); });
+document.getElementById('sumClose').addEventListener('click',closeSummary);
+sumMask.addEventListener('click',(e)=>{ if(e.target.id==='sumMask') closeSummary(); });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeSummary(); });
+sumNav.addEventListener('click',(e)=>{
+  const nb=e.target.closest('.sum-nav-btn');
+  if(nb){ const el=document.getElementById('kp-'+nb.getAttribute('data-k')); if(el){ el.scrollIntoView({block:'start'}); updateSumNav(); } }
+});
+
+document.getElementById('chapterBtn').addEventListener('click',()=>openSummary(null));
+document.getElementById('submitBtn').addEventListener('click',submit);
+document.getElementById('explainBtn').addEventListener('click',toggleExplain);
+document.getElementById('filterBtn').addEventListener('click',toggleWrong);
+document.getElementById('resetBtn').addEventListener('click',reset);
+build();
+</script>
+</body>
+</html>

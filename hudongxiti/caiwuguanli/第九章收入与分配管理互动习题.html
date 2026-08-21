@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中级财务管理 · 第九章 收入与分配管理 互动自测题</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --line:#e6eaf0; --ink:#1f2733; --sub:#6b7785;
+    --blue:#2f6fed; --blue-soft:#eaf1ff; --green:#1f9d55; --green-soft:#e7f6ee;
+    --red:#e0463e; --red-soft:#fdecea; --amber:#e8973a; --amber-soft:#fdf2e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;font-size:15px}
+  .wrap{max-width:820px;margin:0 auto;padding:20px 6px 80px}
+  header{background:linear-gradient(135deg,#2f6fed,#5b8def);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:16px;box-shadow:0 6px 20px rgba(47,111,237,.18)}
+  header h1{margin:0 0 6px;font-size:21px;font-weight:700}
+  header p{margin:0;opacity:.92;font-size:13.5px}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:16px;display:flex;
+    align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .topbar .stat{font-size:13.5px;color:var(--sub)}
+  .topbar .stat b{color:var(--ink);font-size:15px}
+  .grow{flex:1}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;padding:9px 8px;font-size:14px;font-weight:600;transition:.15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:#245fd6}
+  .btn-ghost{background:#eef1f6;color:var(--ink)}
+  .btn-ghost:hover{background:#e3e8f0}
+  .btn-amber{background:var(--amber);color:#fff}
+  .btn-amber:hover{filter:brightness(1.05)}
+  .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+  .btn-outline:hover{background:var(--blue-soft)}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;transition:.2s}
+  .q.dim{display:none}
+  .q.doubt{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber-soft)}
+  .q-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+  .qno{background:var(--blue-soft);color:var(--blue);font-weight:700;border-radius:8px;padding:2px 9px;font-size:13px;white-space:nowrap;margin-top:2px;cursor:pointer}
+  .badge{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;margin-top:2px}
+  .b-single{background:var(--blue-soft);color:var(--blue)}
+  .b-multi{background:var(--amber-soft);color:#b9742a}
+  .b-judge{background:#efe9fb;color:#6f4fd6}
+  .stem{font-weight:600;flex:1}
+  .doubt-btn{font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;border:1px solid var(--amber);
+    background:#fff;color:#b9742a;white-space:nowrap;margin-top:2px}
+  .doubt-btn.on{background:var(--amber);color:#fff;border-color:var(--amber)}
+  .doubt-btn:disabled{opacity:.55;cursor:not-allowed}
+  .opts{display:flex;flex-direction:column;gap:8px;margin:6px 0 4px}
+  .opt{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:#c8d4e6;background:#f8faff}
+  .opt input{accent-color:var(--blue);width:16px;height:16px;cursor:pointer}
+  .opt .lab{font-weight:700;color:var(--sub)}
+  .opt .txt{flex:1}
+  .opt.correct{border-color:var(--green);background:var(--green-soft)}
+  .opt.wrong{border-color:var(--red);background:var(--red-soft)}
+  .opt.correct .lab{color:var(--green)}
+  .opt.wrong .lab{color:var(--red)}
+  .opt.missed{border-color:var(--amber);background:var(--amber-soft)}
+  .opt.missed .lab{color:#b9742a}
+  .my-ans-tip{margin-top:10px;padding:8px 12px;background:var(--amber-soft);border:1px dashed #e8c98a;border-radius:8px;font-size:13px;color:#7a5a1e}
+  .explain{margin-top:12px;padding:12px 14px;background:#fafbfd;border:1px dashed var(--line);border-radius:10px;font-size:13.5px;display:none}
+  .explain.show{display:block}
+  .et-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .explain .et{font-weight:700;color:var(--green);font-size:13px}
+  .explain .ans{color:var(--blue);font-weight:700}
+  .btn-know{margin-top:0;font-size:12.5px;padding:6px 12px;border-radius:8px;background:var(--blue-soft);color:var(--blue);border:1px solid #cfe0ff;font-weight:600;white-space:nowrap}
+  .btn-know:hover{background:#dce9ff}
+  .q.res-correct{border-color:var(--green)}
+  .q.res-wrong{border-color:var(--red)}
+  .result{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px;display:none}
+  .result.show{display:block}
+  .score-big{font-size:34px;font-weight:800}
+  .score-big .ok{color:var(--green)} .score-big .tot{color:var(--sub);font-size:20px}
+  .intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:16px;font-size:13.5px;color:var(--sub)}
+  .intro b{color:var(--ink)}
+  .tag{display:inline-block;background:#eef1f6;border-radius:6px;padding:1px 8px;margin:2px 4px 2px 0;font-size:12px;color:var(--sub)}
+  .legend{font-size:12px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .mastery{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px;display:none}
+  .mastery.show{display:block}
+  .mastery h3{margin:0 0 4px;font-size:16px}
+  .mastery .sub{font-size:12.5px;color:var(--sub);margin-bottom:12px}
+  .mk-row{margin:11px 0}
+  .mk-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+  .mk-name{font-weight:600}
+  .mk-pct{font-weight:700}
+  .mk-bar{height:8px;border-radius:5px;background:#eef1f6;overflow:hidden}
+  .mk-fill{height:100%;border-radius:5px;transition:.3s}
+  .mk-weak{color:var(--red);font-weight:700}
+  .mk-ok{color:var(--green);font-weight:700}
+  .mk-note{color:var(--sub);font-weight:700}
+  .mk-sug{font-size:12px;color:var(--sub);margin-top:3px}
+  .mk-doubt{font-size:12px;color:#b9742a;margin-top:3px}
+  .weak-tags{margin-top:12px}
+  .weak-tags .wt{display:inline-block;background:var(--red-soft);color:var(--red);border-radius:6px;padding:2px 9px;margin:3px 4px 0 0;font-size:12px;font-weight:600}
+  .doubt-summary{margin-top:14px;padding:12px 14px;background:var(--amber-soft);border:1px solid #f0d3a0;border-radius:10px;font-size:12.5px;color:#7a5a1e}
+  .doubt-summary b{color:#7a5a1e}
+  #masteryText{width:100%;height:150px;margin-top:10px;font-family:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical;color:var(--sub);display:none}
+  /* 知识讲解弹框 */
+  .modal-mask{position:fixed;inset:0;background:rgba(15,23,35,.55);display:none;z-index:100;align-items:flex-start;justify-content:center;padding:24px 12px}
+  .modal-mask.show{display:flex}
+  .modal-box{background:#fff;border-radius:16px;width:100%;max-width:860px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:16px;font-weight:700;flex:0 0 auto}
+  .modal-close{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;margin:0;line-height:1;font-size:15px;border-radius:50%;background:#eef1f6;color:var(--sub);border:none;cursor:pointer}
+  .modal-close:hover{background:#e3e8f0;color:var(--ink)}
+  /* 知识点吸顶导航：宽度 100%，紧贴标题栏下方（不随内容滚动） */
+  .sum-nav{flex:0 0 auto;width:100%;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(15,23,35,.06)}
+  .sum-nav-btn{font-size:12px;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#f5f7fa;cursor:pointer;color:var(--sub);font-weight:600}
+  .sum-nav-btn:hover{background:var(--blue-soft);color:var(--blue)}
+  .sum-nav-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .modal-body{position:relative;overflow:auto;padding:18px 22px;line-height:1.7;flex:1 1 auto}
+  .ksec{margin-bottom:26px;padding-top:4px;scroll-margin-top:16px}
+  .ksec-title{font-size:16px;color:var(--blue);border-left:4px solid var(--blue);padding-left:10px;margin:4px 0 12px}
+  .modal-body h1.kh1{font-size:16px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h2.kh2{font-size:15px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h3.kh3{font-size:14px;margin:10px 0 5px;color:#33414f}
+  .modal-body h4.kh4{font-size:13.5px;margin:8px 0 4px;color:var(--sub)}
+  .modal-body p{margin:6px 0;font-size:13.5px}
+  .modal-body ul,.modal-body ol{margin:6px 0;padding-left:22px;font-size:13.5px}
+  .modal-body li{margin:3px 0}
+  .modal-body table.ktab{border-collapse:collapse;width:100%;margin:8px 0;font-size:12.5px}
+  .modal-body table.ktab th,.modal-body table.ktab td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+  .modal-body table.ktab th{background:#f0f4fb;font-weight:700}
+  .modal-body pre.ktree{background:#f7f9fc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+    font-size:12.5px;line-height:1.55;white-space:pre;overflow-x:auto;margin:8px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace}
+  .modal-body code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:12px}
+  /* 移动端自适应：题干换行 + 顶部按钮组换行 */
+  @media (max-width:640px){
+    .q-head{flex-wrap:wrap;gap:8px 10px}
+    .q-head .stem{flex:1 1 100%;order:2}
+    .q-head .doubt-btn{order:1}
+    .topbar .grow{flex:0 0 100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>中级财务管理 · 第九章 收入与分配管理 互动自测题</h1>
+    <p>依据高红瑞 2026 精讲班《第九章 收入与分配管理》整章讲义与习题纯享命题 · 共 71 题（单选 / 多选 / 判断）</p>
+  </header>
+
+  <div class="intro">
+    <b>本章覆盖考点：</b><br>
+    <span class="tag">筹资动机</span><span class="tag">直接vs间接</span><span class="tag">银行借款</span><span class="tag">发行债券</span><span class="tag">租赁</span><span class="tag">吸收直接投资</span><span class="tag">发行普通股</span><span class="tag">留存收益</span><span class="tag">可转换债券</span><span class="tag">优先股</span>
+    <div class="legend" style="margin-top:10px">
+      <i><span class="dot" style="background:var(--blue)"></span>单选：选 1 个</i>
+      <i><span class="dot" style="background:var(--amber)"></span>多选：至少 2 个，须全对才得分</i>
+      <i><span class="dot" style="background:#6f4fd6"></span>判断：选 正确 / 错误</i>
+    </div>
+    <div style="margin-top:8px"><b>操作：</b>逐题作答 → 答题时可点题号旁的 <b>「标记疑问」</b> 标记没把握的知识点（提交前可反复反选，提交后锁定，重置清空）→ 点「提交答卷」判分 → 逐题看解析（多选错题会标出<b>漏选/错选</b>，解析下可点 <b>「知识讲解」</b> 看整章对应知识点详解）→ 交卷后自动生成 <b>5 大考点掌握分析</b>（含 ⚠疑问知识点 加权提示）与可复制报告。顶部「章节知识点」可随时查看整章详解。</div>
+  </div>
+
+  <div class="topbar">
+    <div class="stat">已答 <b id="answered">0</b> / 71</div>
+    <div class="stat">正确 <b id="rightcnt">0</b></div>
+    <div class="stat">疑问 <b id="doubtcnt">0</b></div>
+    <div class="grow"></div>
+    <button type="button" class="btn-outline" id="chapterBtn">章节知识点</button>
+    <button type="button" class="btn-ghost" id="filterBtn" style="display:none">只看错题</button>
+    <button type="button" class="btn-ghost" id="resetBtn">重置</button>
+    <button type="button" class="btn-primary" id="submitBtn">提交答卷</button>
+    <button type="button" class="btn-amber" id="explainBtn" style="display:none">隐藏全部解析</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-big"><span class="ok" id="scoreOk">0</span><span class="tot"> / 71 题</span></div>
+    <div class="stat" id="scorePct" style="margin-top:4px"></div>
+    <div id="scoreTip" style="margin-top:8px;font-size:13.5px;color:var(--sub)"></div>
+  </div>
+
+  <div class="mastery" id="mastery">
+    <h3>📊 知识点掌握情况分析</h3>
+    <div class="sub">按本章 5 大考点归类你的作答。说明：<b>题数少于 3 的考点样本不足，仅作参考、不下结论</b>；正确率 &lt;70% 且样本充足的考点标记为<b style="color:var(--red)">薄弱</b>。<b style="color:#b9742a">你标记的「⚠疑问知识点」</b>会按考点加权提示（即使答对了，有疑问也建议巩固）。多选错题会区分漏选/错选。单次自测结果仅供参考，建议回看后复测。</div>
+    <div id="mkList"></div>
+    <div class="weak-tags" id="weakTags"></div>
+    <div class="doubt-summary" id="doubtSummary" style="display:none"></div>
+    <button class="btn-ghost" id="exportBtn" style="margin-top:14px">复制掌握情况报告（含错题清单+疑问知识点，可发给导师分析）</button>
+    <textarea id="masteryText" readonly></textarea>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="foot">习题与解析均整理自乐享知识库 CFP-Study-main《第九章 收入与分配管理（整章讲义）》与《第九章 收入与分配管理（习题纯享）》；知识详解内容为 learningSummary《第9章-收入与分配管理》完整原文。</div>
+</div>
+
+<!-- 知识讲解弹框 -->
+<div class="modal-mask" id="sumMask">
+  <div class="modal-box">
+    <div class="modal-head"><span>📘 第九章 收入与分配管理 · 知识讲解</span><button type="button" class="modal-close" id="sumClose" aria-label="关闭">✕</button></div>
+    <div class="sum-nav" id="sumNav"></div>
+    <div class="modal-body" id="sumBody"></div>
+  </div>
+</div>
+
+<script>
+// 第九章 收入与分配管理（习题纯享）全量 120 题
+// 数据源：乐享 CFP-Study-main 第四章 习题纯享 PDF（含参考答案与解析），全部按原文转录
+const Q = [
+ {t:"single",stem:"下列各项中，正确反映公司净利润分配顺序的是（）。",o:[["A","提取法定公积金、提取任意公积金、弥补以前年度亏损、向投资者分配股利"],["B","向投资者分配股利、弥补以前年度亏损、提取法定公积金、提取任意公积金"],["C","弥补以前年度亏损、向投资者分配股利、提取法定公积金、提取任意公积金"],["D","弥补以前年度亏损、提取法定公积金、提取任意公积金、向投资者分配股利"]],a:"D",e:"净利润分配顺序的是：弥补以前年度亏损、提取法定公积金、提取任意公积金、向投资者分配股利，所以选择D。"},
+ {t:"single",stem:"下列净利润分配事项中，根据相关法律法规和制度，应当最后进行的是（）。",o:[["A","向股东分配股利"],["B","提取任意公积金"],["C","提取法定公积金"],["D","弥补以前年度亏损"]],a:"A",e:"根据《公司法》规定，净利润分配的最后是“向股东（投资者）分配股利（利润）”。"},
+ {t:"single",stem:"属于销售预测定量分析方法的是（）。",o:[["A","营销员判断法"],["B","专家判断法"],["C","产品寿命周期分析法"],["D","趋势预测分析法"]],a:"D",e:"销售预测的定量分析法一般包括趋势预测分析法和因果预测分析法两大类。选项ABC都是销售预测的定性分析法。"},
+ {t:"single",stem:"下列销售预测分析方法中，属于定量分析法的是（）。",o:[["A","专家判断法"],["B","营销员判断法"],["C","因果预测分析法"],["D","产品寿命周期分析法"]],a:"C",e:"定量分析法，也称为数量分析法，它一般包括趋势预测分析法和因果预测分析法两大类。所以选项C是答案。专家判断法、营销员判断法、产品寿命周期分析法均属于销售预测的定性分析法。"},
+ {t:"single",stem:"下列销售预测方法中，属于因果预测分析法的是（）。",o:[["A","指数平滑法"],["B","移动平均法"],["C","专家小组法"],["D","回归直线法"]],a:"D",e:"因果预测分析法是指通过影响产品销售量（因变量）的相关因素（自变量）以及它们之间的函数关系，并利用这种函数关系进行产品销售预测的方法。因果预测分析法最常用的是回归分析法。"},
+ {t:"single",stem:"某产品2024年预测销售量为3750吨，实际销售量为4000吨，若平滑指数为0.4，则根据指数平滑法预测该产品2025年的销售量为（）吨。",o:[["A","3750"],["B","3900"],["C","3850"],["D","3875"]],a:"C",e:"预测销售量=0.4×4000+(1-0.4)×3750=3850(吨)。选项C当选。"},
+ {t:"judge",stem:"采用指数平滑法进行销售预测，平滑指数越大，预测前期的实际销售量对预测结果影响越大。()",o:[["A","正确"],["B","错误"]],a:"A",e:"Yn+1＝aXn＋（1－a）Yn＝a×前期实际值+（1-a）×前期预测值。"},
+ {t:"single",stem:"下列各项产品定价方法中，以市场需求为基础的是（）。",o:[["A","目标利润定价法"],["B","保本点定价法"],["C","边际分析定价法"],["D","变动成本定价法"]],a:"C",e:"以市场需求为基础的定价方法主要有需求价格弹性系数定价法和边际分析定价法等。"},
+ {t:"single",stem:"某产品保本点销量为25万件，边际贡献率为40%，固定成本总额为100万元。运用保本点定价法确定该产品单价为（）元。",o:[["A","4"],["B","6.67"],["C","1.6"],["D","10"]],a:"D",e:"假设运用保本点定价法确定的单价为X元，则有25×40%×X-100=0，求解得：单价=100/(25×40%）=10（元），选项D当选。"},
+ {t:"single",stem:"某企业生产销售甲产品，产销平衡，单价为100元/件，单位变动成本为50元/件，固定成本为8000元，利息费用为2000元，若目标税后利润为30000元，企业所得税税率为25%，则实现目标利润的销售量为（）件。",o:[["A","1000"],["B","800"],["C","600"],["D","960"]],a:"A",e:"息税前利润=税后利润÷(1-所得税税率)+利息费用=30000÷(1-25%)+2000=42000(元)，实现目标利润销售量=(固定成本+目标息税前利润)÷(单价-单位变动成本)=(8000+42000)÷(100-50)=1000(件)。选项A当选。"},
+ {t:"single",stem:"某产品计划产销量1000件，消费税税率为5%，固定成本为10000元，单位变动成本9元/件，若目标利润为95000元，则运用目标利润法测算的产品价格为（）。",o:[["A","115元/件"],["B","100元/件"],["C","104元/件"],["D","120元/件"]],a:"D",e:"方法一：假设单位产品价格为P，则有P×(1-5%)×1000-1000×9-10000=95000，解方程得出P=120(元/件)。方法二：单位产品价格=(目标利润总额+完全成本总额)÷[产品销量x(1-适用税率)]=(95000+10000+1000×9)÷[1000×(1-5%)]=120(元/件)。"},
+ {t:"single",stem:"产品A的销量为1000件，完全成本总额为19000元，目标利润为95000元，消费税税率5%。则该产品的单价为（）元。",o:[["A","108.3"],["B","120"],["C","80"],["D","72.2"]],a:"B",e:"1000×单价＝19000＋95000＋1000×单价×5%故该产品的单价＝（19000＋95000）/[1000×（1－5%）]＝120（元）。"},
+ {t:"single",stem:"某公司生产并销售单一产品，适用的消费税税率为5%，本期计划销售量为80000件，公司产销平衡，完全成本总额为360000元，公司将目标利润定为400000元，则单位产品价格应为（）元。",o:[["A","10"],["B","5"],["C","9.5"],["D","4.5"]],a:"A",e:"单位产品价格=（400000+360000）/[80000*（1-5%）]=10元。"},
+ {t:"judge",stem:"根据边际分析定价法，边际利润为零时的价格是最低价格。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"根据边际分析定价法，边际利润为零时的价格是最优销售价格。本题表述错误。"},
+ {t:"single",stem:"下列各项中，以市场需求为基础的定价方法是（）。",o:[["A","保本点定价法"],["B","全部成本费用加成定价法"],["C","目标利润法"],["D","边际分析定价法"]],a:"D",e:"以市场需求为基础的定价方法有需求价格弹性系数法与边际分析定价法，选择D。"},
+ {t:"single",stem:"企业采用低股利政策，适用的股利分配理论是（）。",o:[["A","信号传递理论"],["B","手中鸟理论"],["C","所得税差异理论"],["D","代理理论"]],a:"C",e:"信号传递理论认为，预期未来获利能力强的公司，往往愿意通过相对较高的股利支付水平，把自己同预期盈利能力差的公司区别开来，以吸引更多的投资者，选项A不当选；手中鸟理论认为，当公司支付较高的股利时，公司的股票价格会随之上升，公司的价值将得到提高，选项B不当选；所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策，选项C当选；代理理论认为，理想的股利政策应当使代理成本和外部融资成本之和最小，选项D不当选。"},
+ {t:"multi",stem:"下列股利分配理论中，认为股利政策会影响公司的价值的有（）。",o:[["A","信号传递理论"],["B","所得税差异理论"],["C","“手中鸟”理论"],["D","代理理论"]],a:"ABCD",e:"股利相关理论认为，企业的股利政策会影响股票价格和公司价值。主要观点有：（1）“手中鸟”理论；（2）信号传递理论；（3）所得税差异理论；（4）代理理论。"},
+ {t:"multi",stem:"下列关于股利政策的说法中，符合代理理论观点的有（）",o:[["A","股利政策应当向市场传递有关公司未来获利能力的信息"],["B","股利政策是协调股东与管理者之间代理关系的约束机制"],["C","高股利政策有利于降低公司的代理成本"],["D","理想的股利政策应当是发放尽可能高的现金股利"]],a:"BC",e:"代理理论认为，股利政策有助于减缓管理者与股东之间的代理冲突，即股利政策是协调股东与管理者之间代理关系的一种约束机制。所以选项B正确；代理理论认为，高水平的股利政策降低了企业的代理成本，但同时增加了外部融资成本，理想的股利政策应当使两种成本之和最小。所以选项C正确；选项D属于“手中鸟”理论的观点；选项A属于信号传递理论的观点。"},
+ {t:"single",stem:"股利无关论认为股利分配对公司市场价值不产生影响，下列关于股利无关理论的假设表述错误的是（）。",o:[["A","投资决策不受股利分配的影响"],["B",".不存在股票筹资费用"],["C","不存在资本增值"],["D","不存在个人或公司所得税"]],a:"C",e:"股利无关论建立在完全资本市场理论之上的，假定条件包括：1.市场具有强势有效，没有任何一个股东的实力足以影响股票价格；2.不存在任何公司或个人所得税；3.不存在筹资费用；4.公司的投资决策与股利决策彼此独立；5.股东对股利收入和资本增值之间并无偏好。"},
+ {t:"single",stem:"有种观点认为，企业支付高现金股利可以减少管理者对于自由现金流量的支配，从而在一定程度上抑制管理者的在职消费，持这种观点的股利分配理论是（）。",o:[["A","所得税差异理论"],["B","代理理论"],["C","信号传递理论"],["D","“手中鸟”理论"]],a:"B",e:"代理理论认为，高水平的股利政策降低了企业的代理成本，但同时增加了外部融资成本，理想的股利政策应当使两种成本之和最小。"},
+ {t:"single",stem:"下列股利理论中，支持“低现金股利有助于实现股东利益最大化目标”观点的是（）。",o:[["A","信号传递理论"],["B","“手中鸟”理论"],["C","代理理论"],["D","所得税差异理论"]],a:"D",e:"所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策，所以答案为选项D。"},
+ {t:"single",stem:"当公司宣布高股利政策后，投资者认为公司有充足的财务实力和良好的发展前景，从而使股价产生正向反映。持有这种观点的股利理论是（）。",o:[["A","所得税差异理论"],["B","信号传递理论"],["C","代理理论"],["D","“手中鸟”理论"]],a:"B",e:"信号传递理论认为，在信息不对称的情况下，公司可以通过股利政策向市场传递有关公司未来获利能力的信息，从而会影响公司的股价。此题公司通过宣布高股利政策，向投资者传递“公司有充足的财务实力和良好的发展前景”的信息，从而对股价产生正向影响。"},
+ {t:"single",stem:"厌恶风险的投资者偏好确定的股利收益，而不愿将收益留存在公司内部去承担未来的投资风险，因此公司采用高现金股利政策有利于提升公司价值。这种观点的理论依据是（）。",o:[["A","代理理论"],["B","信号传递理论"],["C","所得税差异理论"],["D","“手中鸟”理论"]],a:"D",e:"“手中鸟”理论认为，用留存收益再投资给投资人带来的收益具有较大的不确定性，并且投资的风险随着时间的推移会进一步加大，因此，厌恶风险的投资者会偏好确定的股利收益，而不愿意将收益留存在公司内部去承担未来的投资风险。"},
+ {t:"single",stem:"某股利分配理论认为，由于对资本利得收益征收的税率低于对股利收益征收的税率，企业应采用低股利政策。该股利分配理论是（）。",o:[["A","代理理论"],["B","信号传递理论"],["C","“手中鸟”理论"],["D","所得税差异理论"]],a:"D",e:"所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策。"},
+ {t:"single",stem:"某公司2024年度净利润为2000万元，2025年的投资计划需要资金1000万元，根据目标资本结构的要求，所需资金中权益资本占40%、债务资本占60%，根据剩余股利政策，可发放的现金股利为（）万元。",o:[["A","1000"],["B",".1200"],["C","1600"],["D","1800"]],a:"C",e:"可发放的现金股利=2000-1000×40%=1600(万元)。选项C当选。"},
+ {t:"single",stem:"某公司本年净利润为2800万元，预计下一年投资所需资金为3000万元，公司目标资本结构要求投资所需资金中的权益资本占60%，根据剩余股利政策，本年可发放的现金股利为（）万元。",o:[["A","1320"],["B","1120"],["C","1000"],["D","1200"]],a:"C",e:"本年可发放的现金股利=净利润-投资所需资金×权益资本占比=2800-3000×60%=1000(万元)，选项C当选。"},
+ {t:"single",stem:"某公司目标资本结构要求权益资本占55%，2020年的净利润为2500万元，预计2021年投资所需资金为3000万元。按照剩余股利政策。2020年可发放的现金股利为（）。",o:[["A","850万元"],["B","1150万元"],["C","1375万元"],["D","1125万元"]],a:"A",e:"2020年可发放的现金股利＝2500－3000×55%＝850(万元）。"},
+ {t:"judge",stem:"某公司目标资本结构要求权益资本占60%，2020年的净利润为2000万元，预计2021年的投资需求为1000万元。按照剩余股利政策，2020年可发放的现金股利为1400万元。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"可发放的现金股利＝2000－1000×60%＝1400（万元）。"},
+ {t:"judge",stem:"采用剩余股利政策，在有投资机会时，企业偏向留存收益进行筹资。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"剩余股利政策是指公司在有良好的投资机会时，根据目标资本结构，测算出投资所需的权益资本额，先从盈余中留用，然后将剩余的盈余作为股利来分配，即净利润首先满足公司的权益资金需求，如果还有剩余，就派发股利；如果没有，则不派发股利。可以看出，剩余股利政策是偏向留存收益进行筹资的。"},
+ {t:"multi",stem:"下列各项中，属于剩余股利政策优点的有（）。",o:[["A","保持目标资本结构"],["B","降低再投资资本成本"],["C","使股利与企业盈余紧密结合"],["D","实现企业价值的长期最大化"]],a:"ABD",e:"剩余股利政策的优点是：留存收益优先满足再投资的需要，有助于降低再投资的资金成本，保持最佳的资本结构，实现企业价值的长期最大化。股利与企业盈余紧密结合是固定股利支付率政策的优点，所以选项ABD是答案。"},
+ {t:"multi",stem:"下列各项中，属于固定或稳定增长的股利政策优点的有（）。",o:[["A","稳定的股利有利于稳定股价"],["B","稳定的股利有利于树立公司的良好形象"],["C","稳定的股利使股利与公司盈余密切挂钩"],["D","稳定的股利有利于优化公司资本结构"]],a:"AB",e:"固定或稳定增长股利政策的优点有：(1)由于股利政策本身的信息含量，稳定的股利向市场传递着公司正常发展的信息，有利于树立公司的良好形象，增强投资者对公司的信心，稳定股票的价格。(2)稳定的股利额有助于投资者安排股利收入和支出，有利于吸引那些打算进行长期投资并对股利有很高依赖性的股东。(3)稳定的股利政策可能会不符合剩余股利理论，但考虑到股票市场会受多种因素影响(包括股东的心理状态和其他要求)，为了将股利维持在稳定的水平上，即使推迟某些投资方案或暂时偏离目标资本结构，也可能比降低股利或股利增长率更为有利。"},
+ {t:"judge",stem:"一般而言，固定股利支付率政策能够向市场传递公司经营稳定的信号，从而有助于增强投资者的信心，避免公司股价波动。()",o:[["A","正确"],["B","错误"]],a:"B",e:""},
+ {t:"single",stem:"下列股利政策中，最能体现“多盈多分、少盈少分、无盈不分”的股利分配原则的是（）。",o:[["A","固定或稳定增长的股利政策"],["B",".固定股利支付率政策"],["C","低正常股利加额外股利政策"],["D","剩余股利政策"]],a:"B",e:"固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东。固定股利支付率政策的优点之一是股利与公司盈余紧密地配合，体现了“多盈多分、少盈少分、无盈不分”的股利分配原则。"},
+ {t:"multi",stem:"下列各项中，属于固定股利支付率政策缺点的有（）。",o:[["A","股利波动容易给投资者带来投资风险较大的不良印象"],["B","难以确定合适的固定股利支付率"],["C","股利的支付与公司盈利脱节"],["D","股利波动容易向投资者传递公司经营状况不稳定的负面信号"]],a:"ABD",e:"固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东，能够使股利与公司盈余紧密地配合，选项C的说法不正确。"},
+ {t:"judge",stem:"在固定股利支付率政策下，各年的股利随着收益的波动而波动，容易给投资者带来公司经营状况不稳定印象。",o:[["A","正确"],["B","错误"]],a:"A",e:"题干表述正确。"},
+ {t:"single",stem:"下列各项中，属于固定股利支付率政策优点的是（）。",o:[["A","股利分配有较大灵活性"],["B","有利于稳定公司的股价"],["C","股利与公司盈余紧密配合"],["D","有利于树立公司的良好形象"]],a:"C",e:"固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东。所以，股利与公司盈余紧密配合。"},
+ {t:"judge",stem:"与固定股利政策相比，低正常股利加额外股利政策赋予公司股利发放的灵活性。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"低正常股利加额外股利政策下，公司可根据每年的具体情况，选择不同的股利发放水平，所以赋予了公司较大的灵活性。"},
+ {t:"single",stem:"下列股利政策中，有利于保持企业最佳资本结构的是（）。",o:[["A","固定股利政策"],["B","剩余股利政策"],["C","固定股利支付率政策"],["D","低正常股利加额外股利政策"]],a:"B",e:"剩余股利政策的优点之一是有利于保持企业最佳资本结构，所以选择B。"},
+ {t:"judge",stem:"根据“无利不分”原则，当企业出现年度亏损时，一般不进行利润分配。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"出现年度亏损也就是“无利”，根据“无利不分”原则，企业一般不进行利润分配。"},
+ {t:"single",stem:"下列股利政策中，具有较大财务弹性，且可使股东得到相对稳定的股利收入的是（）。",o:[["A","低正常股利加额外股利政策"],["B","固定股利支付率政策"],["C","固定或稳定增长的股利政策"],["D","剩余股利政策"]],a:"A",e:"低正常股利加额外股利政策的优点：（1）赋予公司较大的灵活性，使公司在股利发放上留有余地，并具有较大的财务弹性。公司可根据每年的具体情况，选择不同的股利发放水平，以稳定和提高股价，进而实现公司价值的最大化；（2）使那些依靠股利度日的股东每年至少可以得到虽然较低但比较稳定的股利收入，从而吸引住这部分股东。"},
+ {t:"single",stem:"某公司用别的公司的股票作为股利支付给本公司股东，该股利支付方式属于（）。",o:[["A","股票股利"],["B","负债股利"],["C","财产股利"],["D","资金股利"]],a:"C",e:"财产股利是以现金以外的其他资产支付的股利，主要是以公司所拥有的其他公司的有价证券（如债券、股票等）作为股利支付给股东，选项C当选。"},
+ {t:"multi",stem:"某公司发放股利前的股东权益如下：股本3000万元（每股面值1元），资本公积2000万元，盈余公积2000万元，未分配利润5000万元。若每10股发放1股普通股作为股利，股利按市价（每股10元）计算，则公司发放股利后，下列说法正确的有（）。",o:[["A","未分配利润的金额为2000万元"],["B","股东权益的金额为12000万元"],["C","股本的金额为3300万元"],["D","盈余公积的金额为4700万元"]],a:"ABC",e:"借：利润分配——未分配利润300×10贷：股本 300×1资本公积 300×9发放股票股利后，未分配利润＝5000－3000/10×10＝2000（万元），股本＝3000＋3000/10×1＝3300（万元），资本公积＝2000＋3000/10×（10－1）＝4700（万元），发放股票股利不影响盈余公积，选项A.C正确，选项D错误。发放股票股利前后股东权益金额不变，仍为3000＋2000＋2000＋5000＝12000（万元），选项B正确。"},
+ {t:"single",stem:"企业以增发股票的方式支付股利，这个行为对公司的影响是（）。",o:[["A","减少公司资产总额"],["B","减少股东权益总额"],["C","改变股东权益结构"],["D","导致现金流出"]],a:"C",e:"发放股票股利不影响资产总额和股东权益总额，也不会导致现金流出。而是会改变股东权益结构。"},
+ {t:"multi",stem:"发放股票股利对上市公司产生的影响有（）。",o:[["A","公司股票数量增加"],["B","公司资产总额增加"],["C","公司股东权益总额增加"],["D","公司股本增加"]],a:"AD",e:"发放股票股利对公司来说，并没有现金流出企业，也不会导致公司的财产减少，而只是将公司的未分配利润转化为股本和资本公积。但股票股利会增加流通在外的股票数量，同时降低股票的每股价值。它不改变公司股东权益总额，但会改变股东权益的构成。所以选项A.D正确，选项BC错误。"},
+ {t:"single",stem:"如果某公司以所持有的其他公司的有价证券作为股利发放给本公司股东，则该股利支付方式属于（）。",o:[["A","负债股利"],["B","现金股利"],["C","财产股利"],["D","股票股利"]],a:"C",e:"财产股利是以现金以外的其他资产支付的股利，主要以公司所拥有的其他公司的有价证券作为股利支付给股东。"},
+ {t:"multi",stem:"对公司而言，发放股票股利的优点有（）。",o:[["A","减轻公司现金支付压力"],["B","有利于股票交易和流通"],["C","使股权更为集中"],["D",".可以向市场传递公司未来发展前景良好的信息"]],a:"ABD",e:"对公司来讲，股票股利的优点主要有：①不需要向股东支付现金，在再投资机会较多的情况下，公司就可以为再投资提供成本较低的资金，从而有利于公司的发展；②可以降低公司股票的市场价格，既有利于促进股票的交易和流通，又有利于吸引更多的投资者成为公司股东，进而使股权更为分散，有效地防止公司被恶意控制；③可以传递公司未来发展良好的信息，从而增强投资者的信心，在一定程度上稳定股票价格。"},
+ {t:"judge",stem:"除息日4.11日，股权登记日4.10日，4.11日购入股票的股东无权领取本次分派的股利。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"在除息日之前购买股票的股东才能领取本次股利，而在除息日当天或是以后购买股票的股东，则不能领取本次股利。"},
+ {t:"judge",stem:"在上市公司股利分配中，除息日当天购买股票的投资者拥有领取本次股利的权利。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"除息日，即领取股利的权利与股票分离的日期。在除息日之前购买股票的股东才能领取本次股利，而在除息日当天或是以后购买股票的股东，则不能领取本次股利。"},
+ {t:"judge",stem:"在股利支付程序中，除息日是指领取股利的权利与股票分离的日期，在除息日购买股票的股东有权参与当次股利的分配。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"在除息日当天或是以后购买股票的股东，不能参与当次股利的分配。"},
+ {t:"single",stem:"要获得收取股利的权利，投资者购买股票的最迟日期是（）。",o:[["A","除息日"],["B","股权登记日"],["C","股利宣告日"],["D","股利发放日"]],a:"B",e:"股权登记日是指有权领取本期股利的股东资格登记的截止日期，凡是在此指定日期收盘之前取得公司股票，成为公司在册股东的投资者都可以作为股东享受本期分派的股利。在这一天之后取得股票的股东则无权领取本次分派的股利。"},
+ {t:"single",stem:"下列选项中，不属于股票股利和股票分割相同点的是（）。",o:[["A","股东持股比例均不变"],["B","所有者权益总额均不变"],["C","均会降低股票的每股价格"],["D","所有者权益的内部结构均不变"]],a:"D",e:"股票分割和股票股利均不会改变股东的持股比例和所有者权益总额，均会使发行在外的普通股股数增加，从而降低每股价格，选项A.B.C不当选；发放股票股利，未分配利润减少，股本(资本公积)增加，所有者权益的内部结构发生变化；股票分割，所有者权益的内部结构不会发生任何变化，变化的只是股票面值，选项D当选。"},
+ {t:"multi",stem:"关于股票股利与股票分割，在其他条件不变情况下，下列说法正确的有（）。",o:[["A","均不改变股东权益内部结构"],["B","均不改变持股比例"],["C","均不改变资本结构"],["D","均无现金流出"]],a:"BCD",e:"股票股利与股票分割均不会导致股东权益总额变化，不改变持股比例，也不改变资本结构，无现金流出，选项BCD当选。股票股利会导致股本或资本公积增加，未分配利润减少，所以会改变股东权益内部结构，选项A不当选。"},
+ {t:"judge",stem:"股票分割会引起股东权益内部结构发生改变。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"股票分割不会改变股东权益内部结构。本题表述错误。"},
+ {t:"multi",stem:"下列关于股票分割的表述中，错误的有（）。",o:[["A","会引起每股股票面值变化"],["B","会引起股东权益内部结构变化"],["C","会引起股东权益总额变化"],["D","会引起发行在外的股票总数变化"]],a:"BC",e:"股票分割会导致每股股票面值变小，选项A不当选；股票分割不会使股东权益内部结构发生变化，选项B当选；股票分割不会引起股东权益总额变化，选项C当选；股票分割会导致发行在外的股票总数增加，选项D不当选。"},
+ {t:"multi",stem:"股票分割和股票股利的相同之处有（）。",o:[["A","不改变公司股票数量"],["B","不改变资本结构"],["C","不改变股东权益结构"],["D","不改变股东权益总额"]],a:"BD",e:"股票分割和股票股利都是在不增加股东权益的情况下增加股票数量，所以选项A错误；股票分割和股票股利都不改变资本结构和股东权益总额，所以选项BD正确；股票分割不改变股东权益结构，而股票股利会改变股东权益结构，所以选项C错误。"},
+ {t:"multi",stem:"假设某股份公司按照1：2的比例进行股票分割，下列正确的有（）。",o:[["A","股本总额增加一倍"],["B","每股净资产保持不变"],["C","股东权益总额保持不变"],["D","股东权益内部结构保持不变"]],a:"CD",e:"股票分割后，股本总额不变、股东权益总额不变、股东权益内部结构保持不变。"},
+ {t:"single",stem:"股票股利与股票分割都将增加股份数量，二者的主要差别在于是否会改变公司的（）。",o:[["A","资产总额"],["B","股东权益总额"],["C","股东权益的内部结构"],["D","股东持股比例"]],a:"C",e:"股票分割与股票股利,都是在不增加股东权益的情况下增加了股份的数量,不同的是,股票股利虽不会引起股东权益总额的改变,但股东权益的内部结构会发生变化,而股票分割之后,股东权益总额及其内部结构都不会变化，变化的是股票面值。"},
+ {t:"judge",stem:"股票分割会使公司股票总数增加，但公司股本总额不变。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"股票分割会使公司股票总数增加，但公司股本总额不变。"},
+ {t:"single",stem:"下列各项中，受企业股票分割影响的是（）。",o:[["A","每股股票价值"],["B","股东权益总额"],["C","企业资本结构"],["D","股东持股比例"]],a:"A",e:"股票分割，只是增加企业发行在外的股票股数，而企业的股东权益总额及内部结构都不会发生变化。股数增加导致每股价值降低，所以选项A是答案。"},
+ {t:"judge",stem:"公司回购股票并注销，提高了企业的财务杠杆水平，改变了资金成本结构。（）",o:[["A","正确"],["B","错误"]],a:"A",e:"本题表述正确。"},
+ {t:"judge",stem:"由于信息不对称和预期差异，公司可以通过股票回购向投资者传递股票价格被高估的信号。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"由于信息不对称和预期差异，证券市场上的公司股票价格可能被低估，而过低的股价将会对公司产生负面影响，一般情况下，投资者会认为股票回购意味着公司认为其股票价值被低估而采取的应对措施。所以本题的表述不正确。"},
+ {t:"multi",stem:"下列各项中,属于回购股票的动机的有（）。",o:[["A","改变结构"],["B","巩固控制权"],["C","传递股价被高估的信息"],["D","替代现金股利"]],a:"ABD",e:"在证券市场上,股票回购的动机多种多样,主要有以下几点：（1）现金股利的替代；（2）改变公司的资本结构；（3）传递公司信息；（4）基于控制权的考虑。控股股东为了保证其控制权不被改变,往往采取直接或间接的方式回购股票,从而巩固既有的控制权。另外,股票回购使流通在外的股份数变少,股价上升,从而可以有效地防止敌意收购。"},
+ {t:"single",stem:"下列因素可能改变企业的资本结构的是（）。",o:[["A","股票回购"],["B","股票股利"],["C","股票分割"],["D","股票合并"]],a:"A",e:"股票回购会使资产减少，股东权益减少，所以会改变公司资本结构。股票股利会使未分配利润减少，股本（或股本和资本公积）增加，是股东权益内部的此增彼减，不会改变公司资本结构，股票分割和股票合并都不会引起股本变化。"},
+ {t:"judge",stem:"由于信息不对称和预期差异，投资者会把股票回购当做公司认为其股票价格被高估的信号。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"由于信息不对称和预期差异，证券市场上的公司股票价格可能被低估，而过低的股价将会对公司产生负面影响。一般情况下，投资者会认为股票回购意味着公司认为其股票价值被低估而采取的应对措施。"},
+ {t:"single",stem:"股票回购对上市公司的影响是（）。",o:[["A","有助于降低公司财务风险"],["B","分散控股股东的控制权"],["C","有助于保护债权人利益"],["D","降低资产流动性"]],a:"D",e:"股票回购无异于股东退股和公司资本的减少，也可能会使公司的发起人股东更注重创业利润的实现，从而不仅在一定程度上削弱了对债权人利益的保护，而且忽视了公司的长远发展，损害了公司的根本利益。股票回购需要大量资金支付回购成本，容易造成资金紧张，降低资产流动性，影响公司的后续发展。"},
+ {t:"multi",stem:"关于股票期权激励模式，下列表述正确的有（）。",o:[["A","激励对象可能遭遇来自股票市场的风险"],["B","能够抑制受激励的经营者片面追求股价提升的短期行为"],["C","股票期权激励有助于降低企业的委托代理成本"],["D","激励对象行权将影响到现有股东的权益"]],a:"ACD",e:"股票期权模式的优点：①能够降低委托代理成本，并且有利于降低激励成本，选项C当选；②可以锁定期权人(激励对象)的风险。股票期权模式的缺点：①影响现有股东的权益，选项D当选；②期权人(激励对象)可能遭遇来自股票市场的风险，选项A当选；③可能带来经营者的短期行为，选项B不当选。"},
+ {t:"judge",stem:"公司采用股票期权激励高管，如果行权期内的行权价格高于股价，则激励对象可以通过行权获得收益。（）",o:[["A","正确"],["B","错误"]],a:"B",e:"公司采用股票期权激励高管，在行权期内，如果股价高于行权价格，激励对象可以通过行权获得市场价与行权价格差带来的收益。"},
+ {t:"single",stem:"某公司将1%的股票赠与管理者以激励其实现设定的业绩目标，如果目标未实现，公司有权将股票收回，这种股权激励模式是（）。",o:[["A","股票期权模式"],["B","股票增值权模式"],["C","业绩股票激励模式"],["D","限制性股票模式"]],a:"D",e:"限制性股票模式是指激励对象按照股权激励计划规定的条件，获得的转让等部分权力受到限制的本公司股票。公司为了实现某一特定目标，先将一定数量的股票赠与或以较低价格售予激励对象。只有当实现预定目标后，激励对象才可将限制性股票抛售并从中获利；若预定目标没有实现，公司有权将免费赠与的限制性股票收回或者将售出股票以激励对象购买时的价格回购。"},
+ {t:"single",stem:"某公司对公司高管进行股权激励，约定每位高管只要自即日起在公司工作满三年，即有权按每股10元的价格购买本公司股票50万股，该股权激励模式属于（）。",o:[["A","股票期权模式"],["B","限制性股票模式"],["C","业绩股票激励模式"],["D","股票增值权模式"]],a:"A",e:"股票期权模式是指上市公司授予激励对象在未来一定期限内以预先确定的条件购买本公司一定数量股份的权利。"},
+ {t:"single",stem:"若激励对象没有实现约定目标，公司有权将免费赠与的股票收回，这种股权激励是（）。",o:[["A","股票期权模式"],["B","股票增值权模式"],["C","业绩股票模式"],["D","限制性股票模式"]],a:"D",e:"限制性股票指公司为了实现某一特定目标，公司先将一定数量的股票赠与或以较低价格售予激励对象。只有当实现预定目标后，激励对象才可将限制性股票拋售并从中获利；若预定目标没有实现，公司有权将免费赠与的限制性股票收回或者将售出股票以激励对象购买时的价格回购。"},
+ {t:"judge",stem:"业绩股票激励模式只对业绩目标进行考核，而不要求股价的上涨，因而比较适合业绩稳定的上市公司。（）参考答案1.【答案】D【解析】净利润分配顺序的是：弥补以前年度亏损、提取法定公积金、提取任意公积金、向投资者分配股利，所以选择D。2.【答案】A【解析】根据《公司法》规定，净利润分配的最后是“向股东（投资者）分配股利（利润）”。3.【答案】D【解析】销售预测的定量分析法一般包括趋势预测分析法和因果预测分析法两大类。选项ABC都是销售预测的定性分析法。4.【答案】C【解析】定量分析法，也称为数量分析法，它一般包括趋势预测分析法和因果预测分析法两大类。所以选项C是答案。专家判断法、营销员判断法、产品寿命周期分析法均属于销售预测的定性分析法。5.【答案】D【解析】因果预测分析法是指通过影响产品销售量（因变量）的相关因素（自变量）以及它们之间的函数关系，并利用这种函数关系进行产品销售预测的方法。因果预测分析法最常用的是回归分析法。6.【答案】C【解析】预测销售量=0.4×4000+(1-0.4)×3750=3850(吨)。选项C当选。7.【答案】√【解析】Yn+1＝aXn＋（1－a）Yn＝a×前期实际值+（1-a）×前期预测值。8.【答案】C【解析】以市场需求为基础的定价方法主要有需求价格弹性系数定价法和边际分析定价法等。9.【答案】D【解析】假设运用保本点定价法确定的单价为X元，则有25×40%×X-100=0，求解得：单价=100/(25×40%）=10（元），选项D当选。10.【答案】A【解析】息税前利润=税后利润÷(1-所得税税率)+利息费用=30000÷(1-25%)+2000=42000(元)，实现目标利润销售量=(固定成本+目标息税前利润)÷(单价-单位变动成本)=(8000+42000)÷(100-50)=1000(件)。选项A当选。11.【答案】D【解析】方法一：假设单位产品价格为P，则有P×(1-5%)×1000-1000×9-10000=95000，解方程得出P=120(元/件)。方法二：单位产品价格=(目标利润总额+完全成本总额)÷[产品销量x(1-适用税率)]=(95000+10000+1000×9)÷[1000×(1-5%)]=120(元/件)。12.【答案】B【解析】1000×单价＝19000＋95000＋1000×单价×5%故该产品的单价＝（19000＋95000）/[1000×（1－5%）]＝120（元）。13.【答案】C【解析】M产品的单价＝（400000＋600000）/20000＝50（元）。14.【答案】D【解析】变动成本是指在特定的业务量范围内,其总额会随业务量的变动而变动的成本。变动成本可以作为增量产量的定价依据。15.【答案】A【解析】单位产品价格=（400000+360000）/[80000*（1-5%）]=10元。16.【答案】×【解析】根据边际分析定价法，边际利润为零时的价格是最优销售价格。本题表述错误。17.【答案】D【解析】以市场需求为基础的定价方法有需求价格弹性系数法与边际分析定价法，选择D。18.【答案】C【解析】信号传递理论认为，预期未来获利能力强的公司，往往愿意通过相对较高的股利支付水平，把自己同预期盈利能力差的公司区别开来，以吸引更多的投资者，选项A不当选；手中鸟理论认为，当公司支付较高的股利时，公司的股票价格会随之上升，公司的价值将得到提高，选项B不当选；所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策，选项C当选；代理理论认为，理想的股利政策应当使代理成本和外部融资成本之和最小，选项D不当选。19.【答案】ABCD【解析】股利相关理论认为，企业的股利政策会影响股票价格和公司价值。主要观点有：（1）“手中鸟”理论；（2）信号传递理论；（3）所得税差异理论；（4）代理理论。20.【答案】BC【解析】代理理论认为，股利政策有助于减缓管理者与股东之间的代理冲突，即股利政策是协调股东与管理者之间代理关系的一种约束机制。所以选项B正确；代理理论认为，高水平的股利政策降低了企业的代理成本，但同时增加了外部融资成本，理想的股利政策应当使两种成本之和最小。所以选项C正确；选项D属于“手中鸟”理论的观点；选项A属于信号传递理论的观点。21.【答案】C【解析】股利无关论建立在完全资本市场理论之上的，假定条件包括：1.市场具有强势有效，没有任何一个股东的实力足以影响股票价格；2.不存在任何公司或个人所得税；3.不存在筹资费用；4.公司的投资决策与股利决策彼此独立；5.股东对股利收入和资本增值之间并无偏好。22.【答案】B【解析】代理理论认为，高水平的股利政策降低了企业的代理成本，但同时增加了外部融资成本，理想的股利政策应当使两种成本之和最小。23.【答案】D【解析】所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策，所以答案为选项D。24.【答案】B【解析】信号传递理论认为，在信息不对称的情况下，公司可以通过股利政策向市场传递有关公司未来获利能力的信息，从而会影响公司的股价。此题公司通过宣布高股利政策，向投资者传递“公司有充足的财务实力和良好的发展前景”的信息，从而对股价产生正向影响。25.【答案】D【解析】“手中鸟”理论认为，用留存收益再投资给投资人带来的收益具有较大的不确定性，并且投资的风险随着时间的推移会进一步加大，因此，厌恶风险的投资者会偏好确定的股利收益，而不愿意将收益留存在公司内部去承担未来的投资风险。26.【答案】D【解析】所得税差异理论认为，由于普遍存在的税率以及纳税时间的差异，资本利得收益比股利收益更有助于实现收益最大化目标，公司应当采用低股利政策。27.【答案】C【解析】可发放的现金股利=2000-1000×40%=1600(万元)。选项C当选。28.【答案】C【解析】本年可发放的现金股利=净利润-投资所需资金×权益资本占比=2800-3000×60%=1000(万元)，选项C当选。29.【答案】A【解析】2020年可发放的现金股利＝2500－3000×55%＝850(万元）。30.【答案】√【解析】可发放的现金股利＝2000－1000×60%＝1400（万元）。31.【答案】√【解析】剩余股利政策是指公司在有良好的投资机会时，根据目标资本结构，测算出投资所需的权益资本额，先从盈余中留用，然后将剩余的盈余作为股利来分配，即净利润首先满足公司的权益资金需求，如果还有剩余，就派发股利；如果没有，则不派发股利。可以看出，剩余股利政策是偏向留存收益进行筹资的。32.【答案】ABD【解析】剩余股利政策的优点是：留存收益优先满足再投资的需要，有助于降低再投资的资金成本，保持最佳的资本结构，实现企业价值的长期最大化。股利与企业盈余紧密结合是固定股利支付率政策的优点，所以选项ABD是答案。33.【答案】AB【解析】固定或稳定增长股利政策的优点有：(1)由于股利政策本身的信息含量，稳定的股利向市场传递着公司正常发展的信息，有利于树立公司的良好形象，增强投资者对公司的信心，稳定股票的价格。(2)稳定的股利额有助于投资者安排股利收入和支出，有利于吸引那些打算进行长期投资并对股利有很高依赖性的股东。(3)稳定的股利政策可能会不符合剩余股利理论，但考虑到股票市场会受多种因素影响(包括股东的心理状态和其他要求)，为了将股利维持在稳定的水平上，即使推迟某些投资方案或暂时偏离目标资本结构，也可能比降低股利或股利增长率更为有利。34.【答案】×35.【答案】B【解析】固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东。固定股利支付率政策的优点之一是股利与公司盈余紧密地配合，体现了“多盈多分、少盈少分、无盈不分”的股利分配原则。36.【答案】ABD【解析】固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东，能够使股利与公司盈余紧密地配合，选项C的说法不正确。37.【答案】√【解析】题干表述正确。38.【答案】C【解析】固定股利支付率政策是指公司将每年净利润的某一固定百分比作为股利分派给股东。所以，股利与公司盈余紧密配合。39.【答案】√【解析】低正常股利加额外股利政策下，公司可根据每年的具体情况，选择不同的股利发放水平，所以赋予了公司较大的灵活性。40.【答案】B【解析】剩余股利政策的优点之一是有利于保持企业最佳资本结构，所以选择B。41.【答案】√【解析】出现年度亏损也就是“无利”，根据“无利不分”原则，企业一般不进行利润分配。42.【答案】A【解析】低正常股利加额外股利政策的优点：（1）赋予公司较大的灵活性，使公司在股利发放上留有余地，并具有较大的财务弹性。公司可根据每年的具体情况，选择不同的股利发放水平，以稳定和提高股价，进而实现公司价值的最大化；（2）使那些依靠股利度日的股东每年至少可以得到虽然较低但比较稳定的股利收入，从而吸引住这部分股东。43.【答案】CD【解析】固定或稳定增长股利政策的缺点之一是股利的支付与企业的盈利相脱节。44.【答案】A【解析】剩余股利政策的理论依据是股利无关理论。根据股利无关理论，在完全理想的资本市场中，公司的股利政策与普通股每股市价无关，故而股利政策只需随着公司投资、融资方案的制定而自然确定。45.【答案】C【解析】财产股利是以现金以外的其他资产支付的股利，主要是以公司所拥有的其他公司的有价证券（如债券、股票等）作为股利支付给股东，选项C当选。46.【答案】ABC【解析】借：利润分配——未分配利润300×10贷：股本 300×1资本公积 300×9发放股票股利后，未分配利润＝5000－3000/10×10＝2000（万元），股本＝3000＋3000/10×1＝3300（万元），资本公积＝2000＋3000/10×（10－1）＝4700（万元），发放股票股利不影响盈余公积，选项A.C正确，选项D错误。发放股票股利前后股东权益金额不变，仍为3000＋2000＋2000＋5000＝12000（万元），选项B正确。47.【答案】C【解析】发放股票股利不影响资产总额和股东权益总额，也不会导致现金流出。而是会改变股东权益结构。48.【答案】AD【解析】发放股票股利对公司来说，并没有现金流出企业，也不会导致公司的财产减少，而只是将公司的未分配利润转化为股本和资本公积。但股票股利会增加流通在外的股票数量，同时降低股票的每股价值。它不改变公司股东权益总额，但会改变股东权益的构成。所以选项",o:[["A","正确"],["B","错误"]],a:"A",e:"业绩股票激励模式是指公司在年初确定一个合理的年度业绩目标，如果激励对象经过大量努力后，在年末实现了公司预定的年度业绩目标，则公司给予激励对象一定数量的股票，或奖励其一定数量的奖金来购买本公司的股票。由此可知，业绩股票激励模式只对公司的业绩目标进行考核，不要求股价的上涨，对业绩稳定型的上市公司比较适合。"}
+];
+
+// 每题对应考点（用于掌握情况自动归类），顺序与 Q 一一对应（16 考点）
+const KPOINTS=["收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "收入管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "纳税管理", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "利润分配", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策", "股利政策"];
+Q.forEach((q,i)=>q.k=KPOINTS[i]);
+
+// 掌握分析参数与建议回看指引
+const SMALL_N=3, WEAK_TH=70;
+const RECOMMEND={
+ "收入管理":"回看「收入管理」：定价方法/价格策略",
+ "纳税管理":"回看「纳税管理」：税务筹划",
+ "利润分配":"回看「利润分配」：分配顺序/股利支付方式",
+ "股利政策":"回看「股利政策」：剩余/固定/固定支付率/低正常+额外；股票分割与回购；股权激励"
+};
+
+
+
+// ============ 知识讲解（乐享 learningSummary《第9章-收入与分配管理》完整原文，按节切分锚点）============
+const SUMMARY_SECTIONS=[
+ {k:"思维导图",title:"〇 · 本章考情 + 整章思维导图",md:`# 📘 第九章 收入与分配管理
+## 〇、本章考情
+- 主要考点：收入管理、纳税管理、利润分配、股利政策
+
+## 〇、整章思维导图
+第九章 收入与分配管理
+│
+├─ 收入管理 ⭐⭐⭐⭐
+├─ 纳税管理 ⭐⭐⭐
+├─ 利润分配 ⭐⭐⭐⭐⭐
+└─ 股利政策 ⭐⭐⭐⭐⭐`},
+ {k:"收入管理",title:"收入管理",md:`# 🧩 收入管理
+- **成本加成定价法**
+- **目标利润定价法**
+- **需求价格弹性**`},
+ {k:"纳税管理",title:"纳税管理",md:`# 🧩 纳税管理
+- **税务筹划原则**
+- **合法/预见/成本效益/全局**`},
+ {k:"利润分配",title:"利润分配",md:`# 🧩 利润分配
+- **分配顺序**：弥补亏损→提取法定公积金→任意公积金→向投资者分配
+- **股利支付**：现金/股票/财产/负债`},
+ {k:"股利政策",title:"股利政策",md:`# 🧩 股利政策
+- **剩余股利**：先投资后分配
+- **固定股利**：每年固定
+- **固定支付率**：按比例
+- **低正常+额外**`},
+ {k:"速查表",title:"全章速查表",md:`# 🎯 速查表
+| 知识点 | 考频 | 必背 |
+|-|-|-|
+| 收入管理 | ⭐⭐⭐⭐ | 定价 |
+| 利润分配 | ⭐⭐⭐⭐⭐ | 分配顺序 |
+| 股利政策 | ⭐⭐⭐⭐⭐ | 四种政策 |`},
+ {k:"闭环",title:"全章闭环",md:`# 📍 全章知识链闭环
+收入→纳税→利润分配→股利政策`}
+];
+
+
+// 轻量 Markdown → HTML（支持 标题/表格/有序无序列表/粗体/行内代码/ASCII思维导图树）
+function inlineMd(s){
+  s=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  return s;
+}
+function mdToHtml(md){
+  const lines=md.replace(/\r\n/g,'\n').split('\n');
+  let html='', i=0;
+  let inTable=false, tableHtml='', rowCount=0;
+  let inList=false, listType=null, listHtml='';
+  let inPre=false, preHtml='';
+  function flushTable(){ if(inTable){ html+=`<table class="ktab">${tableHtml}</table>`; tableHtml=''; inTable=false; rowCount=0; } }
+  function flushList(){ if(inList){ html+=`<${listType} class="klist">${listHtml}</${listType}>`; listHtml=''; inList=false; listType=null; } }
+  function flushPre(){ if(inPre){ html+=`<pre class="ktree">${preHtml}</pre>`; preHtml=''; inPre=false; } }
+  for(const line of lines){
+    if(/^#{1,6}\s/.test(line)){
+      flushTable();flushList();flushPre();
+      const m=line.match(/^(#{1,6})\s+(.*)$/);
+      const lvl=m[1].length;
+      html+=`<h${lvl} class="kh${lvl}">${inlineMd(m[2])}</h${lvl}>`;
+      continue;
+    }
+    if(/^\s*\|.*\|\s*$/.test(line)){
+      flushList();flushPre();
+      if(!inTable){ inTable=true; tableHtml=''; rowCount=0; }
+      if(/^\s*\|[\s:|-]+\|\s*$/.test(line)){ continue; } // 分隔行
+      const cells=line.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c=>c.trim());
+      if(rowCount===0){ tableHtml+='<thead><tr>'+cells.map(c=>`<th>${inlineMd(c)}</th>`).join('')+'</tr></thead><tbody>'; }
+      else { tableHtml+='<tr>'+cells.map(c=>`<td>${inlineMd(c)}</td>`).join('')+'</tr>'; }
+      rowCount++;
+      continue;
+    } else { flushTable(); }
+    const isOl=/^\s*\d+\.\s+/.test(line);
+    if(/^\s*-\s+/.test(line) || isOl){
+      flushTable();flushPre();
+      if(inList && listType!==(isOl?'ol':'ul')) flushList();
+      if(!inList){ inList=true; listType=isOl?'ol':'ul'; listHtml=''; }
+      const txt=inlineMd(line.replace(/^\s*(?:-\s+|\d+\.\s+)/,''));
+      listHtml+=`<li>${txt}</li>`;
+      continue;
+    } else { flushList(); }
+    if(/[│├└┌┐┘┤┬┴┼]/.test(line)){
+      flushTable();flushList();
+      if(!inPre){ inPre=true; preHtml=''; }
+      preHtml+=inlineMd(line)+'\n';
+      continue;
+    } else { flushPre(); }
+    if(line.trim()===''){ flushTable();flushList();flushPre(); continue; }
+    html+=`<p>${inlineMd(line)}</p>`;
+  }
+  flushTable();flushList();flushPre();
+  return html;
+}
+
+function buildSumNav(){
+  let nav='';
+  SUMMARY_SECTIONS.forEach(s=>{ nav+=`<button type="button" class="sum-nav-btn" data-k="${s.k}">${s.k}</button>`; });
+  return nav;
+}
+function buildSumBody(){
+  let body='';
+  SUMMARY_SECTIONS.forEach(s=>{
+    body+=`<section class="ksec" id="kp-${s.k}"><h2 class="ksec-title">${s.title}</h2>${mdToHtml(s.md)}</section>`;
+  });
+  return body;
+}
+
+const quiz=document.getElementById('quiz');
+const sumMask=document.getElementById('sumMask');
+const sumNav=document.getElementById('sumNav');
+const sumBody=document.getElementById('sumBody');
+const TYPE={single:["单选","b-single"],multi:["多选","b-multi"],judge:["判断","b-judge"]};
+let graded=false, showAll=false, onlyWrong=false;
+let doubts=Q.map(()=>false);
+
+function build(){
+  quiz.innerHTML='';
+  Q.forEach((q,i)=>{
+    const [tname,tcls]=TYPE[q.t];
+    const card=document.createElement('div');
+    card.className='q'+(doubts[i]?' doubt':''); card.id='q'+i;
+    let optsHtml='';
+    q.o.forEach(([lab,txt])=>{
+      const inp=q.t==='multi'?'checkbox':'radio';
+      optsHtml+=`<label class="opt" data-lab="${lab}"><input type="${inp}" name="q${i}" value="${lab}"><span class="lab">${lab}</span><span class="txt">${txt}</span></label>`;
+    });
+    const ansTxt = q.t==='judge' ? (q.a==='A'?'正确':'错误') : q.a;
+    const doubtBtn = `<button type="button" class="doubt-btn${doubts[i]?' on':''}" data-i="${i}">${doubts[i]?'有疑问':'标记疑问'}</button>`;
+    card.innerHTML=`<div class="q-head"><span class="qno">${i+1}</span><span class="badge ${tcls}">${tname}</span><div class="stem">${q.stem}</div>${doubtBtn}</div><div class="opts">${optsHtml}</div><div class="explain" id="ex${i}"><div class="et-row"><span class="et">✓ 正确答案：<span class="ans">${ansTxt}</span></span><button type="button" class="btn-know" data-k="${q.k}">📖 知识讲解：「${q.k}」</button></div><div>${q.e}</div></div>`;
+    quiz.appendChild(card);
+  });
+  updateStat();
+}
+
+function getSel(i){
+  const nodes=document.querySelectorAll(`input[name="q${i}"]:checked`);
+  return Array.from(nodes).map(n=>n.value).sort().join('');
+}
+function isCorrect(i){
+  const q=Q[i]; const sel=getSel(i);
+  if(q.t==='multi') return sel===q.a.split('').sort().join('');
+  return sel===q.a;
+}
+
+quiz.addEventListener('change',()=>{ if(!graded) updateStat(); });
+
+// 疑问标记（提交前可勾选/反选；提交后锁定）
+quiz.addEventListener('click',(e)=>{
+  const db=e.target.closest('.doubt-btn');
+  if(db){
+    if(graded) return; // 提交后锁定
+    const i=+db.getAttribute('data-i');
+    doubts[i]=!doubts[i];
+    const card=document.getElementById('q'+i);
+    card.classList.toggle('doubt',doubts[i]);
+    db.classList.toggle('on',doubts[i]);
+    db.textContent=doubts[i]?'有疑问':'标记疑问';
+    updateDoubtStat();
+  }
+  const kb=e.target.closest('.btn-know');
+  if(kb){ openSummary(kb.getAttribute('data-k')); }
+});
+
+function updateStat(){
+  let ans=0;
+  for(let i=0;i<Q.length;i++) if(getSel(i)!=='') ans++;
+  document.getElementById('answered').textContent=ans;
+  updateDoubtStat();
+}
+function updateDoubtStat(){
+  let d=0; for(let i=0;i<Q.length;i++) if(doubts[i]) d++;
+  document.getElementById('doubtcnt').textContent=d;
+}
+
+function submit(){
+  if(graded) return; // 防重复判分
+  graded=true;
+  let right=0;
+  for(let i=0;i<Q.length;i++){
+    const q=Q[i]; const card=document.getElementById('q'+i);
+    const sel=getSel(i);
+    const correct=isCorrect(i);
+    if(correct) right++;
+    card.classList.add(correct?'res-correct':'res-wrong');
+    const optEls=card.querySelectorAll('.opt');
+    let missed=[], wrong=[];
+    optEls.forEach(op=>{
+      const lab=op.getAttribute('data-lab');
+      const checked=op.querySelector('input').checked;
+      const isAns=q.a.includes(lab);
+      if(isAns){
+        op.classList.add('correct');
+        if(q.t==='multi'&&!checked){ op.classList.add('missed'); missed.push(lab); } // 漏选
+      }
+      if(checked&&!isAns){ op.classList.add('wrong'); wrong.push(lab); } // 错选
+      op.querySelector('input').disabled=true;
+    });
+    if(!correct){
+      const tip=document.createElement('div');
+      tip.className='my-ans-tip';
+      const ansShow=q.t==='judge'?(q.a==='A'?'正确':'错误'):q.a;
+      let msg=`你的作答：${sel||'未作答'}　→　正确答案：${ansShow}`;
+      if(q.t==='multi'&&sel){
+        const extra=[];
+        if(missed.length) extra.push(`漏选 ${missed.join('、')}`);
+        if(wrong.length) extra.push(`错选 ${wrong.join('、')}`);
+        if(extra.length) msg+=`　｜　${extra.join('；')}`;
+      }
+      tip.textContent=msg;
+      card.insertBefore(tip, document.getElementById('ex'+i));
+    }
+    document.getElementById('ex'+i).classList.add('show');
+  }
+  // 锁定疑问按钮
+  document.querySelectorAll('.doubt-btn').forEach(b=>b.disabled=true);
+  document.getElementById('rightcnt').textContent=right;
+  const res=document.getElementById('result'); res.classList.add('show');
+  document.getElementById('scoreOk').textContent=right;
+  const pct=Math.round(right/Q.length*100);
+  document.getElementById('scorePct').textContent=`正确率 ${pct}%`;
+  let tip='';
+  if(pct>=90) tip='优秀！第9章考点掌握扎实，可直接进入第五章。';
+  else if(pct>=70) tip='良好，少数薄弱点建议回看解析后巩固。';
+  else if(pct>=50) tip='仍需加强，建议对照讲义重读错题对应考点。';
+  else tip='基础偏弱，建议先重读整章讲义再做题。';
+  document.getElementById('scoreTip').textContent=tip;
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('explainBtn').style.display='inline-block';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  showAll=true;
+  document.getElementById('filterBtn').style.display='inline-block';
+  renderMastery();
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+// 按考点归类作答，生成掌握情况分析（含疑问权重）
+function renderMastery(){
+  const cats={};
+  for(let i=0;i<Q.length;i++){
+    const k=Q[i].k;
+    if(!cats[k]) cats[k]={total:0,right:0,doubt:0,doubtRight:0};
+    cats[k].total++;
+    if(isCorrect(i)) cats[k].right++;
+    if(doubts[i]){ cats[k].doubt++; if(isCorrect(i)) cats[k].doubtRight++; }
+  }
+  const entries=Object.entries(cats).sort((a,b)=>(a[1].right/a[1].total)-(b[1].right/b[1].total));
+  let html='', weak=[];
+  entries.forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    const hasDoubt=o.doubt>0;
+    let cls, tag;
+    if(small){ cls='mk-note'; tag='样本少·仅供参考'; }
+    else if(pct>=WEAK_TH){ cls='mk-ok'; tag='达标'; }
+    else { cls='mk-weak'; tag='薄弱'; weak.push(name); }
+    const color= small?'var(--sub)':(pct>=WEAK_TH?'var(--green)':(pct>=40?'var(--amber)':'var(--red)'));
+    const sug=(small||pct<WEAK_TH)?`<div class="mk-sug">💡 ${RECOMMEND[name]||''}${small?`（本考点仅 ${o.total} 题，结论仅供参考，建议补练后复测）`:''}</div>`:'';
+    // 疑问权重提示：即使达标，有疑问也提示巩固
+    const doubtNote = hasDoubt?`<div class="mk-doubt">⚠疑问知识点：你标记 ${o.doubt} 题（对 ${o.doubtRight} / 错 ${o.doubt-o.doubtRight}）${(!small&&pct>=WEAK_TH)?'　→ 虽达标但含疑问，建议巩固':''}</div>`:'';
+    html+=`<div class="mk-row"><div class="mk-top"><span class="mk-name">${name}（${o.total}题）</span><span class="${cls}">${o.right}/${o.total} · ${pct}% · ${tag}</span></div><div class="mk-bar"><div class="mk-fill" style="width:${pct}%;background:${color}"></div></div>${doubtNote}${sug}</div>`;
+  });
+  document.getElementById('mkList').innerHTML=html;
+  let wt='';
+  if(weak.length) wt='<div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">⚠️ 薄弱模块：</div>'+weak.map(w=>`<span class="wt">${w}</span>`).join('');
+  else wt='<div class="mk-ok" style="margin-top:10px">🎉 所有样本充足的考点均达标，无薄弱点！</div>';
+  document.getElementById('weakTags').innerHTML=wt;
+  // 疑问标记汇总
+  const allDoubt=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) allDoubt.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}`);
+  const ds=document.getElementById('doubtSummary');
+  if(allDoubt.length){
+    const doubtCats=[...new Set(allDoubt.map(s=>s.match(/【(.+?)】/)[1]))];
+    ds.style.display='block';
+    ds.innerHTML=`<b>⚠疑问知识点：共 ${allDoubt.length} 题</b>（涉及考点：${doubtCats.join('、')}）。这些是你自感没把握的知识点，已按考点加权提示：即使答对了也建议回看对应「知识讲解」巩固；答错的优先重练。`;
+  } else { ds.style.display='none'; ds.innerHTML=''; }
+  document.getElementById('mastery').classList.add('show');
+  buildExport(cats, weak);
+}
+
+function buildExport(cats, weak){
+  const total=Q.length;
+  const right=+document.getElementById('scoreOk').textContent;
+  let t=`【第九章 收入与分配管理 自测结果】\n总分：${right}/${total}（正确率 ${Math.round(right/total*100)}%）\n\n各考点掌握：\n`;
+  Object.entries(cats).forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    let flag='';
+    if(!small&&pct<WEAK_TH) flag=' ⚠薄弱';
+    if(small) flag=' ·样本少，仅供参考';
+    if(o.doubt>0) flag+=` ·⚠疑问知识点${o.doubt}题(对${o.doubtRight}/错${o.doubt-o.doubtRight})`;
+    t+=`· ${name}：${o.right}/${o.total}（${pct}%${flag}）\n`;
+  });
+  const wrongs=[];
+  for(let i=0;i<Q.length;i++) if(!isCorrect(i)) wrongs.push(`第${i+1}题【${Q[i].k}】你的答案:${getSel(i)||'未作答'} → 正确答案:${Q[i].a}`);
+  t+=`\n错题清单（${wrongs.length}题）：\n`+wrongs.join('\n');
+  const doubtsList=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) doubtsList.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}(你标疑问)`);
+  t+=`\n\n⚠疑问知识点（${doubtsList.length}题）：\n`+(doubtsList.length?doubtsList.join('\n'):'无');
+  t+=`\n\n薄弱模块：${weak.length?weak.join('、'):'无'}`;
+  document.getElementById('masteryText').value=t;
+}
+
+document.getElementById('exportBtn').addEventListener('click',()=>{
+  const ta=document.getElementById('masteryText');
+  ta.style.display='block'; ta.focus(); ta.select();
+  const done=()=>{const b=document.getElementById('exportBtn');const o=b.textContent;b.textContent='已复制到剪贴板 ✅';setTimeout(()=>b.textContent=o,1800);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(done).catch(()=>{});}
+  else{try{document.execCommand('copy');done();}catch(e){}}
+});
+
+function toggleExplain(){
+  showAll=!showAll;
+  for(let i=0;i<Q.length;i++) document.getElementById('ex'+i).classList.toggle('show',showAll);
+  document.getElementById('explainBtn').textContent= showAll?'隐藏全部解析':'查看全部解析';
+}
+
+function toggleWrong(){
+  onlyWrong=!onlyWrong;
+  for(let i=0;i<Q.length;i++){
+    const card=document.getElementById('q'+i);
+    const wrong=card.classList.contains('res-wrong');
+    card.classList.toggle('dim', onlyWrong && !wrong);
+  }
+  document.getElementById('filterBtn').textContent= onlyWrong?'显示全部':'只看错题';
+}
+
+function reset(){
+  graded=false; showAll=false; onlyWrong=false;
+  doubts=Q.map(()=>false);
+  document.getElementById('submitBtn').style.display='inline-block';
+  document.getElementById('explainBtn').style.display='none';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  document.getElementById('filterBtn').style.display='none';
+  document.getElementById('filterBtn').textContent='只看错题';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('mastery').classList.remove('show');
+  build();
+}
+
+// 知识讲解弹框：吸顶导航贴标题（固定显示）+ 锚点定位 + 滚动高亮（scrollspy）
+const NAV_OFFSET=20; // 顶部留白（导航在滚动区外，无需补偿高度）
+function findActiveK(){
+  const base=sumBody.scrollTop+NAV_OFFSET;
+  let active=SUMMARY_SECTIONS[0].k;
+  for(const s of SUMMARY_SECTIONS){
+    const el=document.getElementById('kp-'+s.k);
+    if(el && el.offsetTop<=base) active=s.k;
+  }
+  return active;
+}
+function updateSumNav(){
+  const k=findActiveK();
+  sumNav.querySelectorAll('.sum-nav-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-k')===k));
+}
+function openSummary(k){
+  if(!sumBody.dataset.built){ sumBody.innerHTML=buildSumBody(); sumNav.innerHTML=buildSumNav(); sumBody.dataset.built='1'; }
+  sumMask.classList.add('show');
+  document.body.style.overflow='hidden';
+  if(k){ const el=document.getElementById('kp-'+k); if(el) el.scrollIntoView({block:'start'}); }
+  else { sumBody.scrollTop=0; }
+  updateSumNav();
+}
+function closeSummary(){ sumMask.classList.remove('show'); document.body.style.overflow=''; }
+sumBody.addEventListener('scroll',()=>{ if(sumMask.classList.contains('show')) updateSumNav(); });
+document.getElementById('sumClose').addEventListener('click',closeSummary);
+sumMask.addEventListener('click',(e)=>{ if(e.target.id==='sumMask') closeSummary(); });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeSummary(); });
+sumNav.addEventListener('click',(e)=>{
+  const nb=e.target.closest('.sum-nav-btn');
+  if(nb){ const el=document.getElementById('kp-'+nb.getAttribute('data-k')); if(el){ el.scrollIntoView({block:'start'}); updateSumNav(); } }
+});
+
+document.getElementById('chapterBtn').addEventListener('click',()=>openSummary(null));
+document.getElementById('submitBtn').addEventListener('click',submit);
+document.getElementById('explainBtn').addEventListener('click',toggleExplain);
+document.getElementById('filterBtn').addEventListener('click',toggleWrong);
+document.getElementById('resetBtn').addEventListener('click',reset);
+build();
+</script>
+</body>
+</html>

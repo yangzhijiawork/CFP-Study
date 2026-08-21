@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中级会计 · 章节互动自测题</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #f0f4ff 0%, #faf7ff 100%);
+    min-height: 100vh;
+    color: #1f2d3d;
+    padding: 40px 20px 60px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    background: linear-gradient(90deg, #4f6ef7, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .sub {
+    text-align: center;
+    color: #7a8699;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .sub b { color: #4f6ef7; }
+  .legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    color: #7a8699;
+    background: rgba(255,255,255,.7);
+    border: 1px solid #e6ebf5;
+    border-radius: 999px;
+    padding: 7px 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .legend .stars { letter-spacing: 2px; font-size: 13px; }
+  .legend i { font-style: normal; color: #c9d2e0; }
+  .lg-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .lg-item b { font-weight: 500; }
+  .lg-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .lg-note .l1 { font-size: 13px; font-weight: 600; color: #4f6ef7; }
+  .lg-note .l2 { font-size: 12px; color: #7a8699; }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(79,110,247,.10);
+    padding: 24px 26px;
+    margin-bottom: 28px;
+  }
+  .card h2 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef1f6;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .b-cw { background: linear-gradient(90deg,#4f6ef7,#7c5cf7); }
+  .b-jf { background: linear-gradient(90deg,#e8833a,#f7656f); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 12px; }
+  a.item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: #1f2d3d;
+    background: #f6f8fd;
+    border: 1px solid #e6ebf5;
+    border-radius: 10px;
+    padding: 13px 15px;
+    transition: all .18s ease;
+  }
+  a.item:hover {
+    background: #eef2ff;
+    border-color: #4f6ef7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79,110,247,.15);
+  }
+  .itop { display: flex; align-items: center; font-size: 14px; font-weight: 500; }
+  .num {
+    display: inline-block;
+    min-width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    background: #4f6ef7;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .imeta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8a95a8;
+  }
+  .stars { color: #f5a623; letter-spacing: 1.5px; font-size: 13px; }
+  .stars .off { color: #d3dbe8; }
+  .pts {
+    background: #eef3ff;
+    color: #4f6ef7;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 11px;
+  }
+  .footer {
+    text-align: center;
+    color: #a0aabf;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>中级会计 · 章节互动自测题</h1>
+  <p class="sub">依据 <b>高红瑞 2026 财管精讲班</b> 与 <b>周周 2026 经济法精讲班</b> 制作 · 覆盖财务管理 10 章 + 经济法 7 章 · 单文件自包含，可直接做题 / 判分 / 看解析</p>
+
+  <div class="legend">
+    <span class="lg-item"><b>一般</b><span class="stars">★☆☆</span></span>
+    <span style="color:#c9d2e0;">｜</span>
+    <span class="lg-item"><b>重要</b><span class="stars">★★☆</span></span>
+    <span style="color:#c9d2e0;">｜</span>
+    <span class="lg-item"><b>重点</b><span class="stars">★★★</span></span>
+    <span style="color:#c9d2e0;">｜</span>
+    <span class="lg-note">
+      <span class="l1">分值</span>
+      <span class="l2">历年真题，平均约分</span>
+    </span>
+  </div>
+
+  <div class="card">
+    <h2><span class="badge b-cw">财管</span> 《中级财务管理》互动习题</h2>
+    <div class="grid">
+      <a class="item" href="caiwuguanli/第一章总论互动习题.html">
+        <span class="itop"><span class="num">1</span>第一章 总论</span>
+        <span class="imeta"><span class="stars">★<span class="off">☆☆</span></span><span class="pts">约 3 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第二章财务管理基础互动习题.html">
+        <span class="itop"><span class="num">2</span>第二章 财务管理基础</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 7 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第三章预算管理互动习题.html">
+        <span class="itop"><span class="num">3</span>第三章 预算管理</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 8 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第四章筹资管理上互动习题.html">
+        <span class="itop"><span class="num">4</span>第四章 筹资管理（上）</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 9 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第五章筹资管理下互动习题.html">
+        <span class="itop"><span class="num">5</span>第五章 筹资管理（下）</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 11 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第六章投资管理互动习题.html">
+        <span class="itop"><span class="num">6</span>第六章 投资管理</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 12 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第七章营运资金管理互动习题.html">
+        <span class="itop"><span class="num">7</span>第七章 营运资金管理</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 13 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第八章成本管理互动习题.html">
+        <span class="itop"><span class="num">8</span>第八章 成本管理</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 11 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第九章收入与分配管理互动习题.html">
+        <span class="itop"><span class="num">9</span>第九章 收入与分配管理</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 8 分</span></span>
+      </a>
+      <a class="item" href="caiwuguanli/第十章财务分析与评价互动习题.html">
+        <span class="itop"><span class="num">10</span>第十章 财务分析与评价</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 12 分</span></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="badge b-jf">经济法</span> 《中级经济法》互动习题</h2>
+    <div class="grid">
+      <a class="item" href="jingjifa/第一章总论互动习题.html">
+        <span class="itop"><span class="num">1</span>第一章 总论</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 13 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第二章公司法律制度互动习题.html">
+        <span class="itop"><span class="num">2</span>第二章 公司法律制度</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 17 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第三章合伙企业法律制度互动习题.html">
+        <span class="itop"><span class="num">3</span>第三章 合伙企业法律制度</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 12 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第四章物权法律制度互动习题.html">
+        <span class="itop"><span class="num">4</span>第四章 物权法律制度</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 16 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第五章合同法律制度互动习题.html">
+        <span class="itop"><span class="num">5</span>第五章 合同法律制度</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 16 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第六章金融法律制度互动习题.html">
+        <span class="itop"><span class="num">6</span>第六章 金融法律制度</span>
+        <span class="imeta"><span class="stars">★★★</span><span class="pts">约 16 分</span></span>
+      </a>
+      <a class="item" href="jingjifa/第七章财政法律制度互动习题.html">
+        <span class="itop"><span class="num">7</span>第七章 财政法律制度</span>
+        <span class="imeta"><span class="stars">★★<span class="off">☆</span></span><span class="pts">约 10 分</span></span>
+      </a>
+    </div>
+  </div>
+
+  <p class="footer">中级会计 AI 学习项目 · CFP-Study · 共 17 个章节（财管 10 + 经济法 7）· 星级与分值为历年考情统计约值，仅供参考 · 持续更新中</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中级财务管理 · 第一章 总论 互动自测题</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --line:#e6eaf0; --ink:#1f2733; --sub:#6b7785;
+    --blue:#2f6fed; --blue-soft:#eaf1ff; --green:#1f9d55; --green-soft:#e7f6ee;
+    --red:#e0463e; --red-soft:#fdecea; --amber:#e8973a; --amber-soft:#fdf2e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;font-size:15px}
+  .wrap{max-width:820px;margin:0 auto;padding:20px 6px 80px}
+  header{background:linear-gradient(135deg,#2f6fed,#5b8def);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:16px;box-shadow:0 6px 20px rgba(47,111,237,.18)}
+  header h1{margin:0 0 6px;font-size:21px;font-weight:700}
+  header p{margin:0;opacity:.92;font-size:13.5px}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:16px;display:flex;
+    align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .topbar .stat{font-size:13.5px;color:var(--sub)}
+  .topbar .stat b{color:var(--ink);font-size:15px}
+  .grow{flex:1}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;padding:9px 8px;font-size:14px;font-weight:600;transition:.15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:#245fd6}
+  .btn-ghost{background:#eef1f6;color:var(--ink)}
+  .btn-ghost:hover{background:#e3e8f0}
+  .btn-amber{background:var(--amber);color:#fff}
+  .btn-amber:hover{filter:brightness(1.05)}
+  .btn-outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+  .btn-outline:hover{background:var(--blue-soft)}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;transition:.2s}
+  .q.dim{display:none}
+  .q.doubt{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber-soft)}
+  .q-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+  .qno{background:var(--blue-soft);color:var(--blue);font-weight:700;border-radius:8px;padding:2px 9px;font-size:13px;white-space:nowrap;margin-top:2px;cursor:pointer}
+  .badge{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;margin-top:2px}
+  .b-single{background:var(--blue-soft);color:var(--blue)}
+  .b-multi{background:var(--amber-soft);color:#b9742a}
+  .b-judge{background:#efe9fb;color:#6f4fd6}
+  .stem{font-weight:600;flex:1}
+  .doubt-btn{font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;border:1px solid var(--amber);
+    background:#fff;color:#b9742a;white-space:nowrap;margin-top:2px}
+  .doubt-btn.on{background:var(--amber);color:#fff;border-color:var(--amber)}
+  .doubt-btn:disabled{opacity:.55;cursor:not-allowed}
+  .opts{display:flex;flex-direction:column;gap:8px;margin:6px 0 4px}
+  .opt{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:#c8d4e6;background:#f8faff}
+  .opt input{accent-color:var(--blue);width:16px;height:16px;cursor:pointer}
+  .opt .lab{font-weight:700;color:var(--sub)}
+  .opt .txt{flex:1}
+  .opt.correct{border-color:var(--green);background:var(--green-soft)}
+  .opt.wrong{border-color:var(--red);background:var(--red-soft)}
+  .opt.correct .lab{color:var(--green)}
+  .opt.wrong .lab{color:var(--red)}
+  .opt.missed{border-color:var(--amber);background:var(--amber-soft)}
+  .opt.missed .lab{color:#b9742a}
+  .my-ans-tip{margin-top:10px;padding:8px 12px;background:var(--amber-soft);border:1px dashed #e8c98a;border-radius:8px;font-size:13px;color:#7a5a1e}
+  .explain{margin-top:12px;padding:12px 14px;background:#fafbfd;border:1px dashed var(--line);border-radius:10px;font-size:13.5px;display:none}
+  .explain.show{display:block}
+  .et-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .explain .et{font-weight:700;color:var(--green);font-size:13px}
+  .explain .ans{color:var(--blue);font-weight:700}
+  .btn-know{margin-top:0;font-size:12.5px;padding:6px 12px;border-radius:8px;background:var(--blue-soft);color:var(--blue);border:1px solid #cfe0ff;font-weight:600;white-space:nowrap}
+  .btn-know:hover{background:#dce9ff}
+  .q.res-correct{border-color:var(--green)}
+  .q.res-wrong{border-color:var(--red)}
+  .result{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px;display:none}
+  .result.show{display:block}
+  .score-big{font-size:34px;font-weight:800}
+  .score-big .ok{color:var(--green)} .score-big .tot{color:var(--sub);font-size:20px}
+  .intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:16px;font-size:13.5px;color:var(--sub)}
+  .intro b{color:var(--ink)}
+  .tag{display:inline-block;background:#eef1f6;border-radius:6px;padding:1px 8px;margin:2px 4px 2px 0;font-size:12px;color:var(--sub)}
+  .legend{font-size:12px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .legend i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .mastery{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px;display:none}
+  .mastery.show{display:block}
+  .mastery h3{margin:0 0 4px;font-size:16px}
+  .mastery .sub{font-size:12.5px;color:var(--sub);margin-bottom:12px}
+  .mk-row{margin:11px 0}
+  .mk-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+  .mk-name{font-weight:600}
+  .mk-pct{font-weight:700}
+  .mk-bar{height:8px;border-radius:5px;background:#eef1f6;overflow:hidden}
+  .mk-fill{height:100%;border-radius:5px;transition:.3s}
+  .mk-weak{color:var(--red);font-weight:700}
+  .mk-ok{color:var(--green);font-weight:700}
+  .mk-note{color:var(--sub);font-weight:700}
+  .mk-sug{font-size:12px;color:var(--sub);margin-top:3px}
+  .mk-doubt{font-size:12px;color:#b9742a;margin-top:3px}
+  .weak-tags{margin-top:12px}
+  .weak-tags .wt{display:inline-block;background:var(--red-soft);color:var(--red);border-radius:6px;padding:2px 9px;margin:3px 4px 0 0;font-size:12px;font-weight:600}
+  .doubt-summary{margin-top:14px;padding:12px 14px;background:var(--amber-soft);border:1px solid #f0d3a0;border-radius:10px;font-size:12.5px;color:#7a5a1e}
+  .doubt-summary b{color:#7a5a1e}
+  #masteryText{width:100%;height:150px;margin-top:10px;font-family:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical;color:var(--sub);display:none}
+  /* 知识讲解弹框 */
+  .modal-mask{position:fixed;inset:0;background:rgba(15,23,35,.55);display:none;z-index:100;align-items:flex-start;justify-content:center;padding:24px 12px}
+  .modal-mask.show{display:flex}
+  .modal-box{background:#fff;border-radius:16px;width:100%;max-width:860px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:16px;font-weight:700;flex:0 0 auto}
+  .modal-close{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;margin:0;line-height:1;font-size:15px;border-radius:50%;background:#eef1f6;color:var(--sub);border:none;cursor:pointer}
+  .modal-close:hover{background:#e3e8f0;color:var(--ink)}
+  /* 知识点吸顶导航：宽度 100%，紧贴标题栏下方（不随内容滚动） */
+  .sum-nav{flex:0 0 auto;width:100%;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(15,23,35,.06)}
+  .sum-nav-btn{font-size:12px;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#f5f7fa;cursor:pointer;color:var(--sub);font-weight:600}
+  .sum-nav-btn:hover{background:var(--blue-soft);color:var(--blue)}
+  .sum-nav-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .modal-body{position:relative;overflow:auto;padding:18px 22px;line-height:1.7;flex:1 1 auto}
+  .ksec{margin-bottom:26px;padding-top:4px;scroll-margin-top:16px}
+  .ksec-title{font-size:16px;color:var(--blue);border-left:4px solid var(--blue);padding-left:10px;margin:4px 0 12px}
+  .modal-body h1.kh1{font-size:16px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h2.kh2{font-size:15px;margin:14px 0 6px;color:var(--ink)}
+  .modal-body h3.kh3{font-size:14px;margin:10px 0 5px;color:#33414f}
+  .modal-body h4.kh4{font-size:13.5px;margin:8px 0 4px;color:var(--sub)}
+  .modal-body p{margin:6px 0;font-size:13.5px}
+  .modal-body ul,.modal-body ol{margin:6px 0;padding-left:22px;font-size:13.5px}
+  .modal-body li{margin:3px 0}
+  .modal-body table.ktab{border-collapse:collapse;width:100%;margin:8px 0;font-size:12.5px}
+  .modal-body table.ktab th,.modal-body table.ktab td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+  .modal-body table.ktab th{background:#f0f4fb;font-weight:700}
+  .modal-body pre.ktree{background:#f7f9fc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+    font-size:12.5px;line-height:1.55;white-space:pre;overflow-x:auto;margin:8px 0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace}
+  .modal-body code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:12px}
+  /* 移动端自适应：题干在题号/标签下方单独一行；顶部按钮组整体换行到下一行 */
+  @media (max-width:640px){
+    .q-head{flex-wrap:wrap;gap:8px 10px}
+    .q-head .stem{flex:1 1 100%;order:2}
+    .q-head .doubt-btn{order:1}
+    .topbar .grow{flex:0 0 100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>中级财务管理 · 第一章 总论 互动自测题</h1>
+    <p>依据高红瑞 2026 精讲班《第一章 总论》整章讲义与习题纯享命题 · 共 51 题（单选 / 多选 / 判断）</p>
+  </header>
+
+  <div class="intro">
+    <b>本章覆盖考点：</b><br>
+    <span class="tag">企业组织形式</span><span class="tag">四大财务管理目标</span><span class="tag">利益冲突与协调</span>
+    <span class="tag">财务决策核心</span><span class="tag">集权分权体制</span><span class="tag">经济环境</span><span class="tag">金融环境（货币/资本市场）</span>
+    <div class="legend" style="margin-top:10px">
+      <i><span class="dot" style="background:var(--blue)"></span>单选：选 1 个</i>
+      <i><span class="dot" style="background:var(--amber)"></span>多选：至少 2 个，须全对才得分</i>
+      <i><span class="dot" style="background:#6f4fd6"></span>判断：选 正确 / 错误</i>
+    </div>
+    <div style="margin-top:8px"><b>操作：</b>逐题作答 → 答题时可点题号旁的 <b>「标记疑问」</b> 标记没把握的知识点（提交前可反复反选，提交后锁定，重置清空）→ 点「提交答卷」判分 → 逐题看解析（多选错题会标出<b>漏选/错选</b>，解析下可点 <b>「知识讲解」</b> 看整章对应知识点详解）→ 交卷后自动生成 <b>7 大考点掌握分析</b>（含 ⚠疑问知识点 加权提示）与可复制报告。顶部「章节知识点」可随时查看整章详解。</div>
+  </div>
+
+  <div class="topbar">
+    <div class="stat">已答 <b id="answered">0</b> / 51</div>
+    <div class="stat">正确 <b id="rightcnt">0</b></div>
+    <div class="stat">疑问 <b id="doubtcnt">0</b></div>
+    <div class="grow"></div>
+    <button type="button" class="btn-outline" id="chapterBtn">章节知识点</button>
+    <button type="button" class="btn-ghost" id="filterBtn" style="display:none">只看错题</button>
+    <button type="button" class="btn-ghost" id="resetBtn">重置</button>
+    <button type="button" class="btn-primary" id="submitBtn">提交答卷</button>
+    <button type="button" class="btn-amber" id="explainBtn" style="display:none">隐藏全部解析</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-big"><span class="ok" id="scoreOk">0</span><span class="tot"> / 51 题</span></div>
+    <div class="stat" id="scorePct" style="margin-top:4px"></div>
+    <div id="scoreTip" style="margin-top:8px;font-size:13.5px;color:var(--sub)"></div>
+  </div>
+
+  <div class="mastery" id="mastery">
+    <h3>📊 知识点掌握情况分析</h3>
+    <div class="sub">按本章 7 大考点归类你的作答。说明：<b>题数少于 3 的考点样本不足，仅作参考、不下结论</b>；正确率 &lt;70% 且样本充足的考点标记为<b style="color:var(--red)">薄弱</b>。<b style="color:#b9742a">你标记的「⚠疑问知识点」</b>会按考点加权提示（即使答对了，有疑问也建议巩固）。多选错题会区分漏选/错选。单次自测结果仅供参考，建议回看后复测。</div>
+    <div id="mkList"></div>
+    <div class="weak-tags" id="weakTags"></div>
+    <div class="doubt-summary" id="doubtSummary" style="display:none"></div>
+    <button class="btn-ghost" id="exportBtn" style="margin-top:14px">复制掌握情况报告（含错题清单+疑问知识点，可发给导师分析）</button>
+    <textarea id="masteryText" readonly></textarea>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="foot">习题与解析均整理自乐享知识库 CFP-Study-main《第一章 总论（整章讲义）》与《第一章 总论（习题纯享）》；知识详解内容为 learningSummary《第一章-总论-全六节详解》完整原文。</div>
+</div>
+
+<!-- 知识讲解弹框 -->
+<div class="modal-mask" id="sumMask">
+  <div class="modal-box">
+    <div class="modal-head"><span>📘 第一章 总论 · 知识讲解</span><button class="modal-close" id="sumClose" aria-label="关闭">✕</button></div>
+    <div class="sum-nav" id="sumNav"></div>
+    <div class="modal-body" id="sumBody"></div>
+  </div>
+</div>
+
+<script>
+const Q = [
+ {t:"single",stem:"下列各项中，不属于公司制企业缺点的是（ ）。",o:[["A","导致双重课税"],["B","组建公司的成本高"],["C","存在代理问题"],["D","股东须承担无限连带责任"]],a:"D",e:"公司债务是法人的债务，不是股东的债务。股东对公司承担的责任以其出资额为限。当公司资产不足以偿还其所欠债务时，股东无需承担连带清偿责任。故“股东须承担无限连带责任”不属于公司制企业的缺点。"},
+ {t:"single",stem:"与个人独资企业相比，下列各项中属于公司制企业特点的是（ ）。",o:[["A","企业所有者承担无限债务责任"],["B","企业可以无限存续"],["C","企业融资渠道较少"],["D","企业所有权转移困难"]],a:"B",e:"公司制企业的优点：①容易转让所有权；②有限债务责任；③可以无限存续；④融资渠道较多。缺点：①组建成本高；②存在代理问题；③双重课税。故“企业可以无限存续”是公司制企业特点。"},
+ {t:"single",stem:"与普通合伙制企业相比，下列各项中，属于公司制企业特点的是（ ）。",o:[["A","组建成本低"],["B","设立时股东人数不受限制"],["C","有限存续期"],["D","有限债务责任"]],a:"D",e:"公司制企业的优点包括有限债务责任、容易转让所有权、无限存续、容易筹集资金。普通合伙企业的普通合伙人承担无限连带责任，而公司制企业股东承担有限责任。"},
+ {t:"single",stem:"某上市公司职业经理人在任职期间不断提高在职消费，损害股东利益。这一现象所揭示的公司制企业的缺点主要是（ ）。",o:[["A","产权问题"],["B","激励问题"],["C","代理问题"],["D","责任分配问题"]],a:"C",e:"代理问题指的是所有者和经营者分开后，所有者成为委托人，经营者成为代理人，代理人可能为了自身利益（如提高在职消费）而伤害委托人利益。"},
+ {t:"judge",stem:"不论是公司制企业还是合伙制企业，股东或合伙人都面临双重课税问题，即在缴纳企业所得税后，还要缴纳个人所得税。",o:[["A","正确"],["B","错误"]],a:"B",e:"公司制企业存在双重课税（企业所得税+个人所得税）；合伙制企业不具有法人资格，不缴纳企业所得税，只由合伙人缴纳个人所得税，不存在双重课税。"},
+ {t:"judge",stem:"相对于个人独资与合伙企业，公司制企业受政府监管较为宽松。",o:[["A","正确"],["B","错误"]],a:"B",e:"公司法对设立公司制企业的要求比设立独资或合伙企业复杂，需提交一系列法律文件，花费时间较长；公司成立后政府监管比较严格，需定期提交各种报告。故监管更严而非更宽松。"},
+ {t:"single",stem:"若上市公司以股东财富最大化作为财务管理目标，则衡量股东财富大小的最直观的指标是（ ）。",o:[["A","净利润"],["B","净资产收益率"],["C","每股收益"],["D","股价"]],a:"D",e:"在上市公司，股东财富由其拥有的股票数量和股票市场价格决定。在股票数量一定时，股票价格达到最高，股东财富也就达到最大，故股价是最直观指标。"},
+ {t:"judge",stem:"公司以股东财富最大化作为财务管理目标，意味着公司创造的财富应首先满足股东期望的回报要求，然后再考虑其他利益相关者。",o:[["A","正确"],["B","错误"]],a:"B",e:"以股东财富最大化为核心和基础，还应考虑利益相关者利益。各国公司法规定股东权益是剩余权益，只有满足其他方面利益（缴税、发工资、服务顾客等）之后才有股东利益。其他利益相关者要求先于股东被满足。"},
+ {t:"judge",stem:"如果公司以股东财富最大化作为财务管理目标，存在利益冲突时，应优先满足股东的利益要求。",o:[["A","正确"],["B","错误"]],a:"B",e:"同上的逻辑，股东财富最大化并不等同于优先满足股东。股东权益是剩余权益，其他利益相关者（员工、债权人、顾客、社会）的要求先于股东被满足。"},
+ {t:"judge",stem:"与企业价值最大化目标相比，股东财富最大化目标的局限性在于未能克服企业追求利润的短期行为。",o:[["A","正确"],["B","错误"]],a:"B",e:"股东财富最大化在一定程度上能避免企业短期行为，其局限性主要是：通常只适用于上市公司、股价不能完全准确反映财务状况、强调股东利益而对其他相关者重视不够。"},
+ {t:"multi",stem:"关于企业价值最大化财务管理目标，下列说法正确的有（ ）。",o:[["A","以股东财富最大化为基础"],["B","有助于克服企业追求利润的短期行为"],["C","考虑了收益的时间价值"],["D","考虑了风险与收益的关系"]],a:"ABCD",e:"各种财务管理目标都以股东财富最大化为基础。企业价值最大化的优点：①考虑了取得收益的时间并用时间价值计量；②考虑了风险与收益的关系；③将长期稳定发展放在首位，能克服短期行为；④用价值代替价格，规避短期行为。"},
+ {t:"single",stem:"与企业价值最大化财务管理目标相比，股东财富最大化目标的局限性是（ ）。",o:[["A","对债权人的利益重视不够"],["B","容易导致企业的短期行为"],["C","没有考虑风险因素"],["D","没有考虑货币时间价值"]],a:"A",e:"股东财富最大化目标的局限性：①通常只适用于上市公司；②股价不能完全准确反映企业财务管理状况；③强调更多的是股东利益，对其他相关者利益重视不够。"},
+ {t:"judge",stem:"对于以相关者利益最大化为财务管理目标的公司来说，最为重要的利益相关者应当是公司员工。",o:[["A","正确"],["B","错误"]],a:"B",e:"相关者利益最大化强调股东的首要地位，并强调企业与股东之间的协调关系，而非将员工置于首要地位。"},
+ {t:"judge",stem:"相关者利益最大化的财务管理目标体现了合作共赢的价值理念。",o:[["A","正确"],["B","错误"]],a:"A",e:"相关者利益最大化体现了合作共赢的价值理念，有利于实现企业经济效益和社会效益的统一。"},
+ {t:"single",stem:"下列财务管理目标中，没有考虑风险因素的是（ ）。",o:[["A","利润最大化"],["B","股东财富最大化"],["C","企业价值最大化"],["D","相关者利益最大化"]],a:"A",e:"利润最大化没有考虑风险因素和货币时间价值。股东财富最大化（股价对风险敏感）、企业价值最大化（未来现金流量含风险价值）、相关者利益最大化（强调风险与收益均衡）均考虑了风险。"},
+ {t:"judge",stem:"如果公司以股东财富最大化作为财务管理的目标，可在一定程度上避免利润最大化目标可能导致的企业短期行为。",o:[["A","正确"],["B","错误"]],a:"A",e:"股东财富最大化考虑了时间价值和风险因素，在一定程度上能避免利润最大化可能导致的短期行为。"},
+ {t:"judge",stem:"在企业财务管理目标理论中，利润最大化与股东财富最大化都没有考虑时间价值因素。",o:[["A","正确"],["B","错误"]],a:"B",e:"利润最大化没有考虑时间价值因素；股东财富最大化考虑了时间价值因素。本题表述错误。"},
+ {t:"single",stem:"下列企业财务管理目标中，没有考虑风险问题的是（ ）。",o:[["A","企业价值最大化"],["B","股东财富最大化"],["C","利润最大化"],["D","相关者利益最大化"]],a:"C",e:"不同行业风险不同，同等利润值意义不同，利润最大化未考虑风险。股东财富最大化（股价对风险敏感）、企业价值最大化（未来现金流量含风险价值）、相关者利益最大化（风险与收益均衡）均考虑了风险。"},
+ {t:"single",stem:"下列关于企业财务管理目标的表述中，错误的是（ ）。",o:[["A","企业价值最大化目标弥补了股东财富最大化目标过于强调股东利益的不足"],["B","相关者利益最大化目标认为应当将除股东之外的其他利益相关者至于首要地位"],["C","利润最大化目标要求企业提高资源配置效率"],["D","股东财富最大化目标比较适用于上市公司"]],a:"B",e:"相关者利益最大化目标强调股东的首要地位，并强调企业与股东之间的协调关系，而非将其他利益相关者置于首要地位。故 B 错误。"},
+ {t:"single",stem:"下列财务管理目标中，容易导致企业短期行为的是（ ）。",o:[["A","股东财富最大化"],["B","企业价值最大化"],["C","相关者利益最大化"],["D","利润最大化"]],a:"D",e:"利润最大化缺点之一是可能导致企业的短期财务决策倾向，影响企业长远发展。其余三种目标均强调长期行为。"},
+ {t:"judge",stem:"没有股东财富最大化的目标，利润最大化、企业价值最大化以及相关者利益最大化的目标也就难以实现。",o:[["A","正确"],["B","错误"]],a:"A",e:"各种财务管理目标都以股东财富最大化为基础。企业创立和发展以股东投入为基础，股东承担最大义务和风险，应享有最高收益（股东财富最大化），否则其他目标难以实现。"},
+ {t:"judge",stem:"企业财务管理的目标理论包括利润最大化、股东财富最大化、公司价值最大化和相关者利益最大化等理论，其中，公司价值最大化、股东财富最大化和相关者利益最大化都是以利润最大化为基础的。",o:[["A","正确"],["B","错误"]],a:"B",e:"利润最大化、股东财富最大化、企业价值最大化、相关者利益最大化等各种财务管理目标，都以股东财富最大化为基础，而非以利润最大化为基础。"},
+ {t:"multi",stem:"公司制企业可能存在经营者和股东之间的利益冲突，解决这一冲突的方式有（ ）。",o:[["A","解聘"],["B","接收"],["C","收回借款"],["D","授予股票期权"]],a:"ABD",e:"协调所有者与经营者利益冲突的方式：①解聘（股东约束）；②接收（市场约束）；③激励（股票期权、绩效股）。收回借款是协调股东与债权人冲突的措施。"},
+ {t:"judge",stem:"委托代理冲突问题引起的利益冲突包括管理层与股东、股东与债权人，大股东与中小股东之间的利益冲突。",o:[["A","正确"],["B","错误"]],a:"A",e:"委托代理冲突包括三类：①股东与管理层；②大股东与中小股东；③股东与债权人之间的利益冲突。"},
+ {t:"single",stem:"下列各项中，不能用于协调股东与管理层之间利益冲突的措施是（ ）。",o:[["A","限制企业借款用于高风险项目"],["B","授予管理层股票期权"],["C","解聘企业高管"],["D","企业被强行接收"]],a:"A",e:"协调股东与管理层冲突：解聘、接收、激励（股票期权、绩效股）。限制企业借款用于高风险项目是用于协调股东与债权人之间利益冲突的措施。"},
+ {t:"multi",stem:"下列各项中，属于大股东侵犯中小股东利益的有（ ）。",o:[["A","上市公司出售具有严重质量问题的产品"],["B","上市公司为大股东的债务提供担保"],["C","大股东利用关联方关系转移上市公司的资产"],["D","大股东非法侵占上市公司巨额资金"]],a:"BCD",e:"大股东侵害中小股东利益的主要形式：①利用关联交易转移资产；②非法占用巨额资金或以上市公司名义担保、恶意筹资；③发布虚假信息操纵股价；④支付不合理报酬及特殊津贴；⑤不合理股利政策掠夺既得利益。A 不属于此类。"},
+ {t:"judge",stem:"如果某上市公司不存在控股股东，则该公司不存在股东与债权人之间的利益冲突。",o:[["A","正确"],["B","错误"]],a:"B",e:"股东是公司的所有者，即使不存在控股股东，股东利益也可能与债权人利益发生冲突，股东与债权人之间的利益冲突与股东是否控股无关。"},
+ {t:"multi",stem:"为了缓解公司债权人和所有者之间的利益冲突，债权人可以采取的措施有（ ）。",o:[["A","设置借债担保条款"],["B","不再给予新的借款"],["C","限制支付现金股利"],["D","事先规定借债用途"]],a:"ABCD",e:"解决方式：①限制性借债（事先规定借债用途限制、担保条款、信用条件）；②收回借款或停止借款。长期借款保护性条款中“限制支付现金股利”也可视为缓解措施。故 ABCD 均当选。"},
+ {t:"judge",stem:"公司将已筹集资金投资于高风险项目会给原债权人带来高风险和高收益。",o:[["A","正确"],["B","错误"]],a:"B",e:"公司将已筹集资金投资于高风险项目，会增大偿债风险，债权人负债价值必然降低，造成债权人风险与收益的不对称（高风险低收益/无收益），故错误。"},
+ {t:"judge",stem:"企业的社会责任是企业在谋求所有者权益最大化之外所承担的维护和增进社会利益的义务，一般划分为企业对社会公益的责任和对债权人的责任两大类。",o:[["A","正确"],["B","错误"]],a:"B",e:"企业社会责任主要包括：对员工的责任、对债权人的责任、对消费者的责任、对社会公益的责任、对环境和资源的责任，并非仅两大类。"},
+ {t:"single",stem:"按照财务战略目标的总体要求，利用专门方法对各种备选方案进行比较和分析，从中选出最佳方案的是（ ）。",o:[["A","财务决策"],["B","财务控制"],["C","财务分析"],["D","财务计划"]],a:"A",e:"财务决策是指按照财务战略目标的总体要求，利用专门方法对各种备选方案进行比较和分析，从中选出最佳方案的过程。"},
+ {t:"single",stem:"下列各项中，被视为财务管理核心的是（ ）。",o:[["A","财务预算"],["B","财务决策"],["C","财务控制"],["D","财务分析"]],a:"B",e:"财务决策是财务管理的核心，决策的成功与否直接关系到企业的兴衰成败。"},
+ {t:"single",stem:"集权型财务管理体制可能导致的问题是（ ）。",o:[["A","削弱所属单位主动性"],["B","资金管理分散"],["C","利润分配无序"],["D","资金成本增大"]],a:"A",e:"集权过度会使各所属单位缺乏主动性、积极性，丧失活力，也可能因决策程序复杂而失去适应市场的弹性，丧失市场机会。B/C/D 是分权型的缺点。"},
+ {t:"single",stem:"关于企业财务管理体制的模式选择，下列说法错误的是（ ）。",o:[["A","若企业处于初创阶段，经营风险高，则更适合采用分权型财务管理体制"],["B","若企业管理者的素质高、能力强，则可以采用集权型财务管理体制"],["C","若企业面临的环境是稳定的、对生产经营的影响不显著，则更适合采用集权型财务管理体制"],["D","若企业规模小，财务管理工作量少，则更适合采用集权型财务管理体制"]],a:"A",e:"初创阶段经营风险高，财务管理宜偏重集权模式，以降低分权模式下因决策失误增加的经营风险。故 A 说法错误。"},
+ {t:"judge",stem:"企业集团内部各所属单位之间业务联系越紧密，就越有必要采用相对集中的财务管理体制。",o:[["A","正确"],["B","错误"]],a:"A",e:"各所属单位间业务联系越紧密，就越有必要采用相对集中的财务管理体制，以保障一体化管理与资源配置效率。"},
+ {t:"single",stem:"U型组织是以职能化管理为核心的一种最基本的企业组织结构，其典型特征是（ ）。",o:[["A","集权控制"],["B","分权控制"],["C","多元控制"],["D","分层控制"]],a:"A",e:"U型组织典型特征是在管理分工下实行集权控制，无中间管理层，依靠总部职能部门直接控制各业务单元，子公司自主权较小。"},
+ {t:"multi",stem:"某企业集团选择集权与分权相结合的财务管理体制，下列各项中，通常应当集权的有（ ）。",o:[["A","收益分配权"],["B","财务机构设置权"],["C","对外担保权"],["D","子公司业务定价权"]],a:"ABC",e:"应集中：制度制定权、筹资权、投资权、用资/担保权、固定资产购置权、财务机构设置权、收益分配权。应分散：经营自主权、人员管理权、业务定价权、费用开支审批权。故 D 不选。"},
+ {t:"multi",stem:"在经济周期中的复苏阶段，企业通常适合采用的财务管理战略有（ ）。",o:[["A","建立存货储备"],["B","停止长期采购"],["C","出售多余设备"],["D","开发新产品"]],a:"AD",e:"复苏阶段战略：增加厂房设备、实行长期租赁、增加劳动力、建立存货储备、开发新产品。停止长期采购、出售多余设备属于衰退阶段战略。"},
+ {t:"judge",stem:"在经济衰退初期，公司一般应当出售多余设备，停止长期采购。",o:[["A","正确"],["B","错误"]],a:"A",e:"经济衰退期战略：停止扩张、出售多余设备、停产不利产品、停止长期采购、削减存货、停止扩招雇员。故说法正确。"},
+ {t:"single",stem:"下列各项策略中，可用于应对通货膨胀的是（ ）。",o:[["A","签订长期销货合同"],["B","减少长期投资"],["C","采用严格的信用条件"],["D","减少长期债务"]],a:"C",e:"通货膨胀持续期措施：①采用较严格的信用条件，减少企业债权；②调整财务政策防止资本流失。初期可投资、签订长期购货合同、取得长期负债。签订长期销货合同会减少通胀期现金流入，不利。"},
+ {t:"judge",stem:"不考虑其他因素的影响，通货膨胀一般导致市场利率下降，从而降低了企业的筹资难度。",o:[["A","正确"],["B","错误"]],a:"B",e:"通货膨胀影响：引起资金占用增加→资金需求增加；利润虚增→资金流失；利润上升→加大资金成本；有价证券价格下降→筹资难度增加；资金供应紧张→筹资困难。故市场利率上升、筹资难度增大。"},
+ {t:"multi",stem:"为了应对通货膨胀给企业造成的影响，企业可以采取的措施有（ ）。",o:[["A","放宽信用期限"],["B","取得长期负债"],["C","减少企业债权"],["D","签订长期购货合同"]],a:"BCD",e:"应对通胀措施：①签订长期购货合同减少损失；②取得长期借款保持资本成本稳定；③采用严格信用条件减少债权；④调整财务政策。放宽信用期限会增加企业债权，不利。"},
+ {t:"single",stem:"下列各项措施中，无助于企业应对通货膨胀的是（ ）。",o:[["A","发行固定利率债券"],["B","以固定租金长期租入设备"],["C","签订固定价格长期购货合同"],["D","签订固定价格长期销货合同"]],a:"D",e:"发行固定利率债券、固定租金租入设备可保持资本成本稳定；签订长期购货合同可减少物价上涨损失；签订固定价格长期销货合同会减少通胀期现金流入，无助于应对。"},
+ {t:"multi",stem:"属于衍生金融工具的是（ ）。",o:[["A","股指期货"],["B","远期外汇"],["C","银行承兑汇票"],["D","股票期权"]],a:"ABD",e:"衍生金融工具是在基本金融工具基础上通过特定技术设计形成的，常见有远期合同、期货合同、互换合同、期权合同等。银行承兑汇票属于基本金融工具。"},
+ {t:"multi",stem:"金融市场包括货币市场和资本市场，下列选项中，属于资本市场的有（ ）。",o:[["A","大额定期存单市场"],["B","银行间同业拆借市场"],["C","股票市场"],["D","融资租赁市场"]],a:"CD",e:"资本市场（长期金融市场）包括股票市场、债券市场、期货市场、融资租赁市场等。大额定期存单市场、同业拆借市场属于货币市场。"},
+ {t:"multi",stem:"金融市场分为货币市场和资本市场两种类型，下列各项中属于资本市场类型的有（ ）。",o:[["A","票据市场"],["B","期货市场"],["C","同业拆借市场"],["D","股票市场"]],a:"BD",e:"货币市场（1年以内）包括同业拆借、票据、大额定期存单、短期债券市场；资本市场（1年以上）包括股票、债券、期货、融资租赁市场。故选 BD。"},
+ {t:"single",stem:"金融市场按期限标准可划分为货币市场和资本市场。下列各项中，不属于资本市场的是（ ）。",o:[["A","短期债券市场"],["B","股票市场"],["C","期货市场"],["D","融资租赁市场"]],a:"A",e:"资本市场是长期金融市场；短期债券市场属于货币市场（短期金融市场）。故 A 不属于资本市场。"},
+ {t:"single",stem:"相对于资本市场而言，下列各项中，属于货币市场特点的是（ ）。",o:[["A","收益高"],["B","期限长"],["C","流动性强"],["D","风险大"]],a:"C",e:"货币市场工具具有较强的“货币性”，具有流动性强、价格平稳、风险较小等特性。收益高、期限长、风险大是资本市场的特点。"},
+ {t:"judge",stem:"金融市场可以划分为货币市场和资本市场，股票市场属于资本市场。",o:[["A","正确"],["B","错误"]],a:"A",e:"资本市场包括债券、股票、融资租赁和期货市场，股票市场属于资本市场。说法正确。"},
+ {t:"multi",stem:"与货币市场相比，资本市场的特点有（ ）。",o:[["A","投资收益较高"],["B","融资期限较长"],["C","投资风险较大"],["D","价格波动较小"]],a:"ABC",e:"资本市场特点：融资期限长、流动性相对较差、风险大而收益较高、资金借贷量大、价格变动幅度大。故 D（价格波动较小）错误，应为价格波动大。"},
+  {t:"multi",stem:"下列金融市场类型中，能够为企业提供中长期资金来源的有（ ）。",o:[["A","拆借市场"],["B","股票市场"],["C","融资租赁市场"],["D","票据贴现市场"]],a:"BC",e:"资本市场（长期金融市场）为企业提供中长期资金来源，包括股票市场、债券市场、融资租赁市场等。拆借市场、票据贴现市场属于货币市场，提供短期资金。"}
+];
+
+// 每题对应考点（用于掌握情况自动归类），顺序与 Q 一一对应
+const KPOINTS=["企业组织形式","企业组织形式","企业组织形式","利益冲突与协调","企业组织形式","企业组织形式","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","财务管理目标","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","利益冲突与协调","财务决策核心","财务决策核心","集权分权体制","集权分权体制","集权分权体制","集权分权体制","集权分权体制","经济环境","经济环境","经济环境","经济环境","经济环境","经济环境","金融环境","金融环境","金融环境","金融环境","金融环境","金融环境","金融环境","金融环境"];
+Q.forEach((q,i)=>q.k=KPOINTS[i]);
+
+// 掌握分析参数与建议回看指引
+const SMALL_N=3, WEAK_TH=70;
+const RECOMMEND={
+ "企业组织形式":"回看讲义「企业组织形式」：公司制优缺点（有限债务责任/双重课税/代理问题/无限存续）、与独资及合伙对比",
+ "财务管理目标":"回看「财务管理目标」：四大目标优缺点对比表（利润/股东财富/企业价值/相关者利益最大化）",
+ "利益冲突与协调":"回看「利益冲突与协调」：三类冲突及协调方式（解聘/接收/激励；限制性借债/收回借款；保护中小股东）",
+ "财务决策核心":"回看「财务决策」：财务决策是财务管理的核心",
+ "集权分权体制":"回看「集权与分权」：集权/分权优缺点、U型组织、应集权与应分权事项清单",
+ "经济环境":"回看「经济环境」：经济周期各阶段财务战略、通货膨胀应对措施",
+ "金融环境":"回看「金融环境」：货币市场与资本市场分类与特点、衍生金融工具"
+};
+
+// ============ 知识讲解（乐享 learningSummary《第一章-总论-全六节详解》完整原文，按节切分锚点）============
+const SUMMARY_SECTIONS=[
+ {k:"思维导图",title:"〇 · 本章考情 + 整章思维导图（六节全景）",md:`
+# 📘 第一章 总论（财务管理）· 全六节完整详解（思维导图版）
+
+## 〇、本章考情（先定位）
+
+依据：高红瑞《2026 考季备考指南》+ 整章讲义原文
+
+- 重要程度：★（非重点章，但"必拿分"）
+- 预估分值：约 4 分左右
+- 难度：低
+- 考查形式：全客观题（单选 / 多选 / 判断），无计算、无大题
+- 主要考点：企业的组织形式、财务管理体制的设计原则、所有者与经营者利益冲突与协调、金融环境和金融工具
+
+结论：内容少、难度低、全是客观题 → 性价比极高，目标 100% 拿住，是考试白送的分。
+
+## 〇、整章思维导图（六节全景）
+
+第一章 总论
+│
+├─ 第一节 企业与企业财务管理 ⭐⭐⭐⭐
+│   ├─ ① 企业及其组织形式 ⭐⭐⭐⭐⭐（第一高频）
+│   │     ├─ 企业的定义与功能
+│   │     └─ 三种组织形式：个人独资 / 合伙 / 公司制
+│   │           └─ 公司制企业 优缺点（超高频，几乎每年 1 题）
+│   └─ ② 企业财务管理的内容 ⭐⭐⭐⭐
+│         └─ 五大内容：筹资 / 投资 / 营运资金 / 成本 / 收入与分配
+│
+├─ 第二节 财务管理目标 ⭐⭐⭐⭐⭐（全章分值最高）
+│   ├─ ① 四大目标理论 ⭐⭐⭐⭐⭐（历年 7~8 题）
+│   │     ├─ 利润最大化（短视）
+│   │     ├─ 股东财富最大化（上市公司 / 基石）
+│   │     ├─ 企业价值最大化（教材最推崇）
+│   │     └─ 相关者利益最大化（股东首要）
+│   ├─ ② 目标与利益冲突 ⭐⭐⭐⭐⭐（三大冲突）
+│   │     ├─ 股东 vs 经营者（解聘 / 接收 / 激励）
+│   │     ├─ 大股东 vs 中小股东（治理 + 披露）
+│   │     └─ 股东 vs 债权人（限制性借债 / 收回或停止借款）
+│   └─ ③ 企业社会责任 ⭐⭐⭐
+│         └─ 五大责任（员工 / 债权人 / 消费者 / 社会公益 / 环境资源）
+│
+├─ 第三节 财务管理原则 ⭐⭐（5 条原则，客观题直接问"属于哪条原则"）
+├─ 第四节 财务管理环节 ⭐⭐⭐（★★核心考点：财务决策是核心）
+├─ 第五节 财务管理体制 ⭐⭐⭐⭐（集权vs分权 + U/H/M 组织 + 7集中4分散）
+└─ 第六节 财务管理环境 ⭐⭐⭐⭐（经济周期 + 通货膨胀 + 金融市场分类）
+`},
+ {k:"企业组织形式",title:"第一节 · 企业与企业财务管理",md:`
+# 🧩 第一节 企业与企业财务管理
+
+## 📍 知识点 1：企业及其组织形式 ⭐⭐⭐⭐⭐（历年单选/判断最爱考，约占总论 1/3 分值）
+
+### ① 企业的定义与功能（了解即可，常考程度低）
+
+- 定义：依法设立的、以营利为目的、运用各种生产要素，向市场提供商品或服务，实行自主经营、自负盈亏、独立核算的法人或其他社会经济组织。
+- 目标：创造财富（或价值）。
+
+### ② 三种组织形式对比（常考：单选对比 + 判断陷阱）
+
+| 组织形式 | 常见形式 | 投资者 | 风险承担 |
+|-|-|-|-|
+| 个人独资企业 | 私营企业 | 个人 | 无限责任 |
+| 合伙企业 | 普通合伙企业 / 有限合伙企业 | 两个或两个以上合伙人 | 普通合伙人无限连带责任；有限合伙人以出资额为限 |
+| 公司制企业 | 有限责任公司 / 股份有限公司 | 个人、法人均可 | 有限责任（以出资额为限） |
+
+### ③ 公司制企业优缺点（⚠️ 全章最高频，几乎每年 1 题）
+
+优点（4 个）：
+1. 容易转让所有权
+2. **有限债务责任**（股东以出资额为限，公司债务是法人债务）
+3. **无限存续**（创始人和经营者退出后公司仍可继续存在）
+4. 融资渠道多，更容易筹集资金
+
+缺点（3 个）：
+1. **组建成本高**
+2. **存在代理问题**（所有权与经营权分离，经营者可能损害所有者利益）
+3. **双重课税**（先缴企业所得税，再缴个人所得税）
+
+### 🎯 常考易错点（务必记住）
+
+| 易错点 | 正确理解 |
+|-|-|
+| "股东承担无限连带责任" → ❌ 不是公司制缺点 | **有限责任恰是公司制优点**（2022 单选 D） |
+| "合伙制也有双重课税" → ❌ | **只有公司制双重课税，合伙制没有**（2016 判断） |
+| "公司制受政府监管宽松" → ❌ | **设立复杂、监管更严格**，需定期提交报告（2021 判断） |
+| 代理问题的本质 | **所有者（委托人）与经营者（代理人）分离** → 代理人可能为自身利益伤害委托人利益（2016 单选） |
+
+📌 真题印证：习题纯享第 1~6 题全考这个点 → 公司制优缺点 = 必考，背熟 4 优 3 缺。
+
+## 📍 知识点 2：企业财务管理的内容（五大内容）⭐⭐⭐⭐
+
+财务管理五大内容（记忆：搞钱→用钱→周转→省钱→分钱）
+│
+├─ ① 筹资管理 ┄┄ 对应第 4、5 章（搞钱：钱从哪来）
+├─ ② 投资管理 ┄┄ 对应第 6 章（用钱：钱往哪去）
+├─ ③ 营运资金管理 ┄ 对应第 7 章（周转：日常现金流）
+├─ ④ 成本管理 ┄┄ 对应第 8 章（省钱：降本增效）
+└─ ⑤ 收入与分配管理 ┄ 对应第 9 章（分钱：利润怎么分）
+
+### 🎯 常考易错点
+
+- 判断/多选"财务管理包含什么" → 五大内容缺一不可。
+- ⚠️ 你曾经的坑：把"现金流管理"当成财务管理全部 → 现金流只是营运资金管理这一块，是五大内容之一（已纠正 ✓）。
+`},
+ {k:"财务管理目标",title:"第二节 · 财务管理目标（四大目标理论）",md:`
+# 🧩 第二节 财务管理目标
+
+## 📍 知识点 1：四大目标理论 ⭐⭐⭐⭐⭐（全章分值最高的考点，历年 7~8 题）
+
+### ① 利润最大化（最朴素、最"短视"）
+
+- 观点：以实现利润最大为目标；利润 = 收入 − 成本费用
+- 优点：讲求经济核算、加强管理、改进技术、提高劳动生产率、降低产品成本；有利于资源合理配置，提高整体经济效益
+- 缺点（高频考）：
+1. 没有考虑利润实现时间和资金时间价值
+2. 没有考虑风险问题
+3. 没有反映创造的利润与投入资本之间的关系（投入产出比）
+4. 可能导致短期财务决策倾向，影响企业长远发展
+
+### ② 股东财富最大化（上市公司专属 + 所有目标基石）
+
+- 观点：股东财富 = 股票数量 × 股票价格
+- 优点：① 考虑了风险因素；② 一定程度上避免短期行为；③ 对上市公司容易量化，便于考核奖惩
+- 缺点：① 通常只适用于上市公司，非上市公司难应用；② 股价受众多因素影响，不能完全准确反映财务管理状况；③ 强调股东利益，对其他相关者利益重视不够
+
+### ③ 企业价值最大化（教材最推崇）
+
+- 观点：企业价值 = 所有者权益 + 债权人权益的市场价值，或预计未来现金流量的现值
+- 优点：① 考虑报酬取得时间，用时间价值计量（现值）；② 考虑风险与报酬关系；③ 把长期稳定发展与持续获利放在首位，克服短期行为；④ 用价值代替价格，避免外界市场因素干扰
+- 缺点：① 价值过于理论化，不易操作；② 非上市公司需专门评估，受评估标准/方式影响，难做到客观准确
+- 提示：随着上市公司数量的增加，逐渐得到广泛认可
+
+### ④ 相关者利益最大化（股东首要地位）
+
+- 观点：① 强调股东的首要地位；② 强调风险与报酬均衡，把风险限制在可承受范围内
+- 优点：① 有利于长期稳定发展；② 合作共赢理念，经济效益与社会效益统一；③ 多元化多层次目标体系，兼顾各方利益；④ 前瞻性与现实性的统一
+
+### 📊 四种目标核心对比表（🔥 考试必考，请背熟）
+
+| 对比点 | 利润最大化 | 股东财富最大化 | 企业价值最大化 | 相关者利益最大化 |
+|-|-|-|-|-|
+| 长短期效应 | 短期行为 | 长期行为 | 长期行为 | 长期行为 |
+| 是否考虑时间价值 | ❌ 没有 | ✅ 考虑 | ✅ 考虑 | ✅ 考虑 |
+| 是否考虑风险 | ❌ 没有 | ✅ 考虑 | ✅ 考虑 | ✅ 考虑 |
+| 其他 | —— | 单纯考虑股东利益 | 考虑股东 + 债权人 | 综合不同利益相关者 |
+
+### 🎯 常考易错点
+
+- **唯一不考虑时间价值 & 风险的 = 利润最大化**（2023/2025 单选连考）
+- **唯一导致短期行为的 = 利润最大化**（2018 单选）
+- 基石关系：利润 / 企业价值 / 相关者利益最大化 **都以股东财富最大化为基石**（2022、2015 判断）→ 没有股东财富最大化，其余目标都难实现
+- 股东财富最大化同时占两个位置：**上市公司专属 + 共同基石**
+- 相关者利益最大化 = **股东首要地位**，不是"员工"也不是"其他相关者"（2019 判断）
+- **衡量股东财富最直观指标 = 股价**（2019 单选）
+- ⚠️ 判断陷阱：股东财富最大化"意味着先满足股东再考虑其他相关者" → ❌ 公司法规定股东权益是剩余权益，缴税、工资、产品服务之后才轮到股东（2020/2021 判断 ×2）
+
+📌 真题印证：习题纯享第 7~22 题（16 题）全是这个点 → 四大目标对比表 = 第一章必背之首。
+`},
+ {k:"利益冲突与协调",title:"第二节 · 目标与利益冲突 + 企业社会责任",md:`
+## 📍 知识点 2：财务管理目标与利益冲突 ⭐⭐⭐⭐⭐（三大冲突，近几年多选集中区）
+
+### ① 股东 vs 经营者（管理层）—— 解聘 / 接收 / 激励
+
+- 矛盾点：经营者想获取更多报酬、享受并避免风险；股东希望以较小代价实现更多财富
+- 协调方式：
+1. 解聘 —— 股东约束经营者
+2. 接收 —— 市场约束经营者
+3. 激励 —— 股票期权 + 绩效股
+
+⚠️ 高频易错："限制借款用于高风险项目"属于股东 vs 债权人，不属于股东 vs 经营者（2023 单选明确考过）！
+
+### ② 大股东 vs 中小股东
+
+- 侵害形式（5 种，多选常考）：
+1. 利用关联交易转移上市公司资产
+2. 非法占用上市公司巨额资金，或以公司名义担保 / 恶意筹资
+3. 发布虚假信息进行股价操纵
+4. 为大股东委派的高管支付不合理报酬及特殊津贴
+5. 采用不合理股利政策，掠夺中小股东既得利益
+
+- 解决方式：
+1. 完善治理结构（增强中小股东投票权 + 知情权、提高独立董事比例、健全监事会）
+2. 规范信息披露制度（完整、真实、及时）
+
+### ③ 股东 vs 债权人
+
+- 矛盾点：① 所有者要求经营者把借款改投高风险项目；② 未征得债权人同意举借新债
+- 协调方式：
+1. 限制性借债：事先规定借债用途限制、借债担保条款、借债信用条件
+2. 收回借款或停止借款
+
+### 🎯 常考易错点
+
+- 三大冲突全部由委托代理问题引起（管理层与股东 / 股东与债权人 / 大股东与中小股东，2023 判断 √）
+- "不存在控股股东 → 就没有股东与债权人冲突" → ❌ 冲突与是否控股无关（2022 判断）
+- 债权人保护自己：限制支付现金股利也属于限制性借债的一般性保护条款（2021 多选 ABCD）
+- 高风险投资对债权人：只带来高风险、无高收益（风险收益不对称，2017 判断 ×）
+- 协调手段三句口诀：股东管经营者 = 解聘接收激励；股东防债权人 = 限债收债停借；中小股东靠治理 + 披露
+
+📌 真题印证：习题纯享第 23~29 题 → 三冲突的"协调手段配对"是单选/多选必考。
+
+## 📍 知识点 3：企业的社会责任 ⭐⭐⭐
+
+- 定义：企业在谋求所有者（股东）权益最大化之外所负有的维护和增进社会利益的义务
+- 五大责任：
+1. 对员工的责任
+2. 对债权人的责任
+3. 对消费者的责任
+4. 对社会公益的责任
+5. 对环境和资源的责任
+
+- 补充：还有义务遵从政府管理、接受政府监督
+- ⚠️ 易错：不是只分"社会公益 + 对债权人"两大类（2014 判断 ×）
+
+📌 真题印证：习题纯享第 30 题。
+`},
+ {k:"财务管理原则",title:"第三节 · 财务管理原则（五大原则）",md:`
+# 🧩 第三节 财务管理原则 ⭐⭐
+
+## 📍 知识点：五条原则（讲义原文，逐条记）
+
+财务管理五大原则（记忆口诀：系风现成利）
+│
+├─ ① 系统性原则 —— 财务管理是系统工程，各环节相互联系
+├─ ② 风险权衡原则 —— 风险与收益要权衡，不能只追求收益忽视风险
+├─ ③ 现金收支平衡原则 —— 现金流要收支平衡（这是"现金流"的正确归属！）
+├─ ④ 成本收益权衡原则 —— 投入与产出要划算，讲求经济效益
+└─ ⑤ 利益关系协调原则 —— 协调各方利益相关者关系
+
+### 🎯 常考易错点
+
+- 判断/多选直接给一句描述，让你选"属于哪条原则"。
+- ⚠️ "现金收支平衡"在这里是原则之一，正好呼应你第一节学过的坑——现金流管理≠财务管理全部，它是"营运资金管理"那块内容，而"现金收支平衡"是五大原则之一，两处别混。
+
+📌 真题印证：本讲义此节无独立真题，但属于"客观题送分归类题"，务必把 5 条原则名背全（漏一条=丢 1 分）。
+`},
+ {k:"财务决策核心",title:"第四节 · 财务管理环节（决策是核心）",md:`
+# 🧩 第四节 财务管理环节 ⭐⭐⭐
+
+## 📍 知识点：六大环节 & 核心
+
+财务管理环节（流程线：先计划后行动）
+│
+├─ ① 财务预测 —— 对未来的筹资、投资等做科学预计
+├─ ② 财务计划（预算）—— 把预测落到具体计划
+├─ ③ 财务决策 ──────── ⭐ 财务管理核心 ⭐
+├─ ④ 财务控制 —— 执行中对财务活动进行监控纠偏
+├─ ⑤ 财务分析 —— 事后分析评价
+└─ ⑥ 财务考核（评价）—— 兑现奖惩、改进管理
+
+### 🎯 常考易错点
+
+- **"财务决策是财务管理的核心"**，不是预算、不是控制、不是分析（🔴 最高频陷阱）。
+- 财务决策的定义：按财务战略目标总体要求，用专门方法对备选方案比较分析，选出最佳方案。
+
+📌 真题印证（2 题全中）：
+- 第 31 题【单选·2020】选最佳方案 → 财务决策（A）
+- 第 32 题【单选·2024】财务管理核心 → 财务决策（B）
+`},
+ {k:"集权分权体制",title:"第五节 · 财务管理体制（集权 vs 分权）",md:`
+# 🧩 第五节 财务管理体制 ⭐⭐⭐⭐
+
+## 一、三种模式整体思维导图
+
+财务管理体制
+│
+├─ ① 集权型 ──── 权限集中于企业总部
+│     优点：一体化管理·决策统一制度化 / 优化资源配置·利于内部调拨价格 / 利于内部避税·防范汇率风险
+│     缺点：所属单位缺主动性·丧失活力 / 决策程序复杂·失去市场弹性
+│
+├─ ② 分权型 ──── 权限分散于各所属单位
+│     优点：因地制宜及时决策 / 分散经营风险·提高人员素质
+│     缺点：缺全局观·整体意识 → 资金管理分散·资金成本增大·费用失控·利润分配无序
+│
+└─ ③ 集权与分权相结合 ⭐ 最推崇
+      实质＝"集权下的分权"：重大决策权集中总部，赋予各单位自主经营权
+      优点：吸收两者优点，避免两者缺点 → 优越性最大
+
+## 二、影响集权/分权选择的因素（🔥 表格必背）
+
+| 考虑因素 | 集权 | 分权 |
+|-|-|-|
+| 生命周期 | 初创期（经营风险高） | 稳定增长期 |
+| 企业战略 | 纵向一体化 | 多元化战略 |
+| 市场环境 | 市场稳定 | 复杂多变、不确定高 |
+| 企业规模 | 小 | 大 |
+| 管理水平 | 高 | 低 |
+| 信息网络 | 高 | 低 |
+
+⚠️ 最易错：**初创期经营风险高 → 反而宜集权**（降低分权决策失误风险），不是分权！（2022 单选 A 项错误）
+
+## 三、设计原则（4 条）& 组织体制（U/H/M）
+
+设计原则：
+① 与现代企业制度的要求相适应
+② 决策权·执行权·监督权 三权分立
+③ 财务的综合管理和分层管理思想
+④ 与企业组织体制相适应
+
+组织体制（3 种）：
+├─ U 型：高度集权 · 集权控制 ⭐ 最基本组织结构（产品简单、规模小，无中间管理层）
+├─ H 型：高度分权 · 控股公司体制（各子公司独立性大）
+└─ M 型：事业部制（集权程度较高，事业部有一定经营自主权）
+
+## 四、集权与分权相结合的实践：7 集中 4 分散（🔥 多选必考）
+
+7 项应集中（记忆：制度·机构·筹资·投资·担保·固购·分配）
+① 制度制定权   ② 财务机构设置权   ③ 筹资权   ④ 投资权
+⑤ 用资、担保权  ⑥ 固定资产购置权   ⑦ 收益分配权
+
+4 项应分散（记忆：经营·人事·定价·费用）
+① 经营自主权  ② 人员管理权  ③ 业务定价权  ④ 费用开支审批权
+
+### 🎯 常考易错点汇总
+
+- **集权型缺点 = 削弱所属单位主动性、失去市场弹性**（不是"资金管理分散/利润分配无序"，那些是分权缺点）
+- **初创期宜集权**（2022 真题明确 A 选项错误）
+- 业务联系越紧密 → 越宜集中 √（2016 判断）
+- **U 型典型特征 = 集权控制**（没有中间管理层，2014 单选）
+- 7 集中 4 分散：收益分配权、财务机构设置权、对外担保权都是集中；**业务定价权是分散**（2011 多选 ABC）
+
+📌 真题印证（5 题全中）：
+- 第 33 题【单选·2017】集权型导致的问题 → 削弱所属单位主动性（A）
+- 第 34 题【单选·2022】初创期更适合分权 → ❌ 错，应集权（选 A）
+- 第 35 题【判断·2016】业务联系越紧密越需集中 → √
+- 第 36 题【单选·2014】U 型组织典型特征 → 集权控制（A）
+- 第 37 题【多选·2011】应集中的权力 → 收益分配权·财务机构设置权·对外担保权（ABC）
+`},
+ {k:"经济环境",title:"第六节 · 财务管理环境（技术 / 经济环境）",md:`
+# 🧩 第六节 财务管理环境 ⭐⭐⭐⭐
+
+## 一、整体思维导图
+
+财务管理环境
+│
+├─ ① 技术环境 —— 技术手段决定财务管理效率与效果
+├─ ② 经济环境 ⭐⭐⭐（经济体制 / 经济周期 / 发展水平 / 宏观政策 / 通货膨胀）
+├─ ③ 金融环境 ⭐⭐⭐（金融机构 / 金融工具 / 金融市场分类 / 货币vs资本市场）
+└─ ④ 法律环境（筹资·投资·收益分配各对应法规）
+
+## 二、技术环境（了解即可）
+
+- 指财务管理得以实现的技术手段和技术条件，决定着财务管理的效率和效果。
+
+## 三、经济环境 — 经济体制与周期（🔥 各阶段策略对比必背）
+
+经济体制：计划经济下财务管理内容单一、方法简单；市场经济下内容丰富、方法复杂多样。
+
+| 阶段 | 财务战略 |
+|-|-|
+| 复苏 | 增加厂房设备·实行长期租赁·建立存货储备·开发新产品·增加劳动力 |
+| 繁荣 | 扩充厂房设备·继续建立存货·提高产品价格·开展营销规划·增加劳动力 |
+| 衰退 | 停止扩张·出售多余设备·停产不利产品·停止长期采购·削减存货·停止扩招雇员 |
+| 萧条 | 建立投资标准·保持市场份额·压缩管理费用·放弃次要利益·削减存货·裁减雇员 |
+
+⚠️ 高频易错：**把"复苏"和"繁荣"的策略混、把"衰退"和"萧条"的策略混**。复苏=扩张起步（增加厂房设备/长期租赁）；繁荣=继续加码+提价；衰退=收缩（停扩/卖设备/停采购）。
+
+## 四、经济环境 — 通货膨胀（🔥 必考）
+
+（1）通货膨胀的影响（5 条，判断常考）
+1. 引起利润虚增，造成企业资金流失
+2. 引起利润上升，加大企业权益资金成本
+3. 引起资金占用大量增加 → 增加资金需求
+4. 引起有价证券价格下降 → 增加筹资难度
+5. 引起资金供应紧张 → 增加筹资困难
+
+⚠️ 易错：**通胀不会降低筹资难度、不会使市场利率下降**（2018 判断 ×）。
+
+（2）应对措施（初期 vs 持续期）
+
+| 阶段 | 措施 |
+|-|-|
+| 通货膨胀初期 | ① 进行投资避免风险、资本保值 ② 签订长期购货合同 ③ 取得长期借款，保持资本成本稳定 |
+| 通货膨胀持续期 | ① 采用较严格的信用条件、减少企业债权 ② 调整财务政策、防止资本流失 |
+
+⚠️ 易错：**签订长期销货合同是错的**（会减少通胀期现金流入，无助于应对通胀）；**要签的是长期购货合同**（2017 单选 D）。
+
+📌 真题印证（经济部分，7 题全中）：
+- 第 38 题【多选·2025】复苏阶段战略 → 建立存货储备·开发新产品（AD）
+- 第 39 题【判断·2010】衰退初期卖设备停采购 → √
+- 第 40 题【单选·2025】应对通胀 → 严格信用条件（C，持续期措施）
+- 第 41 题【判断·2018】通胀导致利率下降、降低筹资难度 → ×
+- 第 42 题【多选·2019】应对通胀 → 长期负债·减少债权·长期购货合同（BCD）
+- 第 43 题【单选·2017】无助于应对通胀 → 签订固定价格长期销货合同（D）
+`},
+ {k:"金融环境",title:"第六节 · 金融环境",md:`
+## 五、金融环境
+
+（1）金融工具（🔥 多选区分基本/衍生）
+- 基本金融工具：货币、票据、债券、股票
+- 衍生金融工具：远期合约、期货、互换（掉期）、期权、资产支持证券
+
+⚠️ 易错：银行承兑汇票 = 基本工具（不是衍生）；股指期货、远期外汇、股票期权都是衍生（2021 多选 ABD）。
+
+（2）金融市场分类（5 种标准）
+
+① 按期限：货币市场（短期）/ 资本市场（长期）⭐ 最重要
+② 按功能：发行市场（一级）/ 流通市场（二级）
+③ 按融资对象：资本市场 / 外汇市场 / 黄金市场
+④ 按工具属性：基础性金融市场 / 金融衍生品市场
+⑤ 按地理范围：地方性 / 全国性 / 国际性
+
+（3）货币市场 vs 资本市场（🔥 核心对比）
+
+| 对比项 | 货币市场（短期） | 资本市场（长期） |
+|-|-|-|
+| 期限 | ≤1 年 | ≥1 年（可 10 年以上） |
+| 构成 | 拆借·票据·大额定期存单·短期债券 | 债券·股票·期货·融资租赁 |
+| 功能 | 调节短期资金融通（短期周转） | 长期资本融通（补充长期资本、扩大生产） |
+| 特点 | 流动性强·价格平稳·风险小 | 收益高·风险大·借贷量大·价格波动大 |
+
+（4）法律环境（了解即可）
+- 影响筹资：公司法、证券法、民法典
+- 影响投资：证券法、公司法、企业财务通则
+- 影响收益分配：税法、公司法、企业财务通则
+
+### 🎯 常考易错点汇总（金融部分）
+
+- **以 1 年为界分货币/资本市场**（2022/2023 单选连续考）
+- 资本市场=股票、债券、期货、融资租赁；货币市场=拆借、票据、大额存单、短期债券（注意短期债券在"货币"侧）
+- **货币市场特点=流动性强、风险小；资本市场=收益高、风险大**
+- **能提供中长期资金：股票市场、融资租赁市场**（不是拆借/票据贴现）
+
+📌 真题印证（金融部分，8 题全中）：
+- 第 44 题【多选·2021】衍生金融工具 → 股指期货·远期外汇·股票期权（ABD）
+- 第 45 题【多选·2024】资本市场 → 股票市场·融资租赁市场（CD）
+- 第 46 题【多选·2023】资本市场 → 期货市场·股票市场（BD）
+- 第 47 题【单选·2022】不属于资本市场 → 短期债券市场（A）
+- 第 48 题【单选·2019】货币市场特点 → 流动性强（C）
+- 第 49 题【判断·2018】股票市场属于资本市场 → √
+- 第 50 题【多选·2018】资本市场特点 → 收益较高·期限较长·风险较大（ABC）
+- 第 51 题【多选·2014】中长期资金来源 → 股票市场·融资租赁市场（BC）
+`},
+ {k:"速查表",title:"全章速查表 + 知识链闭环",md:`
+# 🎯 全章常考知识点速查表（考前 30 秒扫一眼）
+
+| 知识点 | 考频 | 常考题型 | 必背要点 |
+|-|-|-|-|
+| 公司制企业优缺点 | ⭐⭐⭐⭐⭐ | 单选/判断 | 4优3缺；有限责任=优点；双重课税/代理=缺点 |
+| 企业组织形式对比 | ⭐⭐⭐⭐⭐ | 单选/判断 | 个人独资=无限；普通合伙=无限连带；公司制=有限责任 |
+| 四大目标对比 | ⭐⭐⭐⭐⭐ | 单选/多选/判断 | 利润=不考虑时间价值+风险+短期行为；以股东财富最大化为基石 |
+| 三大利益冲突协调 | ⭐⭐⭐⭐⭐ | 单选/多选 | 股东vs经营者=解聘接收激励；股东vs债权人=限债收债；大股东vs中小股东=治理+披露 |
+| 五大内容 | ⭐⭐⭐⭐ | 判断/多选 | 筹资/投资/营运资金/成本/收入分配（勿以偏概全） |
+| 企业社会责任 | ⭐⭐⭐ | 判断 | 五大责任，不只两大类 |
+| 财务管理五大原则 | ⭐⭐ | 单选/判断 | 系·风·现·成·利（系统/风险权衡/现金收支平衡/成本收益权衡/利益协调） |
+| 财务决策是核心 | ⭐⭐⭐ | 单选 | 六大环节中决策为核心，不是预算/控制/分析 |
+| 集权 vs 分权优缺点 | ⭐⭐⭐⭐ | 单选/多选 | 集权=一体高效但缺活力；分权=灵活但易失控 |
+| 集权/分权选择因素 | ⭐⭐⭐⭐ | 单选 | 初创期宜集权；成熟/多元/规模大→分权 |
+| U/H/M 组织 | ⭐⭐⭐ | 单选 | U=集权控制；H=控股分权；M=事业部 |
+| 7 集中 4 分散 | ⭐⭐⭐⭐ | 多选 | 制度/机构/筹资/投资/担保/固购/分配集中；经营/人事/定价/费用分散 |
+| 经济周期四阶段策略 | ⭐⭐⭐⭐ | 多选/判断 | 复苏扩张·繁荣加码·衰退收缩·萧条防守 |
+| 通货膨胀影响与对策 | ⭐⭐⭐⭐ | 单选/判断 | 影响=虚增/升本/增需/降价/紧张；对策=长期购货+长期借款(初期)、严信用(持续期) |
+| 金融市场分类 | ⭐⭐⭐⭐ | 单选/多选 | 1 年为界；货币=短·流动性强·风险小；资本=长·收益高·风险大 |
+| 基本 vs 衍生工具 | ⭐⭐⭐ | 多选 | 基本=货币/票据/债券/股票；衍生=远期/期货/互换/期权 |
+
+# 📍 全章知识链闭环
+
+第一节 组织与内容 → 第二节 目标与冲突 → 第三节 原则 → 第四节 环节 → 第五节 体制 → 第六节 环境
+
+到这里，第一章 总论六个小节已全部合并过完，一份完整的整章整理如上。
+
+接下来建议二选一：
+1. 直接做第一章 习题纯享（51 题），一次性检验整章掌握度（可以按节分块出，先测后四节第 31~51 题）；
+2. 先挑某节（如体制或环境）再展开细讲或抽查提问，巩固后再统一刷题。
+`}
+];
+
+// 轻量 Markdown → HTML（支持 标题/表格/有序无序列表/粗体/行内代码/ASCII思维导图树）
+function inlineMd(s){
+  s=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  return s;
+}
+function mdToHtml(md){
+  const lines=md.replace(/\r\n/g,'\n').split('\n');
+  let html='', i=0;
+  let inTable=false, tableHtml='', rowCount=0;
+  let inList=false, listType=null, listHtml='';
+  let inPre=false, preHtml='';
+  function flushTable(){ if(inTable){ html+=`<table class="ktab">${tableHtml}</table>`; tableHtml=''; inTable=false; rowCount=0; } }
+  function flushList(){ if(inList){ html+=`<${listType} class="klist">${listHtml}</${listType}>`; listHtml=''; inList=false; listType=null; } }
+  function flushPre(){ if(inPre){ html+=`<pre class="ktree">${preHtml}</pre>`; preHtml=''; inPre=false; } }
+  for(const line of lines){
+    if(/^#{1,6}\s/.test(line)){
+      flushTable();flushList();flushPre();
+      const m=line.match(/^(#{1,6})\s+(.*)$/);
+      const lvl=m[1].length;
+      html+=`<h${lvl} class="kh${lvl}">${inlineMd(m[2])}</h${lvl}>`;
+      continue;
+    }
+    if(/^\s*\|.*\|\s*$/.test(line)){
+      flushList();flushPre();
+      if(!inTable){ inTable=true; tableHtml=''; rowCount=0; }
+      if(/^\s*\|[\s:|-]+\|\s*$/.test(line)){ continue; } // 分隔行
+      const cells=line.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c=>c.trim());
+      if(rowCount===0){ tableHtml+='<thead><tr>'+cells.map(c=>`<th>${inlineMd(c)}</th>`).join('')+'</tr></thead><tbody>'; }
+      else { tableHtml+='<tr>'+cells.map(c=>`<td>${inlineMd(c)}</td>`).join('')+'</tr>'; }
+      rowCount++;
+      continue;
+    } else { flushTable(); }
+    const isOl=/^\s*\d+\.\s+/.test(line);
+    if(/^\s*-\s+/.test(line) || isOl){
+      flushTable();flushPre();
+      if(inList && listType!==(isOl?'ol':'ul')) flushList();
+      if(!inList){ inList=true; listType=isOl?'ol':'ul'; listHtml=''; }
+      const txt=inlineMd(line.replace(/^\s*(?:-\s+|\d+\.\s+)/,''));
+      listHtml+=`<li>${txt}</li>`;
+      continue;
+    } else { flushList(); }
+    if(/[│├└┌┐┘┤┬┴┼]/.test(line)){
+      flushTable();flushList();
+      if(!inPre){ inPre=true; preHtml=''; }
+      preHtml+=inlineMd(line)+'\n';
+      continue;
+    } else { flushPre(); }
+    if(line.trim()===''){ flushTable();flushList();flushPre(); continue; }
+    html+=`<p>${inlineMd(line)}</p>`;
+  }
+  flushTable();flushList();flushPre();
+  return html;
+}
+
+function buildSumNav(){
+  let nav='';
+  SUMMARY_SECTIONS.forEach(s=>{ nav+=`<button type="button" class="sum-nav-btn" data-k="${s.k}">${s.k}</button>`; });
+  return nav;
+}
+function buildSumBody(){
+  let body='';
+  SUMMARY_SECTIONS.forEach(s=>{
+    body+=`<section class="ksec" id="kp-${s.k}"><h2 class="ksec-title">${s.title}</h2>${mdToHtml(s.md)}</section>`;
+  });
+  return body;
+}
+
+const quiz=document.getElementById('quiz');
+const sumMask=document.getElementById('sumMask');
+const sumNav=document.getElementById('sumNav');
+const sumBody=document.getElementById('sumBody');
+const TYPE={single:["单选","b-single"],multi:["多选","b-multi"],judge:["判断","b-judge"]};
+let graded=false, showAll=false, onlyWrong=false;
+let doubts=Q.map(()=>false);
+
+function build(){
+  quiz.innerHTML='';
+  Q.forEach((q,i)=>{
+    const [tname,tcls]=TYPE[q.t];
+    const card=document.createElement('div');
+    card.className='q'+(doubts[i]?' doubt':''); card.id='q'+i;
+    let optsHtml='';
+    q.o.forEach(([lab,txt])=>{
+      const inp=q.t==='multi'?'checkbox':'radio';
+      optsHtml+=`<label class="opt" data-lab="${lab}"><input type="${inp}" name="q${i}" value="${lab}"><span class="lab">${lab}</span><span class="txt">${txt}</span></label>`;
+    });
+    const ansTxt = q.t==='judge' ? (q.a==='A'?'正确':'错误') : q.a;
+    const doubtBtn = `<button type="button" class="doubt-btn${doubts[i]?' on':''}" data-i="${i}">${doubts[i]?'有疑问':'标记疑问'}</button>`;
+    card.innerHTML=`<div class="q-head"><span class="qno">${i+1}</span><span class="badge ${tcls}">${tname}</span><div class="stem">${q.stem}</div>${doubtBtn}</div><div class="opts">${optsHtml}</div><div class="explain" id="ex${i}"><div class="et-row"><span class="et">✓ 正确答案：<span class="ans">${ansTxt}</span></span><button type="button" class="btn-know" data-k="${q.k}">📖 知识讲解：「${q.k}」</button></div><div>${q.e}</div></div>`;
+    quiz.appendChild(card);
+  });
+  updateStat();
+}
+
+function getSel(i){
+  const nodes=document.querySelectorAll(`input[name="q${i}"]:checked`);
+  return Array.from(nodes).map(n=>n.value).sort().join('');
+}
+function isCorrect(i){
+  const q=Q[i]; const sel=getSel(i);
+  if(q.t==='multi') return sel===q.a.split('').sort().join('');
+  return sel===q.a;
+}
+
+quiz.addEventListener('change',()=>{ if(!graded) updateStat(); });
+
+// 疑问标记（提交前可勾选/反选；提交后锁定）
+quiz.addEventListener('click',(e)=>{
+  const db=e.target.closest('.doubt-btn');
+  if(db){
+    if(graded) return; // 提交后锁定
+    const i=+db.getAttribute('data-i');
+    doubts[i]=!doubts[i];
+    const card=document.getElementById('q'+i);
+    card.classList.toggle('doubt',doubts[i]);
+    db.classList.toggle('on',doubts[i]);
+    db.textContent=doubts[i]?'有疑问':'标记疑问';
+    updateDoubtStat();
+  }
+  const kb=e.target.closest('.btn-know');
+  if(kb){ openSummary(kb.getAttribute('data-k')); }
+});
+
+function updateStat(){
+  let ans=0;
+  for(let i=0;i<Q.length;i++) if(getSel(i)!=='') ans++;
+  document.getElementById('answered').textContent=ans;
+  updateDoubtStat();
+}
+function updateDoubtStat(){
+  let d=0; for(let i=0;i<Q.length;i++) if(doubts[i]) d++;
+  document.getElementById('doubtcnt').textContent=d;
+}
+
+function submit(){
+  if(graded) return; // 防重复判分
+  graded=true;
+  let right=0;
+  for(let i=0;i<Q.length;i++){
+    const q=Q[i]; const card=document.getElementById('q'+i);
+    const sel=getSel(i);
+    const correct=isCorrect(i);
+    if(correct) right++;
+    card.classList.add(correct?'res-correct':'res-wrong');
+    const optEls=card.querySelectorAll('.opt');
+    let missed=[], wrong=[];
+    optEls.forEach(op=>{
+      const lab=op.getAttribute('data-lab');
+      const checked=op.querySelector('input').checked;
+      const isAns=q.a.includes(lab);
+      if(isAns){
+        op.classList.add('correct');
+        if(q.t==='multi'&&!checked){ op.classList.add('missed'); missed.push(lab); } // 漏选
+      }
+      if(checked&&!isAns){ op.classList.add('wrong'); wrong.push(lab); } // 错选
+      op.querySelector('input').disabled=true;
+    });
+    if(!correct){
+      const tip=document.createElement('div');
+      tip.className='my-ans-tip';
+      const ansShow=q.t==='judge'?(q.a==='A'?'正确':'错误'):q.a;
+      let msg=`你的作答：${sel||'未作答'}　→　正确答案：${ansShow}`;
+      if(q.t==='multi'&&sel){
+        const extra=[];
+        if(missed.length) extra.push(`漏选 ${missed.join('、')}`);
+        if(wrong.length) extra.push(`错选 ${wrong.join('、')}`);
+        if(extra.length) msg+=`　｜　${extra.join('；')}`;
+      }
+      tip.textContent=msg;
+      card.insertBefore(tip, document.getElementById('ex'+i));
+    }
+    document.getElementById('ex'+i).classList.add('show');
+  }
+  // 锁定疑问按钮
+  document.querySelectorAll('.doubt-btn').forEach(b=>b.disabled=true);
+  document.getElementById('rightcnt').textContent=right;
+  const res=document.getElementById('result'); res.classList.add('show');
+  document.getElementById('scoreOk').textContent=right;
+  const pct=Math.round(right/Q.length*100);
+  document.getElementById('scorePct').textContent=`正确率 ${pct}%`;
+  let tip='';
+  if(pct>=90) tip='优秀！第一章考点掌握扎实，可直接进入第二章。';
+  else if(pct>=70) tip='良好，少数薄弱点建议回看解析后巩固。';
+  else if(pct>=50) tip='仍需加强，建议对照讲义重读错题对应考点。';
+  else tip='基础偏弱，建议先重读整章讲义再做题。';
+  document.getElementById('scoreTip').textContent=tip;
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('explainBtn').style.display='inline-block';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  showAll=true;
+  document.getElementById('filterBtn').style.display='inline-block';
+  renderMastery();
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+// 按考点归类作答，生成掌握情况分析（含疑问权重）
+function renderMastery(){
+  const cats={};
+  for(let i=0;i<Q.length;i++){
+    const k=Q[i].k;
+    if(!cats[k]) cats[k]={total:0,right:0,doubt:0,doubtRight:0};
+    cats[k].total++;
+    if(isCorrect(i)) cats[k].right++;
+    if(doubts[i]){ cats[k].doubt++; if(isCorrect(i)) cats[k].doubtRight++; }
+  }
+  const entries=Object.entries(cats).sort((a,b)=>(a[1].right/a[1].total)-(b[1].right/b[1].total));
+  let html='', weak=[];
+  entries.forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    const hasDoubt=o.doubt>0;
+    let cls, tag;
+    if(small){ cls='mk-note'; tag='样本少·仅供参考'; }
+    else if(pct>=WEAK_TH){ cls='mk-ok'; tag='达标'; }
+    else { cls='mk-weak'; tag='薄弱'; weak.push(name); }
+    const color= small?'var(--sub)':(pct>=WEAK_TH?'var(--green)':(pct>=40?'var(--amber)':'var(--red)'));
+    const sug=(small||pct<WEAK_TH)?`<div class="mk-sug">💡 ${RECOMMEND[name]||''}${small?`（本考点仅 ${o.total} 题，结论仅供参考，建议补练后复测）`:''}</div>`:'';
+    // 疑问权重提示：即使达标，有疑问也提示巩固
+    const doubtNote = hasDoubt?`<div class="mk-doubt">⚠疑问知识点：你标记 ${o.doubt} 题（对 ${o.doubtRight} / 错 ${o.doubt-o.doubtRight}）${(!small&&pct>=WEAK_TH)?'　→ 虽达标但含疑问，建议巩固':''}</div>`:'';
+    html+=`<div class="mk-row"><div class="mk-top"><span class="mk-name">${name}（${o.total}题）</span><span class="${cls}">${o.right}/${o.total} · ${pct}% · ${tag}</span></div><div class="mk-bar"><div class="mk-fill" style="width:${pct}%;background:${color}"></div></div>${doubtNote}${sug}</div>`;
+  });
+  document.getElementById('mkList').innerHTML=html;
+  let wt='';
+  if(weak.length) wt='<div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">⚠️ 薄弱模块：</div>'+weak.map(w=>`<span class="wt">${w}</span>`).join('');
+  else wt='<div class="mk-ok" style="margin-top:10px">🎉 所有样本充足的考点均达标，无薄弱点！</div>';
+  document.getElementById('weakTags').innerHTML=wt;
+  // 疑问标记汇总
+  const allDoubt=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) allDoubt.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}`);
+  const ds=document.getElementById('doubtSummary');
+  if(allDoubt.length){
+    const doubtCats=[...new Set(allDoubt.map(s=>s.match(/【(.+?)】/)[1]))];
+    ds.style.display='block';
+    ds.innerHTML=`<b>⚠疑问知识点：共 ${allDoubt.length} 题</b>（涉及考点：${doubtCats.join('、')}）。这些是你自感没把握的知识点，已按考点加权提示：即使答对了也建议回看对应「知识讲解」巩固；答错的优先重练。`;
+  } else { ds.style.display='none'; ds.innerHTML=''; }
+  document.getElementById('mastery').classList.add('show');
+  buildExport(cats, weak);
+}
+
+function buildExport(cats, weak){
+  const total=Q.length;
+  const right=+document.getElementById('scoreOk').textContent;
+  let t=`【第一章 总论 自测结果】\n总分：${right}/${total}（正确率 ${Math.round(right/total*100)}%）\n\n各考点掌握：\n`;
+  Object.entries(cats).forEach(([name,o])=>{
+    const pct=Math.round(o.right/o.total*100);
+    const small=o.total<SMALL_N;
+    let flag='';
+    if(!small&&pct<WEAK_TH) flag=' ⚠薄弱';
+    if(small) flag=' ·样本少，仅供参考';
+    if(o.doubt>0) flag+=` ·⚠疑问知识点${o.doubt}题(对${o.doubtRight}/错${o.doubt-o.doubtRight})`;
+    t+=`· ${name}：${o.right}/${o.total}（${pct}%${flag}）\n`;
+  });
+  const wrongs=[];
+  for(let i=0;i<Q.length;i++) if(!isCorrect(i)) wrongs.push(`第${i+1}题【${Q[i].k}】你的答案:${getSel(i)||'未作答'} → 正确答案:${Q[i].a}`);
+  t+=`\n错题清单（${wrongs.length}题）：\n`+wrongs.join('\n');
+  const doubtsList=[];
+  for(let i=0;i<Q.length;i++) if(doubts[i]) doubtsList.push(`第${i+1}题【${Q[i].k}】${isCorrect(i)?'答对':'答错'}(你标疑问)`);
+  t+=`\n\n⚠疑问知识点（${doubtsList.length}题）：\n`+(doubtsList.length?doubtsList.join('\n'):'无');
+  t+=`\n\n薄弱模块：${weak.length?weak.join('、'):'无'}`;
+  document.getElementById('masteryText').value=t;
+}
+
+document.getElementById('exportBtn').addEventListener('click',()=>{
+  const ta=document.getElementById('masteryText');
+  ta.style.display='block'; ta.focus(); ta.select();
+  const done=()=>{const b=document.getElementById('exportBtn');const o=b.textContent;b.textContent='已复制到剪贴板 ✅';setTimeout(()=>b.textContent=o,1800);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(done).catch(()=>{});}
+  else{try{document.execCommand('copy');done();}catch(e){}}
+});
+
+function toggleExplain(){
+  showAll=!showAll;
+  for(let i=0;i<Q.length;i++) document.getElementById('ex'+i).classList.toggle('show',showAll);
+  document.getElementById('explainBtn').textContent= showAll?'隐藏全部解析':'查看全部解析';
+}
+
+function toggleWrong(){
+  onlyWrong=!onlyWrong;
+  for(let i=0;i<Q.length;i++){
+    const card=document.getElementById('q'+i);
+    const wrong=card.classList.contains('res-wrong');
+    card.classList.toggle('dim', onlyWrong && !wrong);
+  }
+  document.getElementById('filterBtn').textContent= onlyWrong?'显示全部':'只看错题';
+}
+
+function reset(){
+  graded=false; showAll=false; onlyWrong=false;
+  doubts=Q.map(()=>false);
+  document.getElementById('submitBtn').style.display='inline-block';
+  document.getElementById('explainBtn').style.display='none';
+  document.getElementById('explainBtn').textContent='隐藏全部解析';
+  document.getElementById('filterBtn').style.display='none';
+  document.getElementById('filterBtn').textContent='只看错题';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('mastery').classList.remove('show');
+  build();
+}
+
+// 知识讲解弹框：吸顶导航贴标题（固定显示）+ 锚点定位 + 滚动高亮（scrollspy）
+const NAV_OFFSET=20; // 顶部留白（导航在滚动区外，无需补偿高度）
+function findActiveK(){
+  const base=sumBody.scrollTop+NAV_OFFSET;
+  let active=SUMMARY_SECTIONS[0].k;
+  for(const s of SUMMARY_SECTIONS){
+    const el=document.getElementById('kp-'+s.k);
+    if(el && el.offsetTop<=base) active=s.k;
+  }
+  return active;
+}
+function updateSumNav(){
+  const k=findActiveK();
+  sumNav.querySelectorAll('.sum-nav-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-k')===k));
+}
+function openSummary(k){
+  if(!sumBody.dataset.built){ sumBody.innerHTML=buildSumBody(); sumNav.innerHTML=buildSumNav(); sumBody.dataset.built='1'; }
+  sumMask.classList.add('show');
+  document.body.style.overflow='hidden';
+  if(k){ const el=document.getElementById('kp-'+k); if(el) el.scrollIntoView({block:'start'}); }
+  else { sumBody.scrollTop=0; }
+  updateSumNav();
+}
+function closeSummary(){ sumMask.classList.remove('show'); document.body.style.overflow=''; }
+sumBody.addEventListener('scroll',()=>{ if(sumMask.classList.contains('show')) updateSumNav(); });
+document.getElementById('sumClose').addEventListener('click',closeSummary);
+sumMask.addEventListener('click',(e)=>{ if(e.target.id==='sumMask') closeSummary(); });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeSummary(); });
+sumNav.addEventListener('click',(e)=>{
+  const nb=e.target.closest('.sum-nav-btn');
+  if(nb){ const el=document.getElementById('kp-'+nb.getAttribute('data-k')); if(el){ el.scrollIntoView({block:'start'}); updateSumNav(); } }
+});
+
+document.getElementById('chapterBtn').addEventListener('click',()=>openSummary(null));
+document.getElementById('submitBtn').addEventListener('click',submit);
+document.getElementById('explainBtn').addEventListener('click',toggleExplain);
+document.getElementById('filterBtn').addEventListener('click',toggleWrong);
+document.getElementById('resetBtn').addEventListener('click',reset);
+build();
+</script>
+</body>
+</html>
